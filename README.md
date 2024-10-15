@@ -1,6 +1,8 @@
 # LAPR5_20-21
 Project for LAPR5 subject of the Informatics Engineering course at ISEP
 
+The full project documentation is available at the project's [wiki](https://github.com/TiagoFNB/LAPR5_20-21/wiki).
+
 ## System Overview Summarized
 
 ![SystemOverview](./images/visaogeralsistema_enunciado.png)
@@ -32,3 +34,5 @@ The software is then divided in the following components:
     - Tech Stack - Angular, Three.js, Angular Material, Mapbox 
 
 - **Planning** - Program written in Prolog that plans the schedule and which drivers and vehicles are allocated to the existing routes.
+
+
