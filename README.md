@@ -14,7 +14,7 @@ The full project documentation is available at the project's [wiki](https://gith
 
 - Visualizador 3D (3D Viewer) –  allows 2D and 3D visualization of the network, scene navigation, and graphical consultation of information about trips. It consumes the information managed in the master data module and the module.
 
-- UI – interface com o utilizador
+- UI – user interface
 
 - Clientes + RGPD – management of end-user "client" information and their consents in accordance with GDPR.
 
