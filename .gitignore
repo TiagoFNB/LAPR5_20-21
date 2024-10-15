@@ -1,0 +1,5 @@
+node_modules
+MDV/Migrations/MDVDbContextModelSnapshot.cs
+MDV/Migrations/20201218190702_InitialCreate.cs
+MDV/Migrations/20201218190702_InitialCreate.Designer.cs
+MDV/Migrations/

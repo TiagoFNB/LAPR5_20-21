@@ -1,0 +1,219 @@
+<div class="w3-container page-global">
+
+    <div class="formLeft">
+        <h2> Register </h2>
+        <form name='form' #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit(userForm)">
+            <!-- First row -->
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" [(ngModel)]="userPrototype.name"
+                            autocomplete="off" #userName="ngModel"
+                            [ngClass]="{ 'is-invalid': userForm.submitted && userName.invalid }" userName required>
+                        <div class="invalid-feedback" *ngIf="userForm.submitted && userName.invalid">
+                            <p name="NameRequired" *ngIf="userName.errors.required">Name is required</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" class="form-control" [(ngModel)]="userPrototype.email"
+                            autocomplete="off" #userEmail="ngModel"
+                            [ngClass]="{ 'is-invalid': userForm.submitted && userEmail.invalid }" userName required>
+                        <div class="invalid-feedback" *ngIf="userForm.submitted && userEmail.invalid">
+                            <p name="EmailRequired" *ngIf="userEmail.errors.required">Email is required</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row -->
+
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" list="dynmicCountries" [(ngModel)]="userPrototype.country" autocomplete="off"
+                            #ReferenceCountry="ngModel" autocomplete="off" name="ReferenceCountry"
+                            class="form-control" [ngClass]="{ 'is-invalid': userForm.submitted && ReferenceCountry.invalid }" ReferenceCountry required />
+                        <datalist id="dynmicCountries">
+                            <option *ngFor="let item of countryList" [value]="item">{{item}}</option>
+                        </datalist>
+                        <div class="invalid-feedback" *ngIf="userForm.submitted && userStreet.invalid">
+                            <p name="CountryRequired" *ngIf="ReferenceCountry.errors.required">Country is required</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Street</label>
+                        <input type="text" name="street" class="form-control" [(ngModel)]="userPrototype.street"
+                            autocomplete="off" #userStreet="ngModel"
+                            [ngClass]="{ 'is-invalid': userForm.submitted && userStreet.invalid }" userName required>
+                        <div class="invalid-feedback" *ngIf="userForm.submitted && userStreet.invalid">
+                            <p name="StreetRequired" *ngIf="userStreet.errors.required">Street is required</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" name="city" class="form-control" [(ngModel)]="userPrototype.city"
+                            autocomplete="off" #userCity="ngModel"
+                            [ngClass]="{ 'is-invalid': userForm.submitted && userCity.invalid }" userCity required>
+                        <div class="invalid-feedback" *ngIf="userForm.submitted && userCity.invalid">
+                            <p name="CityRequired" *ngIf="userCity.errors.required">City is required</p>
+                        </div>
+                    </div>
+                   
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Choose a date </label>
+                        <!-- #docregion toggle -->
+
+                        <input type="date" name="date" class="form-control" [(ngModel)]="userPrototype.dateOfBirth" #userDate="ngModel"  data-date-format="yyyy/mm/dd"
+                        [ngClass]="{ 'is-invalid': userForm.submitted && userDate.invalid }" userDate required
+                            id="example-datetime-local-input">
+                            <div class="invalid-feedback" *ngIf="userForm.submitted && userDate.invalid">
+                                <p name="DateRequired" *ngIf="userDate.errors.required">Date of bith is required</p>
+                            </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Password (minimum password length is 6)</label>
+                        <input type="password" name="password" class="form-control" [(ngModel)]="userPrototype.password"
+                            autocomplete="off" #userPassword="ngModel"
+                            [ngClass]="{ 'is-invalid': userForm.submitted && userPassword.invalid }" userPassword required>
+                        <div class="invalid-feedback" *ngIf="userForm.submitted && userPassword.invalid">
+                            <p name="PasswordRequired" *ngIf="userPassword.errors.required">Password is required</p>
+                        </div>
+                    </div>
+                   
+                </div>
+
+               
+
+            </div>
+          <div class="acceptPP">
+            <a href class='rgpd' data-toggle="modal" data-target="#exampleModal"> <strong>
+                I accept the privacy policy       &#8205;     &#8205;  &#8205; </strong>
+                
+              </a>
+              <input name="checkBoxPP" [(ngModel)]="privacyPolicy" (click)="ChangeStateOfPrivacyPolicy(null)" type="checkbox" id="vehicle1" name="vehicle1" value="Bike" class="PPbox" style="width:30px;height:30px;">
+      
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <button id="btnid" name="buttonSubmit"  class="btn btn-primary" [disabled]="!privacyPolicy" type="submit">Submit
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            </button>
+                <!-- [hidden]="!nodeForm.form.valid" -->
+            </div>
+
+        </form>
+    </div>
+
+    <div class="formRight">
+        <div>
+            <h3 name='SuccessMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+            <h3 name='ErrorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">RGPD</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <ol>
+                <li><strong>Entidade Respons&aacute;vel pelo tratamento de Dados</strong></li>
+                </ol>
+                <p>Os seus dados ser&atilde;o tratados pelo&nbsp;<strong>GRUPO 39 Lda.</strong>, NIPC 999999999, com sede na Rua Dr. Ant&oacute;nio Bernardino de Almeida 431, 4200-072 Porto. Esta sociedade &eacute; a respons&aacute;vel pelo tratamento de dados pessoais na ace&ccedil;&atilde;o do Regulamento Geral sobre a Prote&ccedil;&atilde;o de Dados.</p>
+                <p>Para as quest&otilde;es relacionadas com o tratamento dos seus dados pessoais dever&aacute; contactar-nos atrav&eacute;s dos seguintes meios:</p>
+                <p>Telefone:&nbsp;<strong>+351 91 999 99 99</strong></p>
+                <p>Morada: Rua Dr. Ant&oacute;nio Bernardino de Almeida 431, 4200-072 Porto.</p>
+                <p>Email:&nbsp;<a href="mailto:grupo39nadescontra@isep.ipp.pt">grupo39nadescontra@isep.ipp.pt</a></p>
+                <ol start="2">
+                <li><strong>Registo</strong></li>
+                </ol>
+                <p>No ato do registo o utilizador concorda com a pol&iacute;tica de privacidade e prote&ccedil;&atilde;o de dados pessoais do GRUPO 39, dando o seu consentimento &agrave; sua recolha e tratamento dos seus dados para os fins referidos no ponto 3 fornecendo-os diretamente. O n&atilde;o fornecimento ou fornecimento parcial dos dados pessoais pelo titular poder&aacute; limitar ou impossibilitar a realiza&ccedil;&atilde;o dos servi&ccedil;os.</p>
+                <ol start="3">
+                <li><strong>Dados pessoais a recolher no momento de registo</strong></li>
+                </ol>
+                <p>Durante o registo s&atilde;o recolhidos os seguintes dados nome, data de nascimento, endere&ccedil;o eletr&oacute;nico, pa&iacute;s, rua e cidade.</p>
+                <ol start="4">
+                <li><strong>Finalidade e Fundamento do tratamento dos dados pessoais</strong></li>
+                </ol>
+                <p>Os dados pessoais recolhidos no &acirc;mbito referido no n&uacute;mero anterior ser&atilde;o tratados para as seguintes finalidades:</p>
+                <p>&nbsp;</p>
+                <ol>
+                a) Gest&atilde;o de utilizador- O dado &ldquo;endere&ccedil;o eletr&oacute;nico&rdquo; &eacute; usado para comunicar quaisquer altera&ccedil;&otilde;es na conta do utilizador.
+                </ol>
+                <p>&nbsp;</p>
+                <ol>
+                b) Sugest&atilde;o no nosso servi&ccedil;o de visualiza&ccedil;&atilde;o- Os dados &ldquo;pa&iacute;s&rdquo;, &ldquo;rua&rdquo; e &ldquo;cidade&rdquo; s&atilde;o usados para uma melhor experi&ecirc;ncia do nosso servi&ccedil;o de visualiza&ccedil;&atilde;o dando uma experi&ecirc;ncia mais personalizada ao utilizador
+                </ol>
+                <p>&nbsp;</p>
+                <ol>
+                c) Acesso aos servi&ccedil;os da aplica&ccedil;&atilde;o- O dado &ldquo;data de nascimento&rdquo; &eacute; usado para verificar se utilizador legalmente pode ou n&atilde;o utilizar os servi&ccedil;os da aplica&ccedil;&atilde;o.
+                </ol>
+                <p>&nbsp;</p>
+                <ol>
+                d) Identifica&ccedil;&atilde;o da ficha de utilizador- Os dados &ldquo;nome&rdquo; e &ldquo;endere&ccedil;o eletr&oacute;nico&rdquo; servem para identificar o utilizador na nossa base de dados.
+                </ol>
+                <p>&nbsp;</p>
+                <p>Os tratamentos de dados referidos no n&uacute;mero anterior s&atilde;o l&iacute;citos na medida em que:</p>
+                <ul>
+                <li>O titular dos dados tenha dado o seu consentimento para o tratamento dos seus dados para uma ou mais finalidades espec&iacute;ficas ( Al&iacute;neas a), b), d) );</li>
+                <li>O tratamento for necess&aacute;rio para o cumprimento de uma obriga&ccedil;&atilde;o jur&iacute;dica &agrave; qual o respons&aacute;vel pelo tratamento esteja sujeito ( Al&iacute;nea c) );</li>
+                <li>O tratamento for necess&aacute;rio para a defesa de interesses vitais do titular dos dados ou de outra pessoa singular;</li>
+                <li>O tratamento for necess&aacute;rio ao exerc&iacute;cio de fun&ccedil;&otilde;es de interesse p&uacute;blico;</li>
+                <li>O tratamento for necess&aacute;rio para efeito dos interesses leg&iacute;timos prosseguidos pelo respons&aacute;vel pelo tratamento.</li>
+                </ul>
+                <p>&nbsp;</p>
+                <ol start="5">
+                <li><strong>Prazo de conserva&ccedil;&atilde;o dos dados</strong></li>
+                </ol>
+                <p>Os dados referidos no ponto 3 s&atilde;o conservados durante um per&iacute;odo m&aacute;ximo de 1 ano desde o &uacute;ltimo acesso do utilizador aos nossos servi&ccedil;os. Passado esse prazo, proceder-se-&aacute; &agrave; elimina&ccedil;&atilde;o dos seus dados pessoais.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button (click)="ChangeStateOfPrivacyPolicy(true)" type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>

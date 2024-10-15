@@ -1,0 +1,165 @@
+<div class="w3-container page-global">
+
+    <div class="formLeft">
+        <h2> Register a vehicle type </h2>
+        <form name='form' #vehicleTypeForm="ngForm"
+            (ngSubmit)="vehicleTypeForm.form.valid && onSubmit(vehicleTypeForm)">
+            <!-- First row -->
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" [(ngModel)]="vehicleType.name"
+                            #vehicleTypeName="ngModel"
+                            [ngClass]="{ 'is-invalid': vehicleTypeForm.submitted && vehicleTypeName.invalid }"
+                            vehicleTypeName required maxlength="20" autocomplete="off">
+                        <div class="invalid-feedback" *ngIf="vehicleTypeForm.submitted && vehicleTypeName.invalid">
+                            <p name="NameRequired" *ngIf="vehicleTypeName.errors.required">Name is required</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-4">
+
+                    <label>Fuel type</label>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-select class="form-control"  name="fuelType" [(ngModel)]="vehicleType.fuelType">
+                            <mat-option *ngFor="let fuel of fuelTypes" [value]="fuel">{{fuel}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Cost per Km</label>
+                        <input type="number" step="disable" class="form-control" name="CostPerKm"
+                            [(ngModel)]="vehicleType.costPerKm" #vehicleTypeCostPerKm="ngModel"
+                            [ngClass]="{ 'is-invalid': vehicleTypeForm.submitted && vehicleTypeCostPerKm.invalid   }"
+                            vehicleTypeCostPerKm required >
+                        <div *ngIf="vehicleTypeForm.submitted && vehicleTypeCostPerKm.invalid" class="invalid-feedback">
+                            <div name="vehicleCostPerKmRequired" *ngIf="vehicleTypeCostPerKm.errors.required">Cost per
+                                Km is required</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+                
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <label>Currency (default value is EUR)</label>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-select class="form-control" name="Currency" [(ngModel)]="vehicleType.currency">
+                            <mat-option *ngFor="let currency of currenciesSupported" [value]="currency">{{currency}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+                
+
+
+            <!-- Third Row -->
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Average Consumption</label>
+                        <input type="number" step="disable" class="form-control" name="AverageConsumption"
+                            [(ngModel)]="vehicleType.averageConsumption" #AverageConsumption="ngModel"
+                            [ngClass]="{ 'is-invalid': vehicleTypeForm.submitted && AverageConsumption.invalid   }"
+                            AverageConsumption required>
+                        <div *ngIf="vehicleTypeForm.submitted && AverageConsumption.invalid" class="invalid-feedback">
+                            <div name="AverageConsumptionRequired" *ngIf="AverageConsumption.errors.required">Avarage
+                                consumtpion is required</div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Autonomy (in hours)</label>
+                        <input type="number" step="disable" class="form-control" name="Autonomy"
+                            [(ngModel)]="vehicleType.autonomy" #Autonomy="ngModel"
+                            [ngClass]="{ 'is-invalid': vehicleTypeForm.submitted && Autonomy.invalid   }" Autonomy
+                            required>
+                        <div *ngIf="vehicleTypeForm.submitted && Autonomy.invalid" class="invalid-feedback">
+                            <div name="AutonomyRequired" *ngIf="Autonomy.errors.required">Autonomy is required</div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+                <!-- Fourth Row -->
+                <div class="row vertical-buffer">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Average Speed</label>
+                            <input type="number" step="disable" class="form-control" name="AverageSpeed"
+                                [(ngModel)]="vehicleType.averageSpeed" #AverageSpeed="ngModel"
+                                [ngClass]="{ 'is-invalid': vehicleTypeForm.submitted && AverageSpeed.invalid   }"
+                                AverageSpeed required>
+                            <div *ngIf="vehicleTypeForm.submitted && AverageSpeed.invalid" class="invalid-feedback">
+                                <div name="AverageSpeedRequired" *ngIf="AverageSpeed.errors.required">AverageSpeed is
+                                    required</div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2"></div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                        <label>Description</label>
+                        <textarea type="text" class="form-control" name="description" [(ngModel)]="vehicleType.description"
+                            #vehicleTypeDescription="ngModel" 
+                            [ngClass]="{ 'is-invalid': vehicleTypeForm.submitted && vehicleTypeDescription.invalid }"
+                            vehicleTypeDescription maxlength="250" ></textarea>
+
+                           
+                        
+                        
+                        
+                    </div> 
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <button id="btnid" name="buttonSubmit" class="btn btn-primary" type="submit">Submit</button>
+                    <!-- [hidden]="!nodeForm.form.valid" -->
+                </div>
+        </form>
+    </div>
+
+    <div class="formRight">
+        <div>
+            <h3 name='SuccessMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+            <h3 name='ErrorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+        </div>
+    </div>
+
+</div>

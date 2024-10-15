@@ -1,0 +1,725 @@
+{
+	"info": {
+		"_postman_id": "2106c5bb-98ea-4237-b899-e6653c27caf7",
+		"name": "Setup Planning",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "no1 Aguia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Aguiar de Sousa\" ,\r\n    \"latitude\": \"41.1293363229325\",\r\n    \"longitude\": \"-8.4464785432391\",\r\n    \"shortName\": \"AGUIA\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"yes\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no1 Pared",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Paredes\" ,\r\n    \"latitude\": \"41.2062947118362\",\r\n    \"longitude\": \"-8.33566951069481\",\r\n    \"shortName\": \"PARED\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"yes\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no1 Gand",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Gandra\" ,\r\n    \"latitude\": \"41.1956579348384\",\r\n    \"longitude\": \"-8.43958765792976\",\r\n    \"shortName\": \"GAND\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"yes\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no1 Crist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Cristelo\" ,\r\n    \"latitude\": \"41.2207801252676\",\r\n    \"longitude\": \"-8.34639896125324\",\r\n    \"shortName\": \"CRIST\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"yes\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no1 Sobro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Sobrosa\" ,\r\n    \"latitude\": \"41.2557331783506\",\r\n    \"longitude\": \"-8.38118071581788\",\r\n    \"shortName\": \"SOBRO\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"yes\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no1 n-Recar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Recarei\" ,\r\n    \"latitude\": \"41.1599363478137\",\r\n    \"longitude\": \"-8.42215867462191\",\r\n    \"shortName\": \"RECAR\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no1 n-Parad",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Parada de Todeia\" ,\r\n    \"latitude\": \"41.1765780321068\",\r\n    \"longitude\": \"-8.37023578802149\",\r\n    \"shortName\": \"PARAD\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no1 n-Cete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Cete\" ,\r\n    \"latitude\": \"41.183243425797\",\r\n    \"longitude\": \"-8.35164059584564\",\r\n    \"shortName\": \"CETE\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no1 n-Mourz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Mouriz\" ,\r\n    \"latitude\": \"41.1983610215263\",\r\n    \"longitude\": \"-8.36577272258403\",\r\n    \"shortName\": \"MOURZ\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no1 n-Baltar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Baltar\" ,\r\n    \"latitude\": \"41.1937898023744\",\r\n    \"longitude\": \"-8.38716802227697\",\r\n    \"shortName\": \"BALTR\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no1 n-Vando",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Vandoma\" ,\r\n    \"latitude\": \"41.2328015719913\",\r\n    \"longitude\": \"-8.34160692293342\",\r\n    \"shortName\": \"VANDO\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "no1 n-Vccar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"Vila Cova de Carros\" ,\r\n    \"latitude\": \"41.2090666564063\",\r\n    \"longitude\": \"-8.35109395257277\",\r\n    \"shortName\": \"VCCAR\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/node",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"node"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Line 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"1\",\r\n    \"name\": \"Aguiar_Paredes\",\r\n    \"terminalNode1\": \"AGUIA\",\r\n    \"terminalNode2\": \"PARED\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/line",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"line"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Line 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"2\",\r\n    \"name\": \"Paredes_Gandra\",\r\n    \"terminalNode1\": \"PARED\",\r\n    \"terminalNode2\": \"GAND\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/line",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"line"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Line 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"3\",\r\n    \"name\": \"Gandra_Cristelo\",\r\n    \"terminalNode1\": \"GAND\",\r\n    \"terminalNode2\": \"CRIST\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/line",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"line"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Line 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"4\",\r\n    \"name\": \"Aguiar_Sobrosa\",\r\n    \"terminalNode1\": \"AGUIA\",\r\n    \"terminalNode2\": \"SOBRO\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/line",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"line"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Line 5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"5\",\r\n    \"name\": \"Sobrosa_Cristelo\",\r\n    \"terminalNode1\": \"SOBRO\",\r\n    \"terminalNode2\": \"CRIST\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/line",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"line"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Path 1 / L1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"1\",\r\n    \"line\": \"1\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"AGUIA\",\r\n            \"node2\": \"RECAR\",\r\n            \"duration\": 540,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"RECAR\",\r\n            \"node2\": \"PARAD\",\r\n            \"duration\": 300,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"PARAD\",\r\n            \"node2\": \"CETE\",\r\n            \"duration\": 300,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"CETE\",\r\n            \"node2\": \"PARED\",\r\n            \"duration\": 460,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/path/register",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"path",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Path 3 / L2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"3\",\r\n    \"line\": \"2\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"PARED\",\r\n            \"node2\": \"MOURZ\",\r\n            \"duration\": 480,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"MOURZ\",\r\n            \"node2\": \"BALTR\",\r\n            \"duration\": 300,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"BALTR\",\r\n            \"node2\": \"VANDO\",\r\n            \"duration\": 300,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"VANDO\",\r\n            \"node2\": \"GAND\",\r\n            \"duration\": 640,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/path/register",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"path",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Path 11 / L3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"11\",\r\n    \"line\": \"3\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"GAND\",\r\n            \"node2\": \"VCCAR\",\r\n            \"duration\": 480,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"VCCAR\",\r\n            \"node2\": \"CRIST\",\r\n            \"duration\": 240,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/path/register",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"path",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Path 8 / L4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"8\",\r\n    \"line\": \"4\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"AGUIA\",\r\n            \"node2\": \"PARAD\",\r\n            \"duration\": 500,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"PARAD\",\r\n            \"node2\": \"SOBRO\",\r\n            \"duration\": 500,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/path/register",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"path",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Path 5 / L5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\": \"5\",\r\n    \"line\": \"5\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"SOBRO\",\r\n            \"node2\": \"MOURZ\",\r\n            \"duration\": 500,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"MOURZ\",\r\n            \"node2\": \"CRIST\",\r\n            \"duration\": 500,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/path/register",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"path",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/plannings/geradorSolucoes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"startTime\":61000,\r\n    \"startNode\":\"AGUIA\",\r\n    \"destNode\":\"CRIST\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/plannings/geradorSolucoes",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"plannings",
+						"geradorSolucoes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,10 @@
+Dados: Vm
+
+Cálculos:
+
+Linha 1 -> 11500/23 = 500
+Linha 2 -> 11000/22 = 500
+Linha 3 -> 15700/31 = 506.452
+Linha 4 -> 15700/31 = 506.452
+
+Resultado Esperado : 506.452

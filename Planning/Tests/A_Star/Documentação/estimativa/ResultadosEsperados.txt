@@ -1,0 +1,19 @@
+Dados: 'AGUIA','BALTR',Est
+
+Cálculos: 
+
+- De acordo com o teste anterior com os mesmos factos: velocidade média = 506.451612903225
+- Distância = sqrt((-8.4464785432391-(-8.38716802227697))^2 + (41.1293363229325- 41.1937898023744)^2) = 0.08758989045
+- Est = 0.08758989045/506.451612903225 = 0.00017294819133352717
+
+Resultado Esperado: 17294819133352717 * 10^-4
+
+Dados: 'PARED','AGUIA',Est
+
+Cálculos: 
+
+- De acordo com o teste anterior com os mesmos factos: velocidade média = 506.451612903225
+- Distância = sqrt((-8.33566951069481-( -8.4464785432391))^2 + (41.2062947118362- 41.1293363229325)^2) = 0.1349119539
+- Est = 0.1349119539/506.451612903225 = 0.00026638666064692667
+
+Resultado Esperado: 2.66386661 * 10^−4

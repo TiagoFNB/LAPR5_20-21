@@ -1,0 +1,108 @@
+<div class="w3-container page-global">
+    <h2> Register Trip </h2>
+    <form key='form' #tripForm="ngForm" (ngSubmit)="tripForm.form.valid && onSubmit(tripForm)">
+        <mat-grid-list class="Grid" cols="10" rowHeight="100px" gutterSize="10px">
+            <mat-grid-tile colspan="2" rowspan="3"  >
+                <mat-form-field appearance="fill">
+                    <mat-label>Select type of trip</mat-label>
+                    <mat-select name="selectedType" [(value)]="selectedType" (selectionChange)="resetElements()">
+                        <mat-option value="Ad Hoc">Ad Hoc</mat-option>
+                        <mat-option value="MultipleTrips">Multiple trips</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3" rowspan="3" >
+                <div>
+                    <div>
+                        <label>Line:</label>
+                        <br>
+                        <mat-form-field appearance="none">
+                            <mat-select class="form-control" (selectionChange)="getPathsFromSelectedLine()"
+                                [(ngModel)]="lineNameSelected" name="line">
+                                <mat-option *ngFor="let obj of linesNames" [value]="obj">{{obj}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <label>Path:</label>
+                        <br>
+                        <mat-form-field appearance="none">
+                            <mat-select class="form-control" [(ngModel)]="requestTrip.pathId" name="path">
+                                <mat-option *ngFor="let obj of pathsID" [value]="obj">{{obj}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="3" rowspan="1" >
+
+                <div class="wrapper" >
+                    <div class="starting"> <label>Starting time:</label>
+
+                        <br>
+                        <div class="24hr-example">
+                            <input name="startingTime" #startingTime="ngModel" placeholder="24hr format"
+                                aria-label="24hr format" [ngxTimepicker]="picker1" [format]="24"
+                                [(ngModel)]="requestTrip.startingTime" [value]="requestTrip.startingTime">
+                            <ngx-material-timepicker #picker1></ngx-material-timepicker>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                </mat-grid-tile>
+
+                <mat-grid-tile colspan="2" rowspan="5" >
+                    <div class="formRight">
+                        <div>
+                            <h3 name='SuccessMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+                            <h3 name='ErrorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+                        </div>
+                    </div>
+                </mat-grid-tile>
+                
+                <mat-grid-tile colspan="3" rowspan="2"  >
+
+                    <div class="yoyo" >
+                    <div class="col-md-4 divhidetxtdpatient" *ngIf="selectedType === 'MultipleTrips' ">
+
+                        <label>Ending time:</label>
+                        <br>
+                        <div class="24hr-example">
+                            <input name="endingTime" #endingTime="ngModel" placeholder="24hr format"
+                                aria-label="24hr format" [ngxTimepicker]="picker2" [format]="24"
+                                [(ngModel)]="requestTrip.endingTime" [value]="requestTrip.endingTime">
+                            <ngx-material-timepicker #picker2></ngx-material-timepicker>
+                        </div>
+
+                        <br>
+
+
+                        <label>Frequency:</label>
+                        <br>
+                        <div class="24hr-example">
+                            <input name="frequency" #frequency="ngModel" placeholder="24hr format"
+                                aria-label="24hr format" [ngxTimepicker]="picker3" [format]="24"
+                                [(ngModel)]="requestTrip.frequency" [value]="requestTrip.frequency">
+                            <ngx-material-timepicker #picker3></ngx-material-timepicker>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+
+        <mat-grid-list cols="5" rowHeight="100px" gutterSize="10px" >
+            <mat-grid-tile colspan="3" ></mat-grid-tile>
+            <mat-grid-tile colspan="1" >
+                <div class="container">
+                    <button id="btnid" name="buttonSubmit" class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>

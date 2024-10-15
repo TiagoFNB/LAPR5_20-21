@@ -1,0 +1,132 @@
+<div class="w3-container page-global">
+
+    <div class="formLeft">
+        <h2> Register a Node </h2>
+        <form name='form' #nodeForm="ngForm" (ngSubmit)="nodeForm.form.valid && onSubmit(nodeForm)">
+            <!-- First row -->
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" [(ngModel)]="node.name" #nodeName="ngModel"
+                            [ngClass]="{ 'is-invalid': nodeForm.submitted && nodeName.invalid }" nodeName required>
+                        <div class="invalid-feedback" *ngIf="nodeForm.submitted && nodeName.invalid">
+                            <p name="NameRequired" *ngIf="nodeName.errors.required">Name is required</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Short Name</label>
+                        <input type="text" class="form-control" name="shortName" [(ngModel)]="node.shortName"
+                            #nodeShortName="ngModel"
+                            [ngClass]="{ 'is-invalid': nodeForm.submitted && nodeShortName.invalid }" shortName
+                            required>
+                        <div *ngIf="nodeForm.submitted && nodeShortName.invalid" class="invalid-feedback">
+                            <div name="ShortNameRequired" *ngIf="nodeShortName.errors.required">Short name is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Latitude</label>
+                        <input type="number" step="disable" class="form-control" name="Latitude"
+                            [(ngModel)]="node.latitude" #Latitude="ngModel"
+                            [ngClass]="{ 'is-invalid': nodeForm.submitted && Latitude.invalid   }" Latitude required>
+                        <div *ngIf="nodeForm.submitted && Latitude.invalid" class="invalid-feedback">
+                            <div name="LatitudeRequired" *ngIf="Latitude.errors.required">Latitude is required</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Longitude</label>
+                        <input type="number" step="disable" class="form-control" name="Longitude"
+                            [(ngModel)]="node.longitude" #Longitude="ngModel"
+                            [ngClass]="{ 'is-invalid': nodeForm.submitted && Longitude.invalid   }" Longitude required>
+                        <div *ngIf="nodeForm.submitted && Longitude.invalid" class="invalid-feedback">
+                            <div name="LongitudeRequired" *ngIf="Longitude.errors.required">Longitude is required</div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Row -->
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Depot</label>
+                        <input type="checkbox" name="depot" class="form-control" [(ngModel)]="node.isDepot"
+                            #nodeDepot="ngModel" >
+                    </div>
+                </div>
+
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Relief point</label>
+                        <input type="checkbox" name="Relief" class="form-control" [(ngModel)]="node.isReliefPoint"
+                            #nodeReliefPoint="ngModel">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fourth Row -->
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <label>Crew Travel Time Duration</label>
+                    <input type="number" step="disable" class="form-control" name="Duration"
+                        [(ngModel)]="node.crewTravelTimes" #Duration="ngModel">
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-4">
+                    <label>Crew Travel Time Reference Node (you can input by name or short name)</label>
+                    <input type="text" (keyup)="getNodesNames()" list="dynmicNodesShortNames"
+                        [(ngModel)]="node.crewTravelTimeReferenceNode" #ReferenceNode="ngModel" autocomplete="off"
+                        name="ReferenceNode" class="form-control" />
+                    <datalist id="dynmicNodesShortNames">
+                        <option *ngFor="let item of nodesNames" [value]="item">{{item}}</option>
+                    </datalist>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <button id="btnid" name="buttonSubmit" class="btn btn-primary" type="submit">Submit</button>
+                <!-- [hidden]="!nodeForm.form.valid" -->
+            </div>
+        </form>
+    </div>
+
+    <div class="formRight">
+        <div>
+            <h3 name='SuccessMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+            <h3  name='ErrorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+        </div>
+    </div>    
+
+</div>
+
+
+

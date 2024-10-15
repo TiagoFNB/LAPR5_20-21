@@ -1,0 +1,126 @@
+.page-global{
+    min-height: 600px;
+    max-height:700px;
+}
+
+.border-red {
+    border: solid 3px rgb(221, 40, 40);
+}
+
+.example-table-container {
+    max-height: 400px;
+    overflow: auto;
+}
+
+table{
+    width: 100%;
+}
+
+.fullSize{
+    width:100%;
+    height: 100%;  
+}
+
+ng-container:hover{
+    background-color: #e1e4e1f6;
+}
+
+tr.mat-row:hover{
+    background-color: #e1e4e1f6;
+}
+
+mat-grid-tile .mat-figure {
+    justify-content: flex-start !important ;
+    align-items: flex-start !important;
+ }
+
+button {
+    float: right;
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+  }
+
+button:hover {
+    background-color: #005c05;
+}
+
+.vertical-buffer{
+    padding-top: 7%;
+    height:120px;    
+}
+
+.fullSize{
+    width:100%;
+    height: 100%;  
+}
+
+.example-table-container {
+    max-height: 400px;
+    background-color: #ffffff;
+    overflow: auto;
+}
+
+.top-selected-trips{
+    display:inline-block;
+    position: absolute;
+    text-align: center;
+    top: 0%;
+    height: 20%;
+    width: 100%; 
+}
+
+.bottom-selected-trips{
+    display:inline-block;
+    position: absolute;
+    top:20%;
+    height: 80%;
+    width: 100%;
+}
+
+.button-add-Trip{
+    background-color: rgb(52, 83, 223);
+    font-size: medium;
+    padding: 10px 15px;
+}
+
+.button-add-Trip:active{
+    background-color: rgb(52, 83, 223);
+}
+
+.button-remove-Trip{
+    background-color: rgb(216, 41, 41);
+    font-size: medium;
+    padding: 10px 15px;
+}
+
+.button-remove-Trip:hover{
+    background-color: rgb(226, 137, 64);
+}
+
+.button-remove-Trip:active{
+    background-color: rgb(214, 49, 49);
+}
+
+/* Collumns sizes definitions*/
+
+.mat-column-Path {
+    flex: 0 0 10%;
+}
+
+th, td {
+    width: 33%;
+  }
+
+.feedback{
+    word-wrap: break-word;
+    display:inline-block;
+    position: absolute;
+    width:100%;
+    height:100%;
+}

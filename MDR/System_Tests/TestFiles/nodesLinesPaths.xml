@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GlDocumentInfo xmlns:opt="Opt.GL.Domain" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="Opt.GL.BusinessLogic">
+  <world version="1.0.5">
+    <GlDocument key="GlDocument:1">
+        <GlDocumentNetwork>
+            <Network key="Network:1">
+                
+                <Lines>
+                    <Line key="Line:500" Name="Baltaino_Aguiarino" Color="RGB(38,91,11)">
+                        <LinePaths>
+                            <LinePath key="LinePath:1" Path="Path:201" Orientation="Return" />
+                            <LinePath key="LinePath:2" Path="Path:31" Orientation="Go" />
+                        </LinePaths>
+                        <AllowedVehicles />
+                        <DeniedVehicles />
+                        <AllowedDrivers />
+                        <DeniedDrivers />
+                    </Line>
+                </Lines> 
+                <Paths>
+                    <Path key="Path:201" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:1" Node="Node:52" />
+                            <PathNode key="PathNode:2" Node="Node:51" Duration="600" Distance="5000" />
+                            
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:31" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:14" Node="Node:51" />
+                            <PathNode key="PathNode:15" Node="Node:52" Duration="600" Distance="5000" />
+                        </PathNodes>
+                    </Path>
+                </Paths>
+                <Node key="Node:52" Name="Aguiar de Sousarino" Latitude="41.1293363229325" Longitude="-8.4464785432391" ShortName="AGUIARINO" IsDepot="False" IsReliefPoint="False">
+                    <Capacities />
+                    <InformationPoints />
+                    <CrewTravelTimes />
+                </Node>
+                <Node key="Node:51" Name="Baltarino" Latitude="41.1937898023744" Longitude="-8.38716802227697" ShortName="BALTRINO" IsDepot="False" IsReliefPoint="False">
+                    <Capacities />
+                    <InformationPoints />
+                    <CrewTravelTimes />
+                </Node>
+                
+            </Network>
+        </GlDocumentNetwork>
+    </GlDocument>
+</world>
+<GlGlobalParameters xmlns:d1p1="http://schemas.datacontract.org/2004/07/Opt.GL.Domain">
+    <d1p1:CriterionToAddTripsToVehicleDuty>0</d1p1:CriterionToAddTripsToVehicleDuty>
+    <d1p1:MaxIntervalTimeBetweenTrips>3600</d1p1:MaxIntervalTimeBetweenTrips>
+    <d1p1:OverlapTime>0</d1p1:OverlapTime>
+  </GlGlobalParameters>
+</GlDocumentInfo>

@@ -1,0 +1,22 @@
+melhor_caminho/2
+
+melhor_caminho(Caminho(Lista de liga(no1,no2,percurso)), Tempo demorado).
+
+Descriçao:
+Este facto é usado como auxiliar para determinar o caminho que demora menos tempo
+
+É dado asserta(melhor_caminho(_,10000)), será adicionado no inicio dos factos de melhor_caminho um valor grande de 10000 no lugar de tempo demorado para servir de verificação para o primeiro tempo de espera em atualiza_melhor .
+
+
+Parametros de entrada:
+Passing_inicio : momento de passagem que começa a espera do motorista
+Noi: Nó inicial onde se pretende calcular o melhor caminho(menor tempo).
+Nof: Nó final, onde se pretende chegar.
+
+O que faz:
+
+Vai atualizar sempre o melhor_caminho para ter no primeiro parametro o caminho e no segundo o tempo demorado.
+
+Chama predicado caminho que vai retornar um caminho de cada vez, para cada caminho vai fazer o atualiza melhor que vai utilizar um caminho e o tempo de começo, de seguida falha de proposito com o objetivo de testar os restantes caminhos.
+
+No final, o resultado no topo em melhor_caminho, será o caminho que demorou menos tempo e o seu caminho, pois o atualiza_melhor faz essa validaçao.

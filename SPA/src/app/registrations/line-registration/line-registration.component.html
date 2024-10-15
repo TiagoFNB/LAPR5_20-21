@@ -1,0 +1,122 @@
+<div class="w3-container page-global">
+    <div class="formLeft">
+        <h2> Register a Line </h2>
+        <form name='form' #lineForm="ngForm" (ngSubmit)="lineForm.form.valid && onSubmit(lineForm)">
+            <!-- First row of the form -->
+            <div class="row vertical-buffer">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Code</label>
+                        <input type="text" autocomplete="off" name="code" class="form-control" [(ngModel)]="line.key" #lineCode="ngModel"
+                            [ngClass]="{ 'is-invalid': lineForm.submitted && lineForm.invalid }" lineCode required>
+                        <div class="invalid-feedback" *ngIf="lineForm.submitted && lineCode.invalid;else doBreak">
+                            <p *ngIf="lineCode.errors.required;else doBreak">Code is required</p>
+                        </div>
+                        <ng-template #doBreak><br></ng-template>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" autocomplete="off" class="form-control" name="Name" [(ngModel)]="line.name" #lineName="ngModel"
+                            [ngClass]="{ 'is-invalid': lineForm.submitted && lineName.invalid }" lineName required>
+                        <div *ngIf="lineForm.submitted && lineName.invalid;else doBreak" class="invalid-feedback">
+                            <div *ngIf="lineName.errors.required">Name is required</div>
+                        </div>
+                        <ng-template #doBreak><br></ng-template>
+                    </div>
+                </div>
+            </div>
+            <!-- Second row of the form -->
+            <div class="row vertical-buffer">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>First Terminal Node</label>
+                        <input type="text" class="form-control" name="terminalNode1" (keyup)="nodesInDBMethodforTermianlNode1()"
+                            list="dynamicNodesShortNames" [(ngModel)]="line.terminalNode1" #terminalNode1="ngModel"
+                            autocomplete="off" [ngClass]="{ 'is-invalid': lineForm.submitted && terminalNode1.invalid }"
+                            terminalNode1 required />
+                        <datalist id="dynamicNodesShortNames">
+                            <option *ngFor="let item of nodesInDB" [value]="item">{{item}}</option>
+                        </datalist>
+                        <div *ngIf="lineForm.submitted && terminalNode1.invalid" class="invalid-feedback">
+                            <div *ngIf="terminalNode1.errors.required">Terminal Node is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Second Terminal Node</label>
+                        <input type="text" class="form-control" name="terminalNode2" (keyup)="nodesInDBMethodforTermianlNode2()"
+                            list="dynamicNodesShortNames" [(ngModel)]="line.terminalNode2" #terminalNode2="ngModel"
+                            autocomplete="off" [ngClass]="{ 'is-invalid': lineForm.submitted && terminalNode2.invalid }"
+                            terminalNode2 required />
+                        <datalist id="dynamicNodesShortNames">
+                            <option *ngFor="let item of nodesInDB" [value]="item">{{item}}</option>
+                        </datalist>
+                        <div *ngIf="lineForm.submitted && terminalNode2.invalid" class="invalid-feedback">
+                            <div *ngIf="terminalNode2.errors.required">Terminal Node is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Third row of the form -->
+            <div class="row vertical-buffer">
+                <div class="col-md-4">
+                    <label>Allowed Drivers</label>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-select class="form-control" name="allowedDrivers" [(ngModel)]="line.AllowedDrivers"
+                            multiple>
+                            <mat-option *ngFor="let driver of driverTypes" [value]="driver">{{driver}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-4">
+                    <label>Allowed Vehicles</label>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-select class="form-control" name="allowedVehicles" [(ngModel)]="line.AllowedVehicles"
+                            multiple>
+                            <mat-option *ngFor="let vehicle of vehicleTypes" [value]="vehicle">{{vehicle}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-- Fourth row of the form   -->
+            <div class="row vertical-buffer">
+                <div class="col-md-12">
+                    <label>Color</label>
+                    <div class="form-group">   
+                        <input [value]="unformattedRGB" [(colorPicker)]="unformattedRGB" name="unformattedRGB"
+                            [cpOutputFormat]="'rgba'" [cpPosition]="'top-right'" [(ngModel)]="unformattedRGB"
+                            #RGB="ngModel" [ngClass]="{ 'is-invalid': lineForm.submitted && RGB.invalid }" RGB required>
+                        <div *ngIf="lineForm.submitted && RGB.invalid" class="invalid-feedback">
+                            <div *ngIf="RGB.errors.required">Color is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Submit button -->
+            <div class="form-group">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="formRight">
+        <div>
+            <h3 name='successMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+            <h3 name='errorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+        </div>
+    </div>
+</div>

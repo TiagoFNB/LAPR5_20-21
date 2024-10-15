@@ -1,0 +1,2107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GlDocumentInfo xmlns:opt="Opt.GL.Domain" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="Opt.GL.BusinessLogic">
+  <world version="1.0.5">
+    <GlDocument key="GlDocument:1">
+        <GlDocumentNetwork>
+            <Network key="Network:1">
+                <VehicleTypes>
+                    <VehicleType key="VehicleType:1" Name="Autocarro" Autonomy="500000" Cost="10" AverageSpeed="30" EnergySource="23" Consumption="30" Emissions="1050">
+                        <ParametersValues />
+                        <Vehicles />
+                    </VehicleType>
+                    <VehicleType key="VehicleType:2" Name="MiniAutocarro" Autonomy="600000" Cost="5" AverageSpeed="32" EnergySource="23" Consumption="18" Emissions="700">
+                        <ParametersValues />
+                        <Vehicles />
+                    </VehicleType>
+                </VehicleTypes>
+                <Lines>
+                    <Line key="Line:1" Name="Paredes_Aguiar" Color="RGB(38,91,11)">
+                        <LinePaths>
+                            <LinePath key="LinePath:1" Path="Path:1" Orientation="Return" />
+                            <LinePath key="LinePath:2" Path="Path:3" Orientation="Go" />
+                        </LinePaths>
+                        <AllowedVehicles />
+                        <DeniedVehicles />
+                        <AllowedDrivers />
+                        <DeniedDrivers />
+                    </Line>
+                    <Line key="Line:2" Name="Paredes_Gandra" Color="RGB(49,23,59)">
+                        <LinePaths>
+                            <LinePath key="LinePath:3" Path="Path:5" Orientation="Return" />
+                            <LinePath key="LinePath:4" Path="Path:8" Orientation="Go" />
+                        </LinePaths>
+                        <AllowedVehicles />
+                        <DeniedVehicles />
+                        <AllowedDrivers />
+                        <DeniedDrivers />
+                    </Line>
+                    <Line key="Line:3" Name="Paredes_Lordelo" Color="RGB(4,204,225)">
+                        <LinePaths>
+                            <LinePath key="LinePath:5" Path="Path:9" Orientation="Return" />
+                            <LinePath key="LinePath:6" Path="Path:11" Orientation="Go" />
+                        </LinePaths>
+                        <AllowedVehicles />
+                        <DeniedVehicles />
+                        <AllowedDrivers />
+                        <DeniedDrivers />
+                    </Line>
+                    <Line key="Line:4" Name="Lordelo_Parada" Color="RGB(183,248,71)">
+                        <LinePaths>
+                            <LinePath key="LinePath:7" Path="Path:13" Orientation="Go" />
+                            <LinePath key="LinePath:8" Path="Path:18" Orientation="Return" />
+                            <LinePath key="LinePath:9" Path="Path:24" Orientation="Go" />
+                            <LinePath key="LinePath:10" Path="Path:26" Orientation="Return" />
+                        </LinePaths>
+                        <AllowedVehicles />
+                        <DeniedVehicles />
+                        <AllowedDrivers />
+                        <DeniedDrivers />
+                    </Line>
+                    <Line key="Line:5" Name="Sobrosa_Cete" Color="RGB(152,16,147)">
+                        <LinePaths>
+                            <LinePath key="LinePath:12" Path="Path:22" Orientation="Go" />
+                            <LinePath key="LinePath:13" Path="Path:20" Orientation="Return" />
+                        </LinePaths>
+                        <AllowedVehicles />
+                        <DeniedVehicles />
+                        <AllowedDrivers />
+                        <DeniedDrivers />
+                    </Line>
+                </Lines>
+                <Paths>
+                    <Path key="Path:1" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:1" Node="Node:1" />
+                            <PathNode key="PathNode:2" Node="Node:15" Duration="600" Distance="5000" />
+                            <PathNode key="PathNode:3" Node="Node:13" Duration="360" Distance="3200" />
+                            <PathNode key="PathNode:4" Node="Node:4" Duration="360" Distance="3000" />
+                            <PathNode key="PathNode:5" Node="Node:14" Duration="540" Distance="4500" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:3" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:11" Node="Node:14" />
+                            <PathNode key="PathNode:12" Node="Node:4" Duration="540" Distance="4500" />
+                            <PathNode key="PathNode:13" Node="Node:13" Duration="360" Distance="3000" />
+                            <PathNode key="PathNode:14" Node="Node:15" Duration="360" Distance="3200" />
+                            <PathNode key="PathNode:15" Node="Node:1" Duration="600" Distance="5000" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:37" IsEmpty="True">
+                        <PathNodes>
+                            <PathNode key="PathNode:149" Node="Node:16" />
+                            <PathNode key="PathNode:150" Node="Node:7" Duration="300" Distance="1800" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:5" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:21" Node="Node:10" />
+                            <PathNode key="PathNode:22" Node="Node:18" Duration="600" Distance="5000" />
+                            <PathNode key="PathNode:23" Node="Node:2" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:24" Node="Node:12" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:25" Node="Node:14" Duration="480" Distance="4000" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:8" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:36" Node="Node:14" />
+                            <PathNode key="PathNode:37" Node="Node:12" Duration="480" Distance="4000" />
+                            <PathNode key="PathNode:38" Node="Node:2" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:39" Node="Node:18" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:40" Node="Node:10" Duration="600" Distance="5000" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:9" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:41" Node="Node:11" />
+                            <PathNode key="PathNode:42" Node="Node:18" Duration="780" Distance="6300" />
+                            <PathNode key="PathNode:43" Node="Node:2" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:44" Node="Node:12" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:45" Node="Node:14" Duration="480" Distance="4000" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:11" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:51" Node="Node:14" />
+                            <PathNode key="PathNode:52" Node="Node:12" Duration="480" Distance="4000" />
+                            <PathNode key="PathNode:53" Node="Node:2" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:54" Node="Node:18" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:55" Node="Node:11" Duration="780" Distance="6300" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:13" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:61" Node="Node:2" />
+                            <PathNode key="PathNode:62" Node="Node:20" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:69" Node="Node:5" Duration="240" Distance="2000" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:18" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:73" Node="Node:5" />
+                            <PathNode key="PathNode:74" Node="Node:20" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:75" Node="Node:2" Duration="240" Distance="2000" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:20" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:79" Node="Node:4" />
+                            <PathNode key="PathNode:80" Node="Node:12" Duration="300" Distance="2500" />
+                            <PathNode key="PathNode:81" Node="Node:20" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:82" Node="Node:3" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:83" Node="Node:5" Duration="360" Distance="3000" />
+                            <PathNode key="PathNode:84" Node="Node:16" Duration="240" Distance="2000" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:36" IsEmpty="True">
+                        <PathNodes>
+                            <PathNode key="PathNode:147" Node="Node:7" />
+                            <PathNode key="PathNode:148" Node="Node:16" Duration="300" Distance="1500" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:22" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:91" Node="Node:16" />
+                            <PathNode key="PathNode:92" Node="Node:5" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:93" Node="Node:3" Duration="360" Distance="3000" />
+                            <PathNode key="PathNode:94" Node="Node:20" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:95" Node="Node:12" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:96" Node="Node:4" Duration="300" Distance="2500" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:24" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:103" Node="Node:11" />
+                            <PathNode key="PathNode:104" Node="Node:6" Duration="300" Distance="2500" />
+                            <PathNode key="PathNode:105" Node="Node:5" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:106" Node="Node:20" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:107" Node="Node:2" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:108" Node="Node:13" Duration="300" Distance="2500" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:26" IsEmpty="False">
+                        <PathNodes>
+                            <PathNode key="PathNode:115" Node="Node:13" />
+                            <PathNode key="PathNode:116" Node="Node:2" Duration="300" Distance="2500" />
+                            <PathNode key="PathNode:117" Node="Node:20" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:118" Node="Node:5" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:119" Node="Node:6" Duration="240" Distance="2000" />
+                            <PathNode key="PathNode:120" Node="Node:11" Duration="300" Distance="2500" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:38" IsEmpty="True">
+                        <PathNodes>
+                            <PathNode key="PathNode:151" Node="Node:9" />
+                            <PathNode key="PathNode:152" Node="Node:14" Duration="120" Distance="1500" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:39" IsEmpty="True">
+                        <PathNodes>
+                            <PathNode key="PathNode:153" Node="Node:14" />
+                            <PathNode key="PathNode:154" Node="Node:9" Duration="120" Distance="1500" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:34" IsEmpty="True">
+                        <PathNodes>
+                            <PathNode key="PathNode:143" Node="Node:7" />
+                            <PathNode key="PathNode:144" Node="Node:11" Duration="120" Distance="1500" />
+                        </PathNodes>
+                    </Path>
+                    <Path key="Path:35" IsEmpty="True">
+                        <PathNodes>
+                            <PathNode key="PathNode:145" Node="Node:11" />
+                            <PathNode key="PathNode:146" Node="Node:7" Duration="120" Distance="1500" />
+                        </PathNodes>
+                    </Path>
+                </Paths>
+                <Nodes>
+                    <Node key="Node:1" Name="Aguiar de Sousa" Latitude="41.1293363229325" Longitude="-8.4464785432391" ShortName="AGUIA" IsDepot="False" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                    <Node key="Node:2" Name="Baltar" Latitude="41.1937898023744" Longitude="-8.38716802227697" ShortName="BALTR" IsDepot="False" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                    <Node key="Node:3" Name="Besteiros" Latitude="41.217018845589" Longitude="-8.34043029659082" ShortName="BESTR" IsDepot="False" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                    <Node key="Node:4" Name="Cete" Latitude="41.183243425797" Longitude="-8.35164059584564" ShortName="CETE" IsDepot="False" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                    <Node key="Node:5" Name="Cristelo" Latitude="41.2207801252676" Longitude="-8.34639896125324" ShortName="CRIST" IsDepot="False" IsReliefPoint="True">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                    <Node key="Node:6" Name="Duas Igrejas" Latitude="41.2278665802794" Longitude="-8.35481024956726" ShortName="DIGRJ" IsDepot="False" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                    <Node key="Node:7" Name="Estação (Lordelo)" Latitude="41.2521157104055" Longitude="-8.4227924957086" ShortName="ESTLO" IsDepot="True" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes>
+                            <CrewTravelTime key="CrewTravelTime:2" Node="Node:7" Duration="1620" />
+                        </CrewTravelTimes>
+                    </Node>
+                    <Node key="Node:9" Name="Estação (Paredes)" Latitude="41.2082119860192" Longitude="-8.33448520831829" ShortName="ESTPA" IsDepot="True" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes>
+                            <CrewTravelTime key="CrewTravelTime:6" Node="Node:9" Duration="1620" />
+                        </CrewTravelTimes>
+                    </Node>
+                    <Node key="Node:10" Name="Gandra" Latitude="41.1956579348384" Longitude="-8.43958765792976" ShortName="GAND" IsDepot="False" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                    <Node key="Node:11" Name="Lordelo" Latitude="41.2452627470645" Longitude="-8.42293614720057" ShortName="LORDL" IsDepot="False" IsReliefPoint="True">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes>
+                            <CrewTravelTime key="CrewTravelTime:10" Node="Node:11" Duration="300" />
+                        </CrewTravelTimes>
+                    </Node>
+                    <Node key="Node:12" Name="Mouriz" Latitude="41.1983610215263" Longitude="-8.36577272258403" ShortName="MOURZ" IsDepot="False" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                    <Node key="Node:13" Name="Parada de Todeia" Latitude="41.1765780321068" Longitude="-8.37023578802149" ShortName="PARAD" IsDepot="False" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                    <Node key="Node:14" Name="Paredes" Latitude="41.2062947118362" Longitude="-8.33566951069481" ShortName="PARED" IsDepot="False" IsReliefPoint="True">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes>
+                            <CrewTravelTime key="CrewTravelTime:14" Node="Node:14" Duration="1500" />
+                        </CrewTravelTimes>
+                    </Node>
+                    <Node key="Node:15" Name="Recarei" Latitude="41.1599363478137" Longitude="-8.42215867462191" ShortName="RECAR" IsDepot="False" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                    <Node key="Node:16" Name="Sobrosa" Latitude="41.2557331783506" Longitude="-8.38118071581788" ShortName="SOBRO" IsDepot="False" IsReliefPoint="True">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes>
+                            <CrewTravelTime key="CrewTravelTime:18" Node="Node:16" Duration="900" />
+                        </CrewTravelTimes>
+                    </Node>
+                    <Node key="Node:18" Name="Vandoma" Latitude="41.2328015719913" Longitude="-8.34160692293342" ShortName="VANDO" IsDepot="False" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                    <Node key="Node:20" Name="Vila Cova de Carros" Latitude="41.2090666564063" Longitude="-8.35109395257277" ShortName="VCCAR" IsDepot="False" IsReliefPoint="False">
+                        <Capacities />
+                        <InformationPoints />
+                        <CrewTravelTimes />
+                    </Node>
+                </Nodes>
+            </Network>
+        </GlDocumentNetwork>
+        <GlDocumentSchedule>
+            <Schedule key="Schedule:1">
+                <Trips>
+                    <Trip key="Trip:56" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:276" Time="73800" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:277" Time="74280" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:278" Time="74580" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:279" Time="74880" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:280" Time="75420" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:55" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:271" Time="72900" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:272" Time="73380" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:273" Time="73680" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:274" Time="73980" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:275" Time="74520" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:54" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:266" Time="72000" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:267" Time="72480" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:268" Time="72780" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:269" Time="73080" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:270" Time="73620" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:53" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:261" Time="71100" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:262" Time="71580" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:263" Time="71880" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:264" Time="72180" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:265" Time="72720" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:52" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:256" Time="70200" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:257" Time="70680" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:258" Time="70980" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:259" Time="71280" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:260" Time="71820" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:51" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:251" Time="69300" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:252" Time="69780" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:253" Time="70080" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:254" Time="70380" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:255" Time="70920" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:50" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:246" Time="68400" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:247" Time="68880" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:248" Time="69180" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:249" Time="69480" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:250" Time="70020" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:49" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:241" Time="67500" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:242" Time="67980" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:243" Time="68280" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:244" Time="68580" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:245" Time="69120" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:48" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:236" Time="66600" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:237" Time="67080" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:238" Time="67380" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:239" Time="67680" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:240" Time="68220" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:47" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:231" Time="65700" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:232" Time="66180" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:233" Time="66480" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:234" Time="66780" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:235" Time="67320" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:46" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:226" Time="63900" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:227" Time="64380" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:228" Time="64680" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:229" Time="64980" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:230" Time="65520" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:45" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:221" Time="63000" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:222" Time="63480" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:223" Time="63780" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:224" Time="64080" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:225" Time="64620" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:44" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:216" Time="61200" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:217" Time="61680" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:218" Time="61980" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:219" Time="62280" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:220" Time="62820" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:43" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:211" Time="59400" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:212" Time="59880" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:213" Time="60180" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:214" Time="60480" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:215" Time="61020" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:42" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:206" Time="57600" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:207" Time="58080" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:208" Time="58380" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:209" Time="58680" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:210" Time="59220" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:41" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:201" Time="55800" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:202" Time="56280" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:203" Time="56580" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:204" Time="56880" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:205" Time="57420" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:40" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:196" Time="54000" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:197" Time="54480" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:198" Time="54780" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:199" Time="55080" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:200" Time="55620" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:39" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:191" Time="52200" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:192" Time="52680" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:193" Time="52980" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:194" Time="53280" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:195" Time="53820" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:38" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:186" Time="50400" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:187" Time="50880" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:188" Time="51180" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:189" Time="51480" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:190" Time="52020" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:37" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:181" Time="48600" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:182" Time="49080" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:183" Time="49380" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:184" Time="49680" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:185" Time="50220" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:36" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:176" Time="46800" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:177" Time="47280" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:178" Time="47580" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:179" Time="47880" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:180" Time="48420" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:35" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:171" Time="45000" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:172" Time="45480" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:173" Time="45780" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:174" Time="46080" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:175" Time="46620" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:34" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:166" Time="43200" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:167" Time="43680" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:168" Time="43980" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:169" Time="44280" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:170" Time="44820" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:33" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:161" Time="41400" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:162" Time="41880" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:163" Time="42180" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:164" Time="42480" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:165" Time="43020" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:32" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:156" Time="39600" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:157" Time="40080" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:158" Time="40380" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:159" Time="40680" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:160" Time="41220" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:31" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:151" Time="37800" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:152" Time="38280" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:153" Time="38580" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:154" Time="38880" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:155" Time="39420" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:30" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:146" Time="36000" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:147" Time="36480" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:148" Time="36780" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:149" Time="37080" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:150" Time="37620" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:29" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:141" Time="34200" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:142" Time="34680" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:143" Time="34980" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:144" Time="35280" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:145" Time="35820" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:57" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:281" Time="75600" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:282" Time="76080" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:283" Time="76380" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:284" Time="76680" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:285" Time="77220" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:58" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:286" Time="79200" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:287" Time="79680" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:288" Time="79980" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:289" Time="80280" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:290" Time="80820" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:59" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:291" Time="82800" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:292" Time="83280" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:293" Time="83580" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:294" Time="83880" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:295" Time="84420" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:60" IsEmpty="False" Orientation="Go" Line="Line:1" Path="Path:3" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:296" Time="86400" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                            <PassingTime key="PassingTime:297" Time="86880" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:298" Time="87180" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:299" Time="87480" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:300" Time="88020" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>
+                    <Trip key="Trip:61" IsEmpty="False" Orientation="Return" Line="Line:1" Path="Path:1" IsGenerated="False">
+                        <PassingTimes>
+                            <PassingTime key="PassingTime:301" Time="36000" Node="Node:1" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:302" Time="36540" Node="Node:15" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:303" Time="36840" Node="Node:13" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:304" Time="37140" Node="Node:4" IsUsed="True" IsReliefPoint="False" />
+                            <PassingTime key="PassingTime:305" Time="37620" Node="Node:14" IsUsed="True" IsReliefPoint="True" />
+                        </PassingTimes>
+                        <AllowedVehicleTypes />
+                        <DeniedVehicleTypes />
+                    </Trip>     
+                </Trips>
+                <WorkBlocks>
+                    <WorkBlock key="WorkBlock:1" StartTime="26580" EndTime="29100" StartNode="Node:7" EndNode="Node:5" IsCrewTravelTime="False" IsActive="True">
+                        <Trips>
+                            <ref key="Trip:437" />
+                            <ref key="Trip:198" />
+                            <ref key="Trip:238" />
+                        </Trips>
+                    </WorkBlock>
+                    <WorkBlock key="WorkBlock:2" StartTime="27300" EndTime="29160" StartNode="Node:9" EndNode="Node:11" IsCrewTravelTime="False" IsActive="True">
+                        <Trips>
+                            <ref key="Trip:439" />
+                            <ref key="Trip:92" />
+                        </Trips>
+                    </WorkBlock>
+                    <WorkBlock key="WorkBlock:3" StartTime="27300" EndTime="30120" StartNode="Node:7" EndNode="Node:5" IsCrewTravelTime="False" IsActive="True">
+                        <Trips>
+                            <ref key="Trip:441" />
+                            <ref key="Trip:348" />
+                            <ref key="Trip:349" />
+                        </Trips>
+                    </WorkBlock>
+                    <WorkBlock key="WorkBlock:4" StartTime="27900" EndTime="30420" StartNode="Node:7" EndNode="Node:5" IsCrewTravelTime="False" IsActive="True">
+                        <Trips>
+                            <ref key="Trip:443" />
+                            <ref key="Trip:278" />
+                            <ref key="Trip:313" />
+                        </Trips>
+                    </WorkBlock>
+                    <WorkBlock key="WorkBlock:5" StartTime="28200" EndTime="30060" StartNode="Node:9" EndNode="Node:11" IsCrewTravelTime="False" IsActive="True">
+                        <Trips>
+                            <ref key="Trip:445" />
+                            <ref key="Trip:93" />
+                        </Trips>
+                    </WorkBlock>
+                    <WorkBlock key="WorkBlock:6" StartTime="28500" EndTime="31320" StartNode="Node:7" EndNode="Node:5" IsCrewTravelTime="False" IsActive="True">
+                        <Trips>
+                            <ref key="Trip:447" />
+                            <ref key="Trip:350" />
+                            <ref key="Trip:389" />
+                        </Trips>
+                    </WorkBlock>
+                    <WorkBlock key="WorkBlock:7" StartTime="28740" EndTime="31920" StartNode="Node:9" EndNode="Node:14" IsCrewTravelTime="False" IsActive="True">
+                        <Trips>
+                            <ref key="Trip:449" />
+                            <ref key="Trip:168" />
+                            <ref key="Trip:183" />
+                        </Trips>
+                    </WorkBlock>
+                    <WorkBlock key="WorkBlock:8" StartTime="29100" EndTime="30960" StartNode="Node:9" EndNode="Node:11" IsCrewTravelTime="False" IsActive="True">
+                        <Trips>
+                            <ref key="Trip:451" />
+                            <ref key="Trip:94" />
+                        </Trips>
+                    </WorkBlock>
+                </WorkBlocks>
+                <VehicleDuties>
+                    <VehicleDuty key="VehicleDuty:1" Name="V 1" Color="RGB(5,132,107)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:1" />
+                            <ref key="WorkBlock:16" />
+                            <ref key="WorkBlock:17" />
+                            <ref key="WorkBlock:18" />
+                            <ref key="WorkBlock:19" />
+                            <ref key="WorkBlock:20" />
+                            <ref key="WorkBlock:21" />
+                            <ref key="WorkBlock:22" />
+                            <ref key="WorkBlock:23" />
+                            <ref key="WorkBlock:24" />
+                            <ref key="WorkBlock:25" />
+                            <ref key="WorkBlock:26" />
+                            <ref key="WorkBlock:27" />
+                            <ref key="WorkBlock:28" />
+                            <ref key="WorkBlock:29" />
+                            <ref key="WorkBlock:30" />
+                            <ref key="WorkBlock:31" />
+                            <ref key="WorkBlock:32" />
+                            <ref key="WorkBlock:33" />
+                            <ref key="WorkBlock:34" />
+                            <ref key="WorkBlock:35" />
+                            <ref key="WorkBlock:36" />
+                            <ref key="WorkBlock:37" />
+                            <ref key="WorkBlock:38" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:2" Name="V 2" Color="RGB(219,185,165)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:2" />
+                            <ref key="WorkBlock:39" />
+                            <ref key="WorkBlock:40" />
+                            <ref key="WorkBlock:41" />
+                            <ref key="WorkBlock:42" />
+                            <ref key="WorkBlock:43" />
+                            <ref key="WorkBlock:44" />
+                            <ref key="WorkBlock:45" />
+                            <ref key="WorkBlock:46" />
+                            <ref key="WorkBlock:47" />
+                            <ref key="WorkBlock:48" />
+                            <ref key="WorkBlock:49" />
+                            <ref key="WorkBlock:50" />
+                            <ref key="WorkBlock:51" />
+                            <ref key="WorkBlock:52" />
+                            <ref key="WorkBlock:53" />
+                            <ref key="WorkBlock:54" />
+                            <ref key="WorkBlock:55" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:3" Name="V 3" Color="RGB(136,89,62)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:3" />
+                            <ref key="WorkBlock:56" />
+                            <ref key="WorkBlock:57" />
+                            <ref key="WorkBlock:58" />
+                            <ref key="WorkBlock:59" />
+                            <ref key="WorkBlock:60" />
+                            <ref key="WorkBlock:61" />
+                            <ref key="WorkBlock:62" />
+                            <ref key="WorkBlock:63" />
+                            <ref key="WorkBlock:64" />
+                            <ref key="WorkBlock:65" />
+                            <ref key="WorkBlock:66" />
+                            <ref key="WorkBlock:67" />
+                            <ref key="WorkBlock:68" />
+                            <ref key="WorkBlock:69" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:4" Name="V 4" Color="RGB(1,177,146)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:4" />
+                            <ref key="WorkBlock:70" />
+                            <ref key="WorkBlock:71" />
+                            <ref key="WorkBlock:72" />
+                            <ref key="WorkBlock:73" />
+                            <ref key="WorkBlock:74" />
+                            <ref key="WorkBlock:75" />
+                            <ref key="WorkBlock:76" />
+                            <ref key="WorkBlock:77" />
+                            <ref key="WorkBlock:78" />
+                            <ref key="WorkBlock:79" />
+                            <ref key="WorkBlock:80" />
+                            <ref key="WorkBlock:81" />
+                            <ref key="WorkBlock:82" />
+                            <ref key="WorkBlock:83" />
+                            <ref key="WorkBlock:84" />
+                            <ref key="WorkBlock:85" />
+                            <ref key="WorkBlock:86" />
+                            <ref key="WorkBlock:87" />
+                            <ref key="WorkBlock:88" />
+                            <ref key="WorkBlock:89" />
+                            <ref key="WorkBlock:90" />
+                            <ref key="WorkBlock:91" />
+                            <ref key="WorkBlock:92" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:5" Name="V 5" Color="RGB(152,54,49)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:5" />
+                            <ref key="WorkBlock:93" />
+                            <ref key="WorkBlock:94" />
+                            <ref key="WorkBlock:95" />
+                            <ref key="WorkBlock:96" />
+                            <ref key="WorkBlock:97" />
+                            <ref key="WorkBlock:98" />
+                            <ref key="WorkBlock:99" />
+                            <ref key="WorkBlock:100" />
+                            <ref key="WorkBlock:101" />
+                            <ref key="WorkBlock:102" />
+                            <ref key="WorkBlock:103" />
+                            <ref key="WorkBlock:104" />
+                            <ref key="WorkBlock:105" />
+                            <ref key="WorkBlock:106" />
+                            <ref key="WorkBlock:107" />
+                            <ref key="WorkBlock:108" />
+                            <ref key="WorkBlock:109" />
+                            <ref key="WorkBlock:110" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:6" Name="V 6" Color="RGB(76,97,228)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:6" />
+                            <ref key="WorkBlock:111" />
+                            <ref key="WorkBlock:112" />
+                            <ref key="WorkBlock:113" />
+                            <ref key="WorkBlock:114" />
+                            <ref key="WorkBlock:115" />
+                            <ref key="WorkBlock:116" />
+                            <ref key="WorkBlock:117" />
+                            <ref key="WorkBlock:118" />
+                            <ref key="WorkBlock:119" />
+                            <ref key="WorkBlock:120" />
+                            <ref key="WorkBlock:121" />
+                            <ref key="WorkBlock:122" />
+                            <ref key="WorkBlock:123" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:7" Name="V 7" Color="RGB(213,118,185)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:7" />
+                            <ref key="WorkBlock:124" />
+                            <ref key="WorkBlock:125" />
+                            <ref key="WorkBlock:126" />
+                            <ref key="WorkBlock:127" />
+                            <ref key="WorkBlock:128" />
+                            <ref key="WorkBlock:129" />
+                            <ref key="WorkBlock:130" />
+                            <ref key="WorkBlock:131" />
+                            <ref key="WorkBlock:132" />
+                            <ref key="WorkBlock:133" />
+                            <ref key="WorkBlock:134" />
+                            <ref key="WorkBlock:135" />
+                            <ref key="WorkBlock:136" />
+                            <ref key="WorkBlock:137" />
+                            <ref key="WorkBlock:138" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:8" Name="V 8" Color="RGB(63,147,218)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:8" />
+                            <ref key="WorkBlock:139" />
+                            <ref key="WorkBlock:140" />
+                            <ref key="WorkBlock:141" />
+                            <ref key="WorkBlock:142" />
+                            <ref key="WorkBlock:143" />
+                            <ref key="WorkBlock:144" />
+                            <ref key="WorkBlock:145" />
+                            <ref key="WorkBlock:146" />
+                            <ref key="WorkBlock:147" />
+                            <ref key="WorkBlock:148" />
+                            <ref key="WorkBlock:149" />
+                            <ref key="WorkBlock:150" />
+                            <ref key="WorkBlock:151" />
+                            <ref key="WorkBlock:152" />
+                            <ref key="WorkBlock:153" />
+                            <ref key="WorkBlock:154" />
+                            <ref key="WorkBlock:155" />
+                            <ref key="WorkBlock:156" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:9" Name="V 9" Color="RGB(126,168,33)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:9" />
+                            <ref key="WorkBlock:157" />
+                            <ref key="WorkBlock:158" />
+                            <ref key="WorkBlock:159" />
+                            <ref key="WorkBlock:160" />
+                            <ref key="WorkBlock:161" />
+                            <ref key="WorkBlock:162" />
+                            <ref key="WorkBlock:163" />
+                            <ref key="WorkBlock:164" />
+                            <ref key="WorkBlock:165" />
+                            <ref key="WorkBlock:166" />
+                            <ref key="WorkBlock:167" />
+                            <ref key="WorkBlock:168" />
+                            <ref key="WorkBlock:169" />
+                            <ref key="WorkBlock:170" />
+                            <ref key="WorkBlock:171" />
+                            <ref key="WorkBlock:172" />
+                            <ref key="WorkBlock:173" />
+                            <ref key="WorkBlock:174" />
+                            <ref key="WorkBlock:175" />
+                            <ref key="WorkBlock:176" />
+                            <ref key="WorkBlock:177" />
+                            <ref key="WorkBlock:178" />
+                            <ref key="WorkBlock:179" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:10" Name="V 10" Color="RGB(63,238,219)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:10" />
+                            <ref key="WorkBlock:180" />
+                            <ref key="WorkBlock:181" />
+                            <ref key="WorkBlock:182" />
+                            <ref key="WorkBlock:183" />
+                            <ref key="WorkBlock:184" />
+                            <ref key="WorkBlock:185" />
+                            <ref key="WorkBlock:186" />
+                            <ref key="WorkBlock:187" />
+                            <ref key="WorkBlock:188" />
+                            <ref key="WorkBlock:189" />
+                            <ref key="WorkBlock:190" />
+                            <ref key="WorkBlock:191" />
+                            <ref key="WorkBlock:192" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:11" Name="V 11" Color="RGB(215,172,229)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:11" />
+                            <ref key="WorkBlock:193" />
+                            <ref key="WorkBlock:194" />
+                            <ref key="WorkBlock:195" />
+                            <ref key="WorkBlock:196" />
+                            <ref key="WorkBlock:197" />
+                            <ref key="WorkBlock:198" />
+                            <ref key="WorkBlock:199" />
+                            <ref key="WorkBlock:200" />
+                            <ref key="WorkBlock:201" />
+                            <ref key="WorkBlock:202" />
+                            <ref key="WorkBlock:203" />
+                            <ref key="WorkBlock:204" />
+                            <ref key="WorkBlock:205" />
+                            <ref key="WorkBlock:206" />
+                            <ref key="WorkBlock:207" />
+                            <ref key="WorkBlock:208" />
+                            <ref key="WorkBlock:209" />
+                            <ref key="WorkBlock:210" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:12" Name="V 12" Color="RGB(179,29,77)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:12" />
+                            <ref key="WorkBlock:211" />
+                            <ref key="WorkBlock:212" />
+                            <ref key="WorkBlock:213" />
+                            <ref key="WorkBlock:214" />
+                            <ref key="WorkBlock:215" />
+                            <ref key="WorkBlock:216" />
+                            <ref key="WorkBlock:217" />
+                            <ref key="WorkBlock:218" />
+                            <ref key="WorkBlock:219" />
+                            <ref key="WorkBlock:220" />
+                            <ref key="WorkBlock:221" />
+                            <ref key="WorkBlock:222" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:13" Name="V 13" Color="RGB(74,116,235)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:13" />
+                            <ref key="WorkBlock:223" />
+                            <ref key="WorkBlock:224" />
+                            <ref key="WorkBlock:225" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:14" Name="V 14" Color="RGB(143,184,24)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:14" />
+                            <ref key="WorkBlock:226" />
+                            <ref key="WorkBlock:227" />
+                            <ref key="WorkBlock:228" />
+                            <ref key="WorkBlock:229" />
+                            <ref key="WorkBlock:230" />
+                            <ref key="WorkBlock:231" />
+                            <ref key="WorkBlock:232" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                    <VehicleDuty key="VehicleDuty:15" Name="V 15" Color="RGB(88,42,103)" Depots="StartEnd">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:15" />
+                            <ref key="WorkBlock:233" />
+                            <ref key="WorkBlock:234" />
+                            <ref key="WorkBlock:235" />
+                        </WorkBlocks>
+                        <ParametersValues />
+                    </VehicleDuty>
+                </VehicleDuties>
+                <DriverDuties>
+                    <DriverDuty key="DriverDuty:1" Name="276" Color="RGB(172,229,238)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:2" />
+                            <ref key="WorkBlock:39" />
+                            <ref key="WorkBlock:40" />
+                            <ref key="WorkBlock:41" />
+                            <ref key="WorkBlock:42" />
+                            <ref key="WorkBlock:213" />
+                            <ref key="WorkBlock:214" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:2" Name="527" Color="RGB(26,72,118)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:4" />
+                            <ref key="WorkBlock:70" />
+                            <ref key="WorkBlock:71" />
+                            <ref key="WorkBlock:72" />
+                            <ref key="WorkBlock:73" />
+                            <ref key="WorkBlock:74" />
+                            <ref key="WorkBlock:75" />
+                            <ref key="WorkBlock:184" />
+                            <ref key="WorkBlock:185" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:3" Name="889" Color="RGB(252,217,117)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:6" />
+                            <ref key="WorkBlock:111" />
+                            <ref key="WorkBlock:112" />
+                            <ref key="WorkBlock:113" />
+                            <ref key="WorkBlock:114" />
+                            <ref key="WorkBlock:117" />
+                            <ref key="WorkBlock:118" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:4" Name="1055" Color="RGB(113,75,35)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:7" />
+                            <ref key="WorkBlock:124" />
+                            <ref key="WorkBlock:125" />
+                            <ref key="WorkBlock:126" />
+                            <ref key="WorkBlock:98" />
+                            <ref key="WorkBlock:99" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:5" Name="1461" Color="RGB(205,197,194)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:8" />
+                            <ref key="WorkBlock:139" />
+                            <ref key="WorkBlock:140" />
+                            <ref key="WorkBlock:43" />
+                            <ref key="WorkBlock:44" />
+                            <ref key="WorkBlock:45" />
+                            <ref key="WorkBlock:46" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:6" Name="1640" Color="RGB(252,137,172)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:9" />
+                            <ref key="WorkBlock:157" />
+                            <ref key="WorkBlock:158" />
+                            <ref key="WorkBlock:159" />
+                            <ref key="WorkBlock:160" />
+                            <ref key="WorkBlock:161" />
+                            <ref key="WorkBlock:164" />
+                            <ref key="WorkBlock:165" />
+                            <ref key="WorkBlock:166" />
+                            <ref key="WorkBlock:167" />
+                            <ref key="WorkBlock:168" />
+                            <ref key="WorkBlock:169" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:7" Name="2049" Color="RGB(236,234,190)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:10" />
+                            <ref key="WorkBlock:180" />
+                            <ref key="WorkBlock:76" />
+                            <ref key="WorkBlock:77" />
+                            <ref key="WorkBlock:78" />
+                            <ref key="WorkBlock:79" />
+                            <ref key="WorkBlock:80" />
+                            <ref key="WorkBlock:81" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:8" Name="5188" Color="RGB(254,78,218)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:12" />
+                            <ref key="WorkBlock:211" />
+                            <ref key="WorkBlock:212" />
+                            <ref key="WorkBlock:147" />
+                            <ref key="WorkBlock:148" />
+                            <ref key="WorkBlock:149" />
+                            <ref key="WorkBlock:150" />
+                            <ref key="WorkBlock:151" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:9" Name="6616" Color="RGB(255,170,204)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:181" />
+                            <ref key="WorkBlock:182" />
+                            <ref key="WorkBlock:183" />
+                            <ref key="WorkBlock:82" />
+                            <ref key="WorkBlock:83" />
+                            <ref key="WorkBlock:84" />
+                            <ref key="WorkBlock:85" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:10" Name="6697" Color="RGB(197,227,132)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:141" />
+                            <ref key="WorkBlock:142" />
+                            <ref key="WorkBlock:143" />
+                            <ref key="WorkBlock:144" />
+                            <ref key="WorkBlock:145" />
+                            <ref key="WorkBlock:146" />
+                            <ref key="WorkBlock:132" />
+                            <ref key="WorkBlock:133" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:11" Name="11018" Color="RGB(159,226,191)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:162" />
+                            <ref key="WorkBlock:163" />
+                            <ref key="WorkBlock:115" />
+                            <ref key="WorkBlock:116" />
+                            <ref key="WorkBlock:119" />
+                            <ref key="WorkBlock:120" />
+                            <ref key="WorkBlock:121" />
+                            <ref key="WorkBlock:122" />
+                            <ref key="WorkBlock:123" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:12" Name="11692" Color="RGB(143,80,157)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:127" />
+                            <ref key="WorkBlock:128" />
+                            <ref key="WorkBlock:129" />
+                            <ref key="WorkBlock:130" />
+                            <ref key="WorkBlock:131" />
+                            <ref key="WorkBlock:223" />
+                            <ref key="WorkBlock:224" />
+                            <ref key="WorkBlock:225" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:13" Name="14893" Color="RGB(255,43,43)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:25" />
+                            <ref key="WorkBlock:26" />
+                            <ref key="WorkBlock:27" />
+                            <ref key="WorkBlock:28" />
+                            <ref key="WorkBlock:29" />
+                            <ref key="WorkBlock:86" />
+                            <ref key="WorkBlock:87" />
+                            <ref key="WorkBlock:88" />
+                            <ref key="WorkBlock:89" />
+                            <ref key="WorkBlock:90" />
+                            <ref key="WorkBlock:91" />
+                            <ref key="WorkBlock:92" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:14" Name="16458" Color="RGB(255,29,206)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:47" />
+                            <ref key="WorkBlock:48" />
+                            <ref key="WorkBlock:49" />
+                            <ref key="WorkBlock:50" />
+                            <ref key="WorkBlock:51" />
+                            <ref key="WorkBlock:207" />
+                            <ref key="WorkBlock:208" />
+                            <ref key="WorkBlock:209" />
+                            <ref key="WorkBlock:210" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:15" Name="16690" Color="RGB(159,129,112)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:215" />
+                            <ref key="WorkBlock:216" />
+                            <ref key="WorkBlock:152" />
+                            <ref key="WorkBlock:153" />
+                            <ref key="WorkBlock:154" />
+                            <ref key="WorkBlock:155" />
+                            <ref key="WorkBlock:156" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:16" Name="16763" Color="RGB(197,75,140)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:200" />
+                            <ref key="WorkBlock:201" />
+                            <ref key="WorkBlock:202" />
+                            <ref key="WorkBlock:203" />
+                            <ref key="WorkBlock:134" />
+                            <ref key="WorkBlock:135" />
+                            <ref key="WorkBlock:136" />
+                            <ref key="WorkBlock:137" />
+                            <ref key="WorkBlock:138" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:17" Name="17015" Color="RGB(109,174,129)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:100" />
+                            <ref key="WorkBlock:101" />
+                            <ref key="WorkBlock:52" />
+                            <ref key="WorkBlock:53" />
+                            <ref key="WorkBlock:54" />
+                            <ref key="WorkBlock:55" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:18" Name="17552" Color="RGB(255,189,136)" DriverDutyType="DriverDutyType:2">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:204" />
+                            <ref key="WorkBlock:205" />
+                            <ref key="WorkBlock:206" />
+                            <ref key="WorkBlock:107" />
+                            <ref key="WorkBlock:108" />
+                            <ref key="WorkBlock:109" />
+                            <ref key="WorkBlock:110" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:19" Name="17623" Color="RGB(202,55,103)" DriverDutyType="DriverDutyType:3">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:1" />
+                            <ref key="WorkBlock:16" />
+                            <ref key="WorkBlock:17" />
+                            <ref key="WorkBlock:18" />
+                            <ref key="WorkBlock:19" />
+                            <ref key="WorkBlock:20" />
+                            <ref key="WorkBlock:21" />
+                            <ref key="WorkBlock:22" />
+                            <ref key="WorkBlock:23" />
+                            <ref key="WorkBlock:24" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:20" Name="17630" Color="RGB(234,126,93)" DriverDutyType="DriverDutyType:3">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:3" />
+                            <ref key="WorkBlock:56" />
+                            <ref key="WorkBlock:57" />
+                            <ref key="WorkBlock:58" />
+                            <ref key="WorkBlock:59" />
+                            <ref key="WorkBlock:60" />
+                            <ref key="WorkBlock:61" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:21" Name="17639" Color="RGB(253,217,181)" DriverDutyType="DriverDutyType:3">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:5" />
+                            <ref key="WorkBlock:93" />
+                            <ref key="WorkBlock:94" />
+                            <ref key="WorkBlock:95" />
+                            <ref key="WorkBlock:96" />
+                            <ref key="WorkBlock:97" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:22" Name="17673" Color="RGB(255,72,208)" DriverDutyType="DriverDutyType:3">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:11" />
+                            <ref key="WorkBlock:193" />
+                            <ref key="WorkBlock:194" />
+                            <ref key="WorkBlock:195" />
+                            <ref key="WorkBlock:196" />
+                            <ref key="WorkBlock:197" />
+                            <ref key="WorkBlock:198" />
+                            <ref key="WorkBlock:199" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:23" Name="18009" Color="RGB(255,255,102)" DriverDutyType="DriverDutyType:3">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:62" />
+                            <ref key="WorkBlock:63" />
+                            <ref key="WorkBlock:31" />
+                            <ref key="WorkBlock:32" />
+                            <ref key="WorkBlock:33" />
+                            <ref key="WorkBlock:34" />
+                            <ref key="WorkBlock:35" />
+                            <ref key="WorkBlock:36" />
+                            <ref key="WorkBlock:37" />
+                            <ref key="WorkBlock:38" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:24" Name="18050" Color="RGB(13,152,186)" DriverDutyType="DriverDutyType:3">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:186" />
+                            <ref key="WorkBlock:187" />
+                            <ref key="WorkBlock:188" />
+                            <ref key="WorkBlock:189" />
+                            <ref key="WorkBlock:190" />
+                            <ref key="WorkBlock:191" />
+                            <ref key="WorkBlock:192" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:25" Name="18097" Color="RGB(119,221,231)" DriverDutyType="DriverDutyType:3">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:170" />
+                            <ref key="WorkBlock:171" />
+                            <ref key="WorkBlock:172" />
+                            <ref key="WorkBlock:173" />
+                            <ref key="WorkBlock:174" />
+                            <ref key="WorkBlock:175" />
+                            <ref key="WorkBlock:176" />
+                            <ref key="WorkBlock:177" />
+                            <ref key="WorkBlock:178" />
+                            <ref key="WorkBlock:179" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:26" Name="18105" Color="RGB(239,222,205)" DriverDutyType="DriverDutyType:3">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:64" />
+                            <ref key="WorkBlock:65" />
+                            <ref key="WorkBlock:66" />
+                            <ref key="WorkBlock:67" />
+                            <ref key="WorkBlock:68" />
+                            <ref key="WorkBlock:69" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:27" Name="18107" Color="RGB(255,160,137)" DriverDutyType="DriverDutyType:3">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:217" />
+                            <ref key="WorkBlock:218" />
+                            <ref key="WorkBlock:219" />
+                            <ref key="WorkBlock:220" />
+                            <ref key="WorkBlock:221" />
+                            <ref key="WorkBlock:222" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:28" Name="18119" Color="RGB(252,232,131)" DriverDutyType="DriverDutyType:3">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:102" />
+                            <ref key="WorkBlock:103" />
+                            <ref key="WorkBlock:104" />
+                            <ref key="WorkBlock:105" />
+                            <ref key="WorkBlock:106" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                    <DriverDuty key="DriverDuty:29" Name="18131" Color="RGB(195,100,197)" DriverDutyType="DriverDutyType:3">
+                        <WorkBlocks>
+                            <ref key="WorkBlock:14" />
+                            <ref key="WorkBlock:226" />
+                            <ref key="WorkBlock:227" />
+                            <ref key="WorkBlock:228" />
+                            <ref key="WorkBlock:229" />
+                            <ref key="WorkBlock:230" />
+                            <ref key="WorkBlock:231" />
+                            <ref key="WorkBlock:232" />
+                        </WorkBlocks>
+                        <Runs />
+                        <ParametersValues />
+                    </DriverDuty>
+                </DriverDuties>
+                <DriverDutyTypes>
+                    <DriverDutyType key="DriverDutyType:3" Name="seguido">
+                        <ParametersValues>
+                            <ParameterValue key="ParameterValue:28" Value="0" Parameter="Parameter:27" />
+                            <ParameterValue key="ParameterValue:29" Value="1" Parameter="Parameter:28" />
+                            <ParameterValue key="ParameterValue:30" Value="1" Parameter="Parameter:29" />
+                            <ParameterValue key="ParameterValue:31" Value="18000" Parameter="Parameter:34" />
+                            <ParameterValue key="ParameterValue:32" Value="25200" Parameter="Parameter:35" />
+                            <ParameterValue key="ParameterValue:33" Value="18000" Parameter="Parameter:36" />
+                            <ParameterValue key="ParameterValue:34" Value="25200" Parameter="Parameter:37" />
+                            <ParameterValue key="ParameterValue:35" Parameter="Parameter:38" />
+                            <ParameterValue key="ParameterValue:36" Parameter="Parameter:39" />
+                            <ParameterValue key="ParameterValue:37" Value="3600" Parameter="Parameter:40" />
+                            <ParameterValue key="ParameterValue:38" Value="18000" Parameter="Parameter:41" />
+                            <ParameterValue key="ParameterValue:39" Value="25200" Parameter="Parameter:42" />
+                            <ParameterValue key="ParameterValue:40" Value="0" Parameter="Parameter:43" />
+                            <ParameterValue key="ParameterValue:41" Value="0" Parameter="Parameter:44" />
+                            <ParameterValue key="ParameterValue:42" Value="0" Parameter="Parameter:45" />
+                            <ParameterValue key="ParameterValue:43" Value="1" Parameter="Parameter:46" />
+                            <ParameterValue key="ParameterValue:44" Value="1" Parameter="Parameter:47" />
+                            <ParameterValue key="ParameterValue:45" Value="72000" Parameter="Parameter:48" />
+                            <ParameterValue key="ParameterValue:46" Value="28800" Parameter="Parameter:49" />
+                            <ParameterValue key="ParameterValue:47" Parameter="Parameter:50" />
+                            <ParameterValue key="ParameterValue:48" Parameter="Parameter:51" />
+                            <ParameterValue key="ParameterValue:49" Parameter="Parameter:52" />
+                            <ParameterValue key="ParameterValue:50" Value="0" Parameter="Parameter:53" />
+                            <ParameterValue key="ParameterValue:51" Value="0" Parameter="Parameter:54" />
+                            <ParameterValue key="ParameterValue:52" Value="25200" Parameter="Parameter:55" />
+                            <ParameterValue key="ParameterValue:53" Value="25200" Parameter="Parameter:56" />
+                            <ParameterValue key="ParameterValue:54" Value="0" Parameter="Parameter:57" />
+                            <ParameterValue key="ParameterValue:55" Value="0" Parameter="Parameter:58" />
+                            <ParameterValue key="ParameterValue:56" Value="50" Parameter="Parameter:59" />
+                            <ParameterValue key="ParameterValue:57" Value="50" Parameter="Parameter:60" />
+                            <ParameterValue key="ParameterValue:58" Value="500" Parameter="Parameter:61" />
+                            <ParameterValue key="ParameterValue:59" Value="500" Parameter="Parameter:62" />
+                            <ParameterValue key="ParameterValue:60" Value="0" Parameter="Parameter:63" />
+                            <ParameterValue key="ParameterValue:61" Value="3" Parameter="Parameter:64" />
+                            <ParameterValue key="ParameterValue:62" Value="0" Parameter="Parameter:65" />
+                            <ParameterValue key="ParameterValue:63" Value="1" Parameter="Parameter:66" />
+                            <ParameterValue key="ParameterValue:64" Parameter="Parameter:67" />
+                            <ParameterValue key="ParameterValue:65" Value="18000" Index="0" Parameter="Parameter:30" />
+                            <ParameterValue key="ParameterValue:66" Value="25200" Index="0" Parameter="Parameter:31" />
+                        </ParametersValues>
+                        <AllowedDriverTypes />
+                        <DeniedDriverTypes />
+                    </DriverDutyType>
+                    <DriverDutyType key="DriverDutyType:2" Name="2 etapas">
+                        <ParametersValues>
+                            <ParameterValue key="ParameterValue:67" Value="0" Parameter="Parameter:27" />
+                            <ParameterValue key="ParameterValue:68" Value="2" Parameter="Parameter:28" />
+                            <ParameterValue key="ParameterValue:69" Value="2" Parameter="Parameter:29" />
+                            <ParameterValue key="ParameterValue:70" Value="21600" Parameter="Parameter:34" />
+                            <ParameterValue key="ParameterValue:71" Value="34200" Parameter="Parameter:35" />
+                            <ParameterValue key="ParameterValue:72" Value="18000" Parameter="Parameter:36" />
+                            <ParameterValue key="ParameterValue:73" Value="28200" Parameter="Parameter:37" />
+                            <ParameterValue key="ParameterValue:74" Parameter="Parameter:38" />
+                            <ParameterValue key="ParameterValue:75" Parameter="Parameter:39" />
+                            <ParameterValue key="ParameterValue:76" Value="3600" Parameter="Parameter:40" />
+                            <ParameterValue key="ParameterValue:77" Value="18000" Parameter="Parameter:41" />
+                            <ParameterValue key="ParameterValue:78" Value="28200" Parameter="Parameter:42" />
+                            <ParameterValue key="ParameterValue:79" Value="0" Parameter="Parameter:43" />
+                            <ParameterValue key="ParameterValue:80" Value="0" Parameter="Parameter:44" />
+                            <ParameterValue key="ParameterValue:81" Value="0" Parameter="Parameter:45" />
+                            <ParameterValue key="ParameterValue:82" Value="1" Parameter="Parameter:46" />
+                            <ParameterValue key="ParameterValue:83" Value="1" Parameter="Parameter:47" />
+                            <ParameterValue key="ParameterValue:84" Value="72000" Parameter="Parameter:48" />
+                            <ParameterValue key="ParameterValue:85" Value="28800" Parameter="Parameter:49" />
+                            <ParameterValue key="ParameterValue:86" Parameter="Parameter:50" />
+                            <ParameterValue key="ParameterValue:87" Parameter="Parameter:51" />
+                            <ParameterValue key="ParameterValue:88" Parameter="Parameter:52" />
+                            <ParameterValue key="ParameterValue:89" Value="0" Parameter="Parameter:53" />
+                            <ParameterValue key="ParameterValue:90" Value="7200" Parameter="Parameter:54" />
+                            <ParameterValue key="ParameterValue:91" Value="28200" Parameter="Parameter:55" />
+                            <ParameterValue key="ParameterValue:92" Value="28200" Parameter="Parameter:56" />
+                            <ParameterValue key="ParameterValue:93" Value="0" Parameter="Parameter:57" />
+                            <ParameterValue key="ParameterValue:94" Value="0" Parameter="Parameter:58" />
+                            <ParameterValue key="ParameterValue:95" Value="50" Parameter="Parameter:59" />
+                            <ParameterValue key="ParameterValue:96" Value="50" Parameter="Parameter:60" />
+                            <ParameterValue key="ParameterValue:97" Value="500" Parameter="Parameter:61" />
+                            <ParameterValue key="ParameterValue:98" Value="500" Parameter="Parameter:62" />
+                            <ParameterValue key="ParameterValue:99" Value="0" Parameter="Parameter:63" />
+                            <ParameterValue key="ParameterValue:100" Value="3" Parameter="Parameter:64" />
+                            <ParameterValue key="ParameterValue:101" Value="0" Parameter="Parameter:65" />
+                            <ParameterValue key="ParameterValue:102" Value="1" Parameter="Parameter:66" />
+                            <ParameterValue key="ParameterValue:103" Parameter="Parameter:67" />
+                            <ParameterValue key="ParameterValue:104" Value="6000" Index="0" Parameter="Parameter:30" />
+                            <ParameterValue key="ParameterValue:105" Value="18000" Index="0" Parameter="Parameter:31" />
+                            <ParameterValue key="ParameterValue:106" Value="3600" Index="0" Parameter="Parameter:32" />
+                            <ParameterValue key="ParameterValue:107" Value="9000" Index="0" Parameter="Parameter:33" />
+                            <ParameterValue key="ParameterValue:108" Value="6000" Index="1" Parameter="Parameter:30" />
+                            <ParameterValue key="ParameterValue:109" Value="18000" Index="1" Parameter="Parameter:31" />
+                        </ParametersValues>
+                        <AllowedDriverTypes />
+                        <DeniedDriverTypes />
+                    </DriverDutyType>
+                </DriverDutyTypes>
+                <ParametersValues>
+                    <ParameterValue key="ParameterValue:1" Value="0" Parameter="Parameter:1" />
+                    <ParameterValue key="ParameterValue:2" Value="39600" Parameter="Parameter:2" />
+                    <ParameterValue key="ParameterValue:3" Value="54000" Parameter="Parameter:3" />
+                    <ParameterValue key="ParameterValue:4" Value="64800" Parameter="Parameter:4" />
+                    <ParameterValue key="ParameterValue:5" Value="79200" Parameter="Parameter:5" />
+                    <ParameterValue key="ParameterValue:6" Value="72000" Parameter="Parameter:6" />
+                    <ParameterValue key="ParameterValue:7" Value="28800" Parameter="Parameter:7" />
+                    <ParameterValue key="ParameterValue:8" Value="0" Parameter="Parameter:8" />
+                    <ParameterValue key="ParameterValue:9" Value="0" Parameter="Parameter:9" />
+                    <ParameterValue key="ParameterValue:10" Value="5" Parameter="Parameter:10" />
+                    <ParameterValue key="ParameterValue:11" Value="10" Parameter="Parameter:11" />
+                    <ParameterValue key="ParameterValue:12" Value="1000" Parameter="Parameter:12" />
+                    <ParameterValue key="ParameterValue:13" Value="15" Parameter="Parameter:13" />
+                    <ParameterValue key="ParameterValue:14" Value="20" Parameter="Parameter:14" />
+                    <ParameterValue key="ParameterValue:15" Value="2" Parameter="Parameter:15" />
+                    <ParameterValue key="ParameterValue:16" Value="3600" Index="0" Parameter="Parameter:16" />
+                    <ParameterValue key="ParameterValue:17" Value="10" Index="0" Parameter="Parameter:17" />
+                    <ParameterValue key="ParameterValue:18" Value="15" Index="1" Parameter="Parameter:17" />
+                    <ParameterValue key="ParameterValue:19" Value="86400" Parameter="Parameter:18" />
+                    <ParameterValue key="ParameterValue:20" Value="0" Parameter="Parameter:19" />
+                    <ParameterValue key="ParameterValue:21" Value="2400" Parameter="Parameter:20" />
+                    <ParameterValue key="ParameterValue:22" Value="0" Parameter="Parameter:21" />
+                    <ParameterValue key="ParameterValue:23" Value="86400" Parameter="Parameter:22" />
+                    <ParameterValue key="ParameterValue:24" Value="1.35" Parameter="Parameter:23" />
+                    <ParameterValue key="ParameterValue:25" Value="1.5" Parameter="Parameter:24" />
+                    <ParameterValue key="ParameterValue:26" Value="0.8" Parameter="Parameter:25" />
+                    <ParameterValue key="ParameterValue:27" Value="1" Parameter="Parameter:26" />
+                </ParametersValues>
+            </Schedule>
+        </GlDocumentSchedule>
+        <GlDocumentConfig>
+            <Config key="Config:1">
+                <Parameters>
+                    <Parameter key="Parameter:1" Name="G_MaxDelayTime" Title="Tempo máximo de atraso" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Vehicle" IsHidden="False">
+                        <Description>G_MaxDelayTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:2" Name="G_FirstMealStartTime" Title="Hora de início da primeira refeição" UseType="Value" Dimension="1" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>G_FirstMealStartTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:3" Name="G_FirstMealEndTime" Title="Hora de fim da primeira refeição" UseType="Value" Dimension="1" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>G_FirstMealEndTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:4" Name="G_SecondMealStartTime" Title="Hora de início da segunda refeição" UseType="Value" Dimension="1" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>G_SecondMealStartTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:5" Name="G_SecondMealEndTime" Title="Hora de fim da segunda refeição" UseType="Value" Dimension="1" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>G_SecondMealEndTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:6" Name="S_NightShiftStartTime" Title="Hora de início do periodo nocturno" UseType="Value" Dimension="1" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_NightShiftStartTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:7" Name="S_NightShiftEndTime" Title="Hora de fim do periodo nocturno" UseType="Value" Dimension="1" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_NightShiftEndTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:8" Name="G_MaxDayOvertime" Title="Duração máxima de trabalho extraordinário diurno" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>G_MaxDayOvertime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:9" Name="G_MaxNightOvertime" Title="Duração máxima de trabalho extraordinário nocturno" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>G_MaxNightOvertime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:10" Name="G_LunchCost" Title="Custo do Almoço" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>G_LunchCost</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:11" Name="G_DinnerCost" Title="Custo do Jantar" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>G_DinnerCost</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:12" Name="S_DriverFixCost" Title="Custo Fixo Motorista" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_DriverFixCostDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:13" Name="S_AdditionalCostNormalNocturnalWorkHour" Title="Custo Adic. Hora Trab. Normal Nocturno" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_AdditionalCostNormalNocturnalWorkHour</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:14" Name="S_AdditionalCostOvertimeNocturnalWorkHour" Title="Custo Adic. Hora Trab. Extra Nocturno" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_AdditionalCostOvertimeNocturnalWorkHour</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:15" Name="S_OvertimeNumberOfPeriods" Title="Nº de períodos extraordinários" UseType="VectorSize" DefaultValue="2" Scope="Global" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_OvertimeNumberOfPeriods</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:16" Name="S_MaxDurationOfOvertimePeriods" Title="Duração máxima da hora extra do escalão" UseType="Value" DimensionParameter="Parameter:15" DimensionParameterDelta="-1" DefaultValue="0" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_MaxDurationOfOvertimePeriods</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:17" Name="S_CostOfOvertimePeriods" Title="Custo de hora extra do escalão" UseType="Value" DimensionParameter="Parameter:15" DefaultValue="0" Scope="Global" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_CostOfOvertimePeriods</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:18" Name="G_MaxShiftDuration" Title="Duração máxima de um serviço de viatura" UseType="Value" Dimension="1" DefaultValue="86400" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Vehicle" IsHidden="False">
+                        <Description>G_MaxShiftDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:19" Name="G_MinTerminusStopTime" Title="Tempo mínimo de paragem num términus" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Vehicle" IsHidden="False">
+                        <Description>G_MinTerminusStopTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:20" Name="G_MaxTerminusStopTime" Title="Tempo máximo de paragem num términus" UseType="Value" Dimension="1" DefaultValue="600" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Vehicle" IsHidden="False">
+                        <Description>G_MaxTerminusStopTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:21" Name="G_MinDepotStopTime" Title="Tempo mínimo de paragem numa estação de recolha" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Vehicle" IsHidden="False">
+                        <Description>G_MinDepotStopTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:22" Name="G_MaxDepotStopTime" Title="Tempo máximo de paragem numa estação de recolha" UseType="Value" Dimension="1" DefaultValue="86400" Scope="Global" IsTime="True" IsBaseParameter="True" Group="Vehicle" IsHidden="False">
+                        <Description>G_MaxDepotStopTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:23" Name="G_DieselCost" Title="Diesel" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="False" IsBaseParameter="True" Group="Vehicle" IsHidden="False">
+                        <Description>G_DieselCostDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:24" Name="G_GasolineCost" Title="Gasolina" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="False" IsBaseParameter="True" Group="Vehicle" IsHidden="False">
+                        <Description>G_GasolineCostDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:25" Name="G_LGPCost" Title="GPL" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="False" IsBaseParameter="True" Group="Vehicle" IsHidden="False">
+                        <Description>G_LGPCostDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:26" Name="G_HydrogenCost" Title="Hidrogénio" UseType="Value" Dimension="1" DefaultValue="0" Scope="Global" IsTime="False" IsBaseParameter="True" Group="Vehicle" IsHidden="False">
+                        <Description>G_HydrogenCostDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:27" Name="T_MaxDurationSmallInterruption" Title="Duração máxima de pequena interrupção" UseType="Value" Dimension="1" DefaultValue="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxDurationSmallInterruption</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:28" Name="T_MinNumberRuns" Title="Número mínimo de etapas" UseType="Value" Dimension="1" Min="1" Max="10" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MinNumberRuns</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:29" Name="T_MaxNumberRuns" Title="Número máximo de etapas" UseType="VectorSize" Min="1" Max="10" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxNumberRuns</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:30" Name="T_MinRunDuration" Title="Duração mínima da etapa" UseType="Value" DimensionParameter="Parameter:29" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MinRunDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:31" Name="T_MaxRunDuration" Title="Duração máxima da etapa" UseType="Value" DimensionParameter="Parameter:29" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxRunDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:32" Name="T_MinBreakDuration" Title="Duração mínima da pausa" UseType="Value" DimensionParameter="Parameter:29" DimensionParameterDelta="-1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MinBreakDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:33" Name="T_MaxBreakDuration" Title="Duração máxima da pausa" UseType="Value" DimensionParameter="Parameter:29" DimensionParameterDelta="-1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxBreakDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:34" Name="T_MinAmplitude" Title="Amplitude mínima" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MinAmplitude</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:35" Name="T_MaxAmplitude" Title="Amplitude máxima" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxAmplitude</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:36" Name="T_MinDriveTime" Title="Tempo de condução mínimo" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MinDriveTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:37" Name="T_MaxDriveTime" Title="Tempo de condução máximo" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxDriveTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:38" Name="T_MinConsecutiveDriveTime" Title="Tempo de condução consecutivo mínimo" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MinConsecutiveDriveTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:39" Name="T_MaxConsecutiveDriveTime" Title="Tempo de condução consecutivo máximo" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxConsecutiveDriveTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:40" Name="T_MinMealTime" Title="Tempo de refeição mínimo" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MinMealTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:41" Name="T_MinNormalWorkTime" Title="Tempo de trabalho normal mínimo" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MinNormalWorkTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:42" Name="T_MaxNormalWorkTime" Title="Tempo de trabalho normal máximo" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxNormalWorkTimeDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:43" Name="T_MaxOvertimeWorkTime" Title="Tempo de trabalho extra máximo" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxOvertimeWorkTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:44" Name="T_MaxNumberSmallInterruptions" Title="Número máximo de pequenas interrupções" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxNumberSmallInterruptions</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:45" Name="T_MaxNumberSmallInterruptionsByRun" Title="Número máximo de pequenas interrupções por etapa" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxNumberSmallInterruptionsByRun</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:46" Name="T_MaxNumberVehicleChanges" Title="Número máximo de mudanças de viatura" UseType="Value" Dimension="1" Min="0" Max="9" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxNumberVehicleChanges</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:47" Name="T_MaxNumberVehicleChangesByRun" Title="Número máximo de mudanças de viatura por etapa" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MaxNumberVehicleChangesByRun</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:48" Name="S_NightShiftStartTime" Title="Hora de início do periodo nocturno" UseType="Value" Dimension="1" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>S_NightShiftStartTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:49" Name="S_NightShiftEndTime" Title="Hora de fim do periodo nocturno" UseType="Value" Dimension="1" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>S_NightShiftEndTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:50" Name="S_AdditionalCostNormalNocturnalWorkHour" Title="Custo Adic. Hora Trab. Normal Nocturno" UseType="Value" Dimension="1" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_AdditionalCostNormalNocturnalWorkHour</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:51" Name="S_AdditionalCostOvertimeNocturnalWorkHour" Title="Custo Adic. Hora Trab. Extra Nocturno" UseType="Value" Dimension="1" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_AdditionalCostOvertimeNocturnalWorkHour</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:52" Name="S_DriverFixCost" Title="Custo Fixo Motorista" UseType="Value" Dimension="1" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_DriverFixCostDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:53" Name="T_TotalBreakMinimumDuration" Title="Dur. Mín. Total Pausas" UseType="Value" Dimension="1" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_TotalBreakMinimumDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:54" Name="T_TotalBreakMaximumDuration" Title="Dur. Max. Total Pausas" UseType="Value" Dimension="1" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_TotalBreakMaximumDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:55" Name="T_NormalWorkTimeDesiredDuration" Title="Dur. desej. trab. normal" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_NormalWorkTimeDesiredDurationDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:56" Name="T_TotalWorkTimeDesiredDuration" Title="Dur. desej. trab. total" UseType="Value" Dimension="1" Min="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_TotalWorkTimeDesiredDurationDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:57" Name="T_MinimumDurationBeforeVehicleChange" Title="Tempo min. sem mud. viatura" UseType="Value" Dimension="1" DefaultValue="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MinimumDurationBeforeVehicleChangeDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:58" Name="T_DutyTypePenalty" Title="Penalização do tipo de serviço" UseType="Value" Dimension="1" Max="9999" DefaultValue="0" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_DutyTypePenalty</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:59" Name="T_NormalWorkTimeDesiredDeviationPenalty" Title="Pen. afast. desej. trab. normal" UseType="Value" Dimension="1" Max="9999" DefaultValue="50" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_NormalWorkTimeDesiredDeviationPenalty</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:60" Name="T_TotalWorkTimeDesiredDeviationPenalty" Title="Pen. afast. desej. trab. total" UseType="Value" Dimension="1" Max="9999" DefaultValue="50" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_TotalWorkTimeDesiredDeviationPenalty</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:61" Name="T_VehicleChangePenalty" Title="Pen. Mud. Viatura" UseType="Value" Dimension="1" Max="9999" DefaultValue="500" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_VehicleChangePenaltyDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:62" Name="T_SmallInterruptionPenalty" Title="Pen. Peq. Interrupção" UseType="Value" Dimension="1" Max="9999" DefaultValue="500" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_SmallInterruptionPenaltyDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:63" Name="T_ReliefOutsideDepotPenalty" Title="Pen. rend. fora est. recolha" UseType="Value" Dimension="1" Max="9999" DefaultValue="0" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_ReliefOutsideDepotPenaltyDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:64" Name="T_AssignmentOfCrewTravelTimes" Title="Atribuição dos tempos de deslocação de tripulante" UseType="Enumerator" DefaultValue="3" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_AssignmentOfCrewTravelTimes</Description>
+                        <Enumerators>
+                            <ParameterEnumerator key="ParameterEnumerator:1" Name="Indefinido" Value="0" IsDefaultValue="False" />
+                            <ParameterEnumerator key="ParameterEnumerator:2" Name="No início da etapa" Value="1" IsDefaultValue="False" />
+                            <ParameterEnumerator key="ParameterEnumerator:3" Name="No fim da etapa" Value="2" IsDefaultValue="False" />
+                            <ParameterEnumerator key="ParameterEnumerator:4" Name="No início ou no fim da etapa (o que se verifique válido)" Value="3" IsDefaultValue="True" />
+                        </Enumerators>
+                    </Parameter>
+                    <Parameter key="Parameter:65" Name="T_MealsToValidate" Title="Refeições a validar" UseType="Enumerator" DefaultValue="4" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_MealsToValidate</Description>
+                        <Enumerators>
+                            <ParameterEnumerator key="ParameterEnumerator:9" Name="Nenhuma" Value="0" IsDefaultValue="False" />
+                            <ParameterEnumerator key="ParameterEnumerator:5" Name="Almoço e Jantar" Value="1" IsDefaultValue="False" />
+                            <ParameterEnumerator key="ParameterEnumerator:6" Name="Almoço" Value="2" IsDefaultValue="False" />
+                            <ParameterEnumerator key="ParameterEnumerator:7" Name="Jantar" Value="3" IsDefaultValue="False" />
+                        </Enumerators>
+                    </Parameter>
+                    <Parameter key="Parameter:66" Name="T_Depots" Title="Estações de recolha" UseType="Enumerator" DefaultValue="1" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>T_Depots</Description>
+                        <Enumerators>
+                            <ParameterEnumerator key="ParameterEnumerator:13" Name="Deve começar e acabar" Value="0" IsDefaultValue="False" />
+                            <ParameterEnumerator key="ParameterEnumerator:14" Name="Não é necessário" Value="1" IsDefaultValue="True" />
+                            <ParameterEnumerator key="ParameterEnumerator:15" Name="Deve começar" Value="2" IsDefaultValue="False" />
+                            <ParameterEnumerator key="ParameterEnumerator:16" Name="Deve acabar" Value="3" IsDefaultValue="False" />
+                            <ParameterEnumerator key="ParameterEnumerator:17" Name="Deve começar ou acabar" Value="4" IsDefaultValue="False" />
+                        </Enumerators>
+                    </Parameter>
+                    <Parameter key="Parameter:67" Name="S_OvertimeNumberOfPeriods" Title="Nº de períodos extraordinários" UseType="VectorSize" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_OvertimeNumberOfPeriods</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:68" Name="S_MaxDurationOfOvertimePeriods" Title="Duração máxima da hora extra do escalão" UseType="Value" DimensionParameter="Parameter:67" DimensionParameterDelta="-1" DefaultValue="0" Scope="DutyType" IsTime="True" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_MaxDurationOfOvertimePeriods</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:69" Name="S_CostOfOvertimePeriods" Title="Custo de hora extra do escalão" UseType="Value" DimensionParameter="Parameter:67" DefaultValue="0" Scope="DutyType" IsTime="False" IsBaseParameter="True" Group="Driver" IsHidden="False">
+                        <Description>S_CostOfOvertimePeriods</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:70" Name="D_ValidateMinNumberRuns" Title="Validar o número mínimo de etapas" UseType="Validation" Procedure="D_NumberRuns &gt;= T_MinNumberRuns" Scope="Duty" IsTime="False" Message="Validation_MinNumberRuns" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMinNumberRuns</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:71" Name="D_ValidateMaxNumberRuns" Title="Validar o número máximo de etapas" UseType="Validation" Procedure="D_NumberRuns &lt;= T_MaxNumberRuns" Scope="Duty" IsTime="False" Message="Validation_MaxNumberRuns" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxNumberRuns</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:72" Name="D_ValidateMinRunDuration" Title="Validar a duração mínima da etapa" UseType="Validation" Procedure="T_MinRunDuration &lt;= D_RunsDurations[i]" Scope="Duty" IsTime="False" Message="Validation_MinRunDuration" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMinRunDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:73" Name="D_ValidateMaxRunDuration" Title="Validar a duração máxima da etapa" UseType="Validation" Procedure="T_MaxRunDuration &gt;= D_RunsDurations[i]" Scope="Duty" IsTime="False" Message="Validation_MaxRunDuration" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxRunDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:74" Name="D_ValidateMinBreakDuration" Title="Validar a duração mínima da pausa" UseType="Validation" Procedure="T_MinBreakDuration &lt;= D_BreaksDurations[i]" Scope="Duty" IsTime="False" Message="Validation_MinBreakDuration" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMinBreakDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:75" Name="D_ValidateMaxBreakDuration" Title="Validar a duração máxima da pausa" UseType="Validation" Procedure="T_MaxBreakDuration &gt;= D_BreaksDurations[i]" Scope="Duty" IsTime="False" Message="Validation_MaxBreakDuration" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxBreakDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:76" Name="D_ValidateMaxSmallInterruptionDuration" Title="Validar a duração máxima das pequenas interrupções" UseType="Validation" Procedure="T_MaxDurationSmallInterruption &gt;= D_SmallInterruptionsDurations[i]" Scope="Duty" IsTime="False" Message="Validation_MaxSmallInterruptionDuration" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxSmallInterruptionDuration</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:77" Name="D_Amplitude" Title="Amplitude" UseType="Calculation" Procedure="D_WorkBlocksEndTime - D_WorkBlocksStartTime" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_Amplitude</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:78" Name="D_ValidateMinAmplitude" Title="Valida a amplitude mínima" UseType="Validation" Procedure="D_Amplitude &gt;= T_MinAmplitude" Scope="Duty" IsTime="False" Message="Validation_MinAmplitude" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMinAmplitude</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:79" Name="D_ValidateMaxAmplitude" Title="Valida a amplitude maxima" UseType="Validation" Procedure="D_Amplitude &lt;= T_MaxAmplitude" Scope="Duty" IsTime="False" Message="Validation_MaxAmplitude" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxAmplitude</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:80" Name="D_ValidateMinDriveTime" Title="Valida o tempo de condução mínimo." UseType="Validation" Procedure="D_DrivingDuration &gt;= T_MinDriveTime" Scope="Duty" IsTime="False" Message="Validation_MinDriveTime" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMinDriveTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:81" Name="D_ValidateMaxDriveTime" Title="Valida o tempo de condução maximo" UseType="Validation" Procedure="D_DrivingDuration &lt;= T_MaxDriveTime" Scope="Duty" IsTime="False" Message="Validation_MaxDriveTime" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxDriveTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:82" Name="D_ValidateMinConsecutiveDriveTime" Title="Valida o tempo de condução consecutivo mínimo" UseType="Validation" Procedure="D_MinConsecutiveDriveTime &gt;= T_MinConsecutiveDriveTime" Scope="Duty" IsTime="False" Message="Validation_MinConsecutiveDriveTime" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMinConsecutiveDriveTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:83" Name="D_ValidateMaxConsecutiveDriveTime" Title="Valida o tempo de condução consecutivo maximo" UseType="Validation" Procedure="D_MaxConsecutiveDriveTime &lt;= T_MaxConsecutiveDriveTime" Scope="Duty" IsTime="False" Message="Validation_MaxConsecutiveDriveTime" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxConsecutiveDriveTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:84" Name="D_ValidateMinMealTime" Title="Valida o tempo mínimo de refeição" UseType="Validation" Procedure="D_MealsDurations[i] &gt;= T_MinMealTime" Scope="Duty" IsTime="False" Message="Validation_MinMealTime" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMinMealTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:85" Name="D_ValidateMinNormalWorkTime" Title="Valida o tempo de trabalho normal mínimo." UseType="Validation" Procedure="D_NormalWorkTime &gt;= T_MinNormalWorkTime" Scope="Duty" IsTime="False" Message="Validation_MinNormalWorkTime" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMinNormalWorkTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:86" Name="D_ValidateMaxNormalWorkTime" Title="Valida o tempo de trabalho normal máximo" UseType="Validation" Procedure="D_NormalWorkTime &lt;= T_MaxNormalWorkTime" Scope="Duty" IsTime="False" Message="Validation_MaxNormalWorkTime" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxNormalWorkTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:87" Name="D_ValidateMaxOvertimeWorkTime" Title="Valida o tempo de trabalho extra máximo" UseType="Validation" Procedure="D_OvertimeWorkTime &lt;= T_MaxOvertimeWorkTime" Scope="Duty" IsTime="False" Message="Validation_MaxOvertimeWorkTime" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxOvertimeWorkTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:88" Name="D_ValidateMaxNumberSmallInterruptions" Title="Validar o número máximo de pequenas interrupções" UseType="Validation" Procedure="D_NumberSmallInterruptions &lt;= T_MaxNumberSmallInterruptions" Scope="Duty" IsTime="False" Message="Validation_MaxNumberSmallInterruptions" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxNumberSmallInterruptions</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:89" Name="D_ValidateMaxNumberSmallInterruptionsByRun" Title="Validar o número máximo de pequenas interrupções por etapa" UseType="Validation" Procedure="D_NumberSmallInterruptionsByRun[i] &lt;= T_MaxNumberSmallInterruptionsByRun[i]" Scope="Duty" IsTime="False" Message="Validation_MaxNumberSmallInterruptionsByRun" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxNumberSmallInterruptionsByRun</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:90" Name="D_ValidateMaxNumberVehicleChanges" Title="Validar o número máximo de mudanças de viatura" UseType="Validation" Procedure="D_NumberVehicleChanges &lt;= T_MaxNumberVehicleChanges" Scope="Duty" IsTime="False" Message="Validation_MaxNumberVehicleChanges" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxNumberVehicleChanges</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:91" Name="D_ValidateMaxNumberVehicleChangesByRun" Title="Validar o número máximo de mudanças de viatura por etapa" UseType="Validation" Procedure="D_NumberVehicleChangesByRun[i] &lt;= T_MaxNumberVehicleChangesByRun[i]" Scope="Duty" IsTime="False" Message="Validation_MaxNumberVehicleChangesByRun" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_ValidateMaxNumberVehicleChangesByRun</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:92" Name="D_TotalDistance" Title="Distância Total" UseType="Calculation" Procedure="D_CommercialDistance + D_EmptyDistance" Scope="Duty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_TotalDistanceDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:93" Name="D_CommercialDuration" Title="Tempo Comercial" UseType="Calculation" Procedure="sum(D_CommercialTripsEndTimes[i] - D_CommercialTripsStartTimes[i])" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_CommercialDurationDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:94" Name="D_EmptyDuration" Title="Tempo Vazio" UseType="Calculation" Procedure="sum(D_EmptyTripsEndTimes[i] - D_EmptyTripsStartTimes[i])" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_EmptyDurationDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:95" Name="D_InTripDuration" Title="Tempo em viagem" UseType="Calculation" Procedure="D_CommercialDuration + D_EmptyDuration" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_InTripDurationDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:96" Name="D_DrivingDuration" Title="Tempo Condução" UseType="Calculation" Procedure="sum(D_VehiclePortionsEndTimes[i]-D_VehiclePortionsStartTimes[i])" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_DrivingDurationDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:97" Name="D_MinConsecutiveDriveTime" Title="Tempo mínimo de condução consecutiva" UseType="Calculation" Procedure="min(D_VehiclePortionsEndTimes[i]-D_VehiclePortionsStartTimes[i])" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_MinConsecutiveDriveTimeDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:98" Name="D_MaxConsecutiveDriveTime" Title="Tempo máximo de condução consecutiva" UseType="Calculation" Procedure="max(D_VehiclePortionsEndTimes[i]-D_VehiclePortionsStartTimes[i])" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_MaxConsecutiveDriveTimeDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:99" Name="D_NormalWorkTime" Title="Tempo de trabalho normal" UseType="Calculation" Procedure="D_TotalWorkTime-D_OvertimeWorkTime" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_NormalWorkTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:100" Name="D_DayOvertimeWorkTime" Title="Tempo de trabalho em periodo diurno extra" UseType="Calculation" Procedure="D_OvertimeWorkTime-D_NightOvertimeWorkTime" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_DayOvertimeWorkTimeDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:101" Name="D_NightOvertimeWorkTime" Title="Tempo de trabalho em periodo nocturno extra" UseType="Calculation" Procedure="sum(if(D_PortionsEndTimes[i]&gt;D_OvertimeWorkTimeStartTime&amp;D_PortionsStartTimes[i]&lt;S_NightShiftEndTime&amp;D_OvertimeWorkTimeStartTime&lt;S_NightShiftEndTime,min(D_PortionsEndTimes[i],S_NightShiftEndTime)-max(D_PortionsStartTimes[i],D_OvertimeWorkTimeStartTime),0))+&#xD;&#xA;                                                       sum(if(D_PortionsEndTimes[i]&gt;D_OvertimeWorkTimeStartTime&amp;D_PortionsEndTimes[i]&gt;S_NightShiftStartTime,max(D_PortionsEndTimes[i],D_OvertimeWorkTimeStartTime)-max(D_PortionsStartTimes[i],D_OvertimeWorkTimeStartTime,S_NightShiftStartTime),0))" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_NightOvertimeWorkTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:102" Name="D_NightNormalWorkTime" Title="Tempo de trabalho em periodo nocturno normal" UseType="Calculation" Procedure="sum(if(D_PortionsStartTimes[i]&lt;S_NightShiftEndTime,if(isNaN(D_OvertimeWorkTimeStartTime),min(D_PortionsEndTimes[i],S_NightShiftEndTime)-D_PortionsStartTimes[i],min(D_PortionsEndTimes[i],S_NightShiftEndTime,D_OvertimeWorkTimeStartTime)-D_PortionsStartTimes[i]),0))+sum(if(D_PortionsEndTimes[i]&gt;S_NightShiftStartTime,if(isNaN(D_OvertimeWorkTimeStartTime),D_PortionsEndTimes[i]-max(S_NightShiftStartTime,D_PortionsStartTimes[i]),if(D_OvertimeWorkTimeStartTime&gt;S_NightShiftStartTime,min(D_OvertimeWorkTimeStartTime,D_PortionsEndTimes[i])-max(S_NightShiftStartTime,D_PortionsStartTimes[i]),0)),0))" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_NightNormalWorkTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:103" Name="D_OvertimeWorkTime" Title="Tempo de trabalho extra" UseType="Calculation" Procedure="if(D_TotalWorkTime&gt;T_MaxNormalWorkTime,D_TotalWorkTime-T_MaxNormalWorkTime,0)" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_OvertimeWorkTime</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:104" Name="D_TotalWorkTime" Title="Tempo Trabalho Total" UseType="Calculation" Procedure="sum(D_RunsDurations[i])" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_TotalWorkTimeDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:105" Name="D_DayOvertimeWorkTimePeriods" Title="Duração dos períodos diurnos extraordinários" UseType="Calculation" DimensionParameter="Parameter:67" Procedure="if([i]==0,if(D_DayOvertimeWorkTime&gt;S_MaxDurationOfOvertimePeriods[0],S_MaxDurationOfOvertimePeriods[0],D_DayOvertimeWorkTime),if(D_DayOvertimeWorkTime&gt;S_MaxDurationOfOvertimePeriods[i]+val(vop(D_DayOvertimeWorkTimePeriods,0,[i-1],+),0),val(S_MaxDurationOfOvertimePeriods[i],D_DayOvertimeWorkTime),D_DayOvertimeWorkTime-val(vop(D_DayOvertimeWorkTimePeriods,0,[i-1],+),0)))" Scope="Duty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_DayOvertimeWorkTimePeriodsDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:106" Name="D_NightNormalPeriodCost" Title="Custo período normal nocturno" UseType="Calculation" Procedure="((val(D_NightNormalWorkTime,0)/3600)*S_AdditionalCostNormalNocturnalWorkHour)" Scope="Duty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_NightNormalPeriodCost</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:107" Name="D_NightOvertimeWorkTimeCost" Title="Custo período extra nocturno" UseType="Calculation" Procedure="((val(D_NightOvertimeWorkTime,0)/3600)*S_AdditionalCostOvertimeNocturnalWorkHour)" Scope="Duty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_NightOvertimeWorkTimeCost</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:108" Name="D_OvertimePeriodsCost" Title="Custo dos períodos extraordinário" UseType="Calculation" Procedure="val(sum((D_DayOvertimeWorkTimePeriods[i]/3600)*S_CostOfOvertimePeriods[i])+D_NightOvertimeWorkTimeCost,0)" Scope="Duty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_OvertimePeriodsCost</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:109" Name="D_MealsCost" Title="Custo refeições" UseType="Calculation" Procedure="val(sum(if(D_LunchDurations[i]&gt;T_MinMealTime,G_LunchCost,0))+sum(if(D_DinnerDurations[i]&gt;T_MinMealTime,G_DinnerCost,0)),0)" Scope="Duty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_MealsCostDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:110" Name="D_TotalCost" Title="Custo Total" UseType="Calculation" Procedure="S_DriverFixCost + D_MealsCost + val(D_OvertimePeriodsCost,0) + D_NightNormalPeriodCost" Scope="Duty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>D_TotalCostDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:111" Name="V_TotalDistance" Title="Distância Total" UseType="Calculation" Procedure="V_CommercialDistance+V_EmptyDistance" Scope="VehicleDuty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_TotalDistanceDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:112" Name="V_CommercialDuration" Title="Tempo Comercial" UseType="Calculation" Procedure="sum(V_CommercialTripsEndTimes[i]-V_CommercialTripsStartTimes[i])" Scope="VehicleDuty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_CommercialDurationDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:113" Name="V_EmptyDuration" Title="Tempo Vazio" UseType="Calculation" Procedure="sum(V_EmptyTripsEndTimes[i]-V_EmptyTripsStartTimes[i])" Scope="VehicleDuty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_EmptyDurationDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:114" Name="V_SupportDuration" Title="Tempo Suporte" UseType="Calculation" Procedure="sum(if(V_TripsPortions[i-1]==V_TripsPortions[i],V_TripsStartTimes[i]-V_TripsEndTimes[i-1],0))" Scope="VehicleDuty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_SupportDurationDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:115" Name="V_TotalDuration" Title="Tempo Total" UseType="Calculation" Procedure="V_CommercialDuration+V_EmptyDuration+V_SupportDuration" Scope="VehicleDuty" IsTime="True" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_TotalDurationDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:116" Name="V_CommercialConsumption" Title="Consumo em comercial" UseType="Calculation" Procedure="(V_Consumption/100)*(V_CommercialDistance/1000.0)" Scope="VehicleDuty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_CommercialConsumptionDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:117" Name="V_EmptyConsumption" Title="Consumo em vazio" UseType="Calculation" Procedure="(V_Consumption/100)*(V_EmptyDistance/1000.0)" Scope="VehicleDuty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_EmptyConsumptionDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:118" Name="V_TotalEmissions" Title="Emissões de C02 (g)" UseType="Calculation" Procedure="V_Emissions*(V_TotalDistance/1000.0)" Scope="VehicleDuty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_TotalEmissionsDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:119" Name="V_CommercialSpeed" Title="Velocidade em Comercial (km/h)" UseType="Calculation" Procedure="((V_CommercialDistance/1000.0)*3600)/V_CommercialDuration" Scope="VehicleDuty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_CommercialSpeedDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:120" Name="V_EmptySpeed" Title="Velocidade em Vazio (km/h)" UseType="Calculation" Procedure="((V_EmptyDistance/1000.0)*3600)/V_EmptyDuration" Scope="VehicleDuty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_EmptySpeedDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:121" Name="V_AverageSpeed" Title="Velocidade Média (km/h)" UseType="Calculation" Procedure="(V_CommercialSpeed*V_CommercialDistance+V_EmptySpeed*V_EmptyDistance)/(V_CommercialDistance + V_EmptyDistance)" Scope="VehicleDuty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_AverageSpeedDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:122" Name="V_CommercialCost" Title="Custo Comercial" UseType="Calculation" Procedure="V_EnergySourceCost*V_CommercialConsumption" Scope="VehicleDuty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_CommercialCostDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:123" Name="V_EmptyCost" Title="Custo Vazio" UseType="Calculation" Procedure="V_EnergySourceCost*V_EmptyConsumption" Scope="VehicleDuty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_EmptyCostDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                    <Parameter key="Parameter:124" Name="V_TotalCost" Title="Custo Total" UseType="Calculation" Procedure="V_FixedCost + V_CommercialCost + V_EmptyCost" Scope="VehicleDuty" IsTime="False" IsBaseParameter="True" Group="Undefined" IsHidden="False">
+                        <Description>V_TotalCostDescription</Description>
+                        <Enumerators />
+                    </Parameter>
+                </Parameters>
+            </Config>
+        </GlDocumentConfig>
+    </GlDocument>
+</world>
+<GlGlobalParameters xmlns:d1p1="http://schemas.datacontract.org/2004/07/Opt.GL.Domain">
+    <d1p1:CriterionToAddTripsToVehicleDuty>0</d1p1:CriterionToAddTripsToVehicleDuty>
+    <d1p1:MaxIntervalTimeBetweenTrips>3600</d1p1:MaxIntervalTimeBetweenTrips>
+    <d1p1:OverlapTime>0</d1p1:OverlapTime>
+  </GlGlobalParameters>
+</GlDocumentInfo>

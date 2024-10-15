@@ -1,0 +1,303 @@
+<div class="page-global">
+    <mat-grid-list cols="9" rowHeight="95px" gutterSize="10px">
+        
+        <!-- Algorithm selector -->
+        <mat-grid-tile colspan="1" rowspan="6"></mat-grid-tile>
+        <mat-grid-tile class="border-white" colspan="7" rowspan="1">
+            <mat-form-field appearance="fill">
+                <mat-label>Select the Algorithm</mat-label>
+                <mat-select [(value)]="selectedAlgorithm" (selectionChange)="resetList()">
+                    <mat-option value="GeneratorAllSolutions">Generator of All Solutions</mat-option>
+                    <mat-option value="A*">A*</mat-option>
+                    <mat-option value="BestFirst">Best First</mat-option>
+                    <mat-option value="Genetic">Genetic Algorithm</mat-option>
+                    <mat-option value="AffectDrivers">Affect Drivers</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="2">
+            <span *ngIf="errorMessage" style="color:red">{{errorMessage}}</span>
+            <span *ngIf="successMessage" style="color:green">{{successMessage}}</span>
+        </mat-grid-tile>
+
+        <!--Result List-->
+        <mat-grid-tile class="border-white example-table-container" style="background-color: white;" colspan="7" rowspan="4">
+                    <!-- In case algorithm A* was selected  -->
+                    <span class="fullSize" *ngIf="selectedAlgorithm === 'A*' ">
+                        <table [dataSource]="results"  mat-table>
+                            <ng-container matColumnDef="Time">
+                                <th mat-header-cell *matHeaderCellDef> Time </th>
+                                <td mat-cell *matCellDef="let result"> {{result.time}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Nodes">
+                                <th mat-header-cell *matHeaderCellDef> Path </th>
+                                <td mat-cell *matCellDef="let result"> {{result.nodes}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Paths">
+                                <th mat-header-cell *matHeaderCellDef> Lines </th>
+                                <td mat-cell *matCellDef="let result"> {{result.paths}} </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="AstarColumns;sticky:true;"></tr>
+                            <tr mat-row *matRowDef="let row; columns: AstarColumns;"></tr>
+                        </table>
+                    </span>  
+
+                    <!-- In case algorithm GeneratorAll was selected  -->
+                    <span class="fullSize" *ngIf="selectedAlgorithm === 'GeneratorAllSolutions' ">
+                        <table [dataSource]="results"  mat-table>
+                            <ng-container matColumnDef="Nodes">
+                                <th mat-header-cell *matHeaderCellDef> Nodes </th>
+                                <td mat-cell *matCellDef="let result"> {{result.nodes}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Path">
+                                <th mat-header-cell *matHeaderCellDef> Paths </th>
+                                <td mat-cell *matCellDef="let result"> {{result.path}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Time">
+                                <th mat-header-cell *matHeaderCellDef> Time </th>
+                                <td mat-cell *matCellDef="let result"> {{result.time}} </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="GeneratorAllColumns;sticky:true;"></tr>
+                            <tr mat-row *matRowDef="let row; columns: GeneratorAllColumns;"></tr>
+                        </table>
+                    </span> 
+                    
+
+                    
+                    
+
+
+                    <!-- In case algorithm Best First was selected  -->
+                    <span class="fullSize" *ngIf="selectedAlgorithm === 'BestFirst' ">
+                        <table [dataSource]="results"  mat-table>
+                            <ng-container matColumnDef="Nodes">
+                                <th mat-header-cell *matHeaderCellDef> Nodes </th>
+                                <td mat-cell *matCellDef="let result"> {{result.nodes}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Paths">
+                                <th mat-header-cell *matHeaderCellDef> Paths </th>
+                                <td mat-cell *matCellDef="let result"> {{result.paths}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="ArraivalTime">
+                                <th mat-header-cell *matHeaderCellDef> Arrival Time </th>
+                                <td mat-cell *matCellDef="let result"> {{result.time}} </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="BestFirstColumns;sticky:true;"></tr>
+                            <tr mat-row *matRowDef="let row; columns: BestFirstColumns;"></tr>
+                        </table>
+                    </span> 
+
+                    <!-- In case algorithm Genetic was selected  -->
+                    <span class="fullSize" *ngIf="selectedAlgorithm === 'Genetic' ">
+                        <table [dataSource]="results"  mat-table>
+                            <ng-container matColumnDef="Drivers">
+                                <th mat-header-cell *matHeaderCellDef> Drivers </th>
+                                <td mat-cell *matCellDef="let result"> {{result.driver}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="WorkBlocks">
+                                <th mat-header-cell *matHeaderCellDef> Workblocks </th>
+                                <td mat-cell *matCellDef="let result"> {{result.workblock}} </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="GeneticColumns;sticky:true;"></tr>
+                            <tr mat-row *matRowDef="let row; columns: GeneticColumns;"></tr>
+                        </table>
+                    </span>
+
+
+                      
+
+
+                    <!-- In case algorithm AffectDrivers was selected  -->
+                    <span class="fullSize" *ngIf="selectedAlgorithm === 'AffectDrivers' ">
+                        
+                        <table [dataSource]="results"  mat-table>
+                            <ng-container matColumnDef="Drivers">
+                                <th mat-header-cell *matHeaderCellDef> Drivers </th>
+                                <td mat-cell *matCellDef="let result"> {{result.driver}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="WorkBlocks">
+                                <th mat-header-cell *matHeaderCellDef> Workblocks </th>
+                                <td mat-cell *matCellDef="let result"> {{result.workblock}} </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="AffectDriversColumns;sticky:true;"></tr>
+                            <tr mat-row *matRowDef="let row; columns: AffectDriversColumns;"></tr>
+                        </table>
+                    </span>
+                    
+                  
+                
+                
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="3"></mat-grid-tile>
+        
+            
+        <div *ngIf="selectedAlgorithm == 'A*' || selectedAlgorithm == 'BestFirst' || selectedAlgorithm == 'GeneratorAllSolutions'">
+            <form name='form' #Form="ngForm" (ngSubmit)="Form.form.valid && onCalculate(Form)">
+                <!--Time-->
+                <mat-grid-tile colspan="1" rowspan="1">
+                    <div class="form-group">
+                        <label>Hour</label>
+                        <input style="width:80%" type="text" autocomplete="off" class="form-control" name="Hour" [(ngModel)]="hour" #Hour="ngModel"
+                            [ngClass]="{ 'is-invalid': Form.submitted && Hour.invalid }" Hour required>
+                        <div *ngIf="Form.submitted && Hour.invalid;else doBreak" class="invalid-feedback">
+                            <div *ngIf="Hour.errors.required">Hour required</div>
+                        </div>
+                        <ng-template #doBreak><br></ng-template>
+                    </div>
+                    <div class="form-group">
+                        <label>Minute</label>
+                        <input style="width:80%" type="text" autocomplete="off" class="form-control" name="Minute" [(ngModel)]="minute" #Minute="ngModel"
+                            [ngClass]="{ 'is-invalid': Form.submitted && Minute.invalid }" Minute required>
+                        <div *ngIf="Form.submitted && Minute.invalid;else doBreak" class="invalid-feedback">
+                            <div *ngIf="Minute.errors.required">Minute required</div>
+                        </div>
+                        <ng-template #doBreak><br></ng-template>
+                    </div>
+                </mat-grid-tile>
+
+
+                <mat-grid-tile colspan="1" rowspan="1"></mat-grid-tile>
+
+                <!--Start Node-->
+                <mat-grid-tile colspan="1" rowspan="1">
+                    <div class="form-group">
+                        <label>Start Point</label>
+                        <input type="text" (keyup)="obtainNodesSugestionForStartPoint()" autocomplete="off" class="form-control" name="Start" [(ngModel)]="start" #Start="ngModel"
+                            [ngClass]="{ 'is-invalid': Form.submitted && Start.invalid }" list="dynmicNodesShortNames" Start required>
+                            <datalist id="dynmicNodesShortNames">
+                                <option *ngFor="let item of nodesNamesListforStartPoint" [value]="item">{{item}}</option>
+                            </datalist>
+                        <div *ngIf="Form.submitted && Start.invalid;else doBreak" class="invalid-feedback">
+                            <div *ngIf="Start.errors.required">Start Point is required</div>
+                        </div>
+                        <ng-template #doBreak><br></ng-template>
+                    </div>
+    
+                </mat-grid-tile>
+
+                <!--Destination Node-->
+                <mat-grid-tile colspan="1" rowspan="1">
+                    <div class="form-group">
+                        <label>Destination</label>
+                        <input type="text" (keyup)="obtainNodesSugestionForDestinationPoint()" autocomplete="off" class="form-control" name="Destination" [(ngModel)]="destination" #Destination="ngModel"
+                            [ngClass]="{ 'is-invalid': Form.submitted && Destination.invalid }" list="dynmicNodesShortNamesD" Destination required>
+                            <datalist id="dynmicNodesShortNamesD">
+                                <option *ngFor="let item of nodesNamesListforDestinationPoint" [value]="item">{{item}}</option>
+                            </datalist>
+                    
+                            <div *ngIf="Form.submitted && Destination.invalid;else doBreak" class="invalid-feedback">
+                            <div *ngIf="Destination.errors.required">Destination is required</div>
+                        </div>
+                        <ng-template #doBreak><br></ng-template>
+                    </div>
+                </mat-grid-tile>
+        
+            
+            <mat-grid-tile colspan="2" rowspan="1"></mat-grid-tile>
+            <!--Calculate Button-->
+            <mat-grid-tile colspan="1" rowspan="1">
+                <button [disabled]="loading" class="btn btn-primary"><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Calculate</button>
+            </mat-grid-tile>
+        </form> 
+    </div>
+   
+    
+        <!-- Affect Drivers Genetic Algorithm Form -->
+    <div *ngIf="selectedAlgorithm == 'AffectDrivers'">
+            <form name='AffectDriversForm' #AffectDriversForm="ngForm" (ngSubmit)="AffectDriversForm.form.valid && onCalculateGeneticAffectDrivers(AffectDriversForm)">
+            <!--Date-->
+            <mat-grid-tile  colspan="2" rowspan="2">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="text" autocomplete="off" class="form-control" name="date" [(ngModel)]="affectDriversDate" #Date="ngModel" placeholder="Day/Month/Year"
+                        [ngClass]="{ 'is-invalid': AffectDriversForm.submitted && Date.invalid }" Date required>
+                        <div *ngIf="AffectDriversForm.submitted && Date.invalid;else doBreak" class="invalid-feedback">
+                        <div *ngIf="Date.errors.required">Date is required</div>
+                    </div>
+            
+                    <div *ngIf="this.errorLog">
+        
+                        <btn class="btn btn-danger" (click)="downloadErrorsFromPlanningJson()" >Download Planning Errors(Json)</btn>
+
+                    </div>
+                    <div *ngIf="this.allowSaveResult"> 
+        
+                        <btn class="btn btn-success" (click)="AffectDrivers()" >Persist changes</btn>
+                     </div> 
+                     <div *ngIf="this.mdvErrorLog"> 
+        
+                        <btn class="btn btn-primary" (click)="downloadErrorsFromMdvJson()" >Download Persist Info(Json)</btn>
+                     </div> 
+
+                   
+                    <ng-template #doBreak><br></ng-template>
+                </div>
+            </mat-grid-tile>
+
+           
+        
+            <!-- Blank space -->
+            <mat-grid-tile  colspan="2" rowspan="1"></mat-grid-tile>
+
+            <!--Calculate Button-->
+            <mat-grid-tile colspan="1" rowspan="1">
+                <button  [disabled]="loading"  class="btn btn-primary"><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Calculate</button>
+            </mat-grid-tile>
+        </form>
+    </div>
+
+
+       <!-- Genetic Algorithm Form -->
+       <div *ngIf="selectedAlgorithm == 'Genetic'">
+        <form name='GeneticForm' #GeneticForm="ngForm" (ngSubmit)="GeneticForm.form.valid && onCalculateGenetic(GeneticForm)">
+        <!--Vehicle Duty-->
+        <mat-grid-tile  colspan="2" rowspan="1">
+            <div class="form-group">
+                <label>Vehicle Duty</label>
+                <input type="text" (keyup)="obtainVehicleDutySuggestions()" autocomplete="off" class="form-control" name="vehicleDuty" [(ngModel)]="vehicleDutyId" #VehicleDutyId="ngModel"
+                    [ngClass]="{ 'is-invalid': GeneticForm.submitted && VehicleDutyId.invalid }" list="dynamicVehicleDuties" VehicleDutyId required>
+                    <datalist id="dynamicVehicleDuties">
+                        <option *ngFor="let item of dynamicVehicleDuties" [value]="item">{{item}}</option>
+                    </datalist>
+            
+                    <div *ngIf="GeneticForm.submitted && VehicleDutyId.invalid;else doBreak" class="invalid-feedback">
+                    <div *ngIf="VehicleDutyId.errors.required">Vehicle Duty is required</div>
+                </div>
+                <ng-template #doBreak><br></ng-template>
+            </div>
+        </mat-grid-tile>
+
+        <!--Max Algorithm Duration-->
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="form-group">
+                <label>Max Running Duration (in seconds)</label>
+                <input type="number" autocomplete="off" class="form-control" name="maxDuration" [(ngModel)]="maxDuration" #MaxDuration="ngModel"
+                    [ngClass]="{ 'is-invalid': GeneticForm.submitted && MaxDuration.invalid }" min="0" MaxDuration required>
+                    <div *ngIf="GeneticForm.submitted && MaxDuration.invalid;else doBreak" class="invalid-feedback">
+                    <div *ngIf="MaxDuration.errors.required">Max duration is required</div>
+                </div>
+                <ng-template #doBreak><br></ng-template>
+            </div>
+        </mat-grid-tile>
+    
+        <!-- Blank space -->
+        <mat-grid-tile  colspan="1" rowspan="1"></mat-grid-tile>
+
+        <!--Calculate Button-->
+        <mat-grid-tile colspan="1" rowspan="1">
+            <button [disabled]="loading" class="btn btn-primary"><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Calculate</button>
+                
+        </mat-grid-tile>
+
+      
+
+       
+    </form>
+</div>
+
+    
+    </mat-grid-list>
+</div>

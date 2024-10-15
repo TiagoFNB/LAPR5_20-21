@@ -1,0 +1,151 @@
+<div class="page-global">
+    <mat-grid-list cols="8" rowHeight="95px" gutterSize="10px">
+        <!-- Title Tile -->
+        <mat-grid-tile colspan="8" rowspan="1"><h2>Generate WorkBlocks</h2></mat-grid-tile>
+
+        <form name='form' key='form' #workblockForm="ngForm" (ngSubmit)="workblockForm.form.valid && onSubmit(workblockForm)">
+
+            <!-- Vehicle Service Tile -->
+            <mat-grid-tile colspan="2" rowspan="1">
+                <div class="form-group vertical-buffer">
+                    <label>Vehicle Duty ID</label>
+                    <input type="text" autocomplete="off" name="VehicleDutyId" class="form-control" [(ngModel)]="workblock.vehicleServiceId" #workblockVehicleService="ngModel"
+                        [ngClass]="{ 'is-invalid': workblockForm.submitted && workblockForm.invalid }" lineCode required>
+                    <div class="invalid-feedback" *ngIf="workblockForm.submitted && workblockVehicleService.invalid;else doBreak">
+                        <p *ngIf="workblockVehicleService.errors.required;else doBreak">Vehicle Duty Id is required.</p>
+                    </div>
+                    <ng-template #doBreak><br></ng-template>
+                </div>
+            </mat-grid-tile>
+
+            <!-- Generation Starting Time Tile-->
+            <mat-grid-tile colspan="2" rowspan="1">
+                <div class="form-group vertical-buffer">
+                    <label>Generation Starting Time</label>
+                    <input matInput id="Time" type="datetime-local" autocomplete="off" name="Time" class="form-control" [(ngModel)]="workblock.time" #workblockTime="ngModel"
+                        [ngClass]="{ 'is-invalid': workblockForm.submitted && workblockForm.invalid }"  min="minDate" workblockTime required>
+                    <div class="invalid-feedback" *ngIf="workblockForm.submitted && workblockTime.invalid;else doBreak">
+                        <p *ngIf="workblockTime.errors.required;else doBreak">Generation Starting Time is required.</p>
+                    </div>
+                    <ng-template #doBreak><br></ng-template>
+                </div>
+            </mat-grid-tile>
+
+            <!-- Currently added trips Tile-->
+            <mat-grid-tile colspan="3" rowspan="3">
+                <div class="top-selected-trips">
+                    <label style="position:absolute ; top:50% ;left:40%">Selected Trips</label>
+                </div>
+                <div class="bottom-selected-trips example-table-container">
+                    <span class="fullSize">
+                        <table [dataSource]="workblock.selectedTrips"  mat-table>
+                            <ng-container matColumnDef="Path">
+                                <th mat-header-cell *matHeaderCellDef> Path </th>
+                                <td mat-cell *matCellDef="let obtainedTrip"> {{obtainedTrip.path}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Departure">
+                                <th mat-header-cell *matHeaderCellDef> Departure </th>
+                                <td mat-cell *matCellDef="let obtainedTrip"> {{obtainedTrip.departure}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="Select">
+                                <th mat-header-cell *matHeaderCellDef></th>
+                                <td mat-cell *matCellDef="let obtainedTrip">
+                                    <button type="button" class="button-remove-Trip" (click) ="onRemove(obtainedTrip)">Remove</button> 
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="TripsColumns;sticky:true;"></tr>
+                            <tr mat-row *matRowDef="let row; columns: TripsColumns;"></tr>
+                        </table>
+                    </span>  
+                </div>         
+            </mat-grid-tile>
+
+            <!-- Feedback Tile-->
+            <mat-grid-tile colspan="1" rowspan="3" style="background-color: #ffffffbb;">
+                <div class="feedback">
+                    <h3 name='successMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+                    <h3 name='errorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+                </div>
+            </mat-grid-tile>
+
+            <!-- Amount Of Blocks Tile -->
+            <mat-grid-tile colspan="2" rowspan="1">
+                <div class="form-group vertical-buffer">
+                    <label>Amount Of Blocks</label>
+                    <input type="number" autocomplete="off" name="AmountBlocks" class="form-control" [(ngModel)]="workblock.amountBlocks" #workblockAmountBlocks="ngModel"
+                        [ngClass]="{ 'is-invalid': workblockForm.submitted && workblockForm.invalid }" lineCode required>
+                    <div class="invalid-feedback" *ngIf="workblockForm.submitted && workblockAmountBlocks.invalid;else doBreak">
+                        <p *ngIf="workblockAmountBlocks.errors.required;else doBreak">Amount Of Blocks is required.</p>
+                    </div>
+                    <ng-template #doBreak><br></ng-template>
+                </div>
+            </mat-grid-tile>
+
+            <!-- Block Duration Tile -->
+            <mat-grid-tile colspan="2" rowspan="1">
+                <div class="form-group vertical-buffer">
+                    <label>Block Duration</label>
+                    <input type="text" placeholder="00:00" autocomplete="off" name="DurationBlocks" class="form-control" [ngxTimepicker]="durationPicker" [format]="24" [(ngModel)]="workblock.durationBlocks" #workblockDurationBlocks="ngModel"
+                    [value]="workblock.durationBlocks" [ngClass]="{ 'is-invalid': workblockForm.submitted && workblockForm.invalid }" workblockDurationBlocks required max="04:00 am">
+                    <ngx-material-timepicker #durationPicker></ngx-material-timepicker>
+                    <div class="invalid-feedback" *ngIf="workblockForm.submitted && workblockDurationBlocks.invalid;else doBreak">
+                        <p *ngIf="workblockDurationBlocks.errors.required;else doBreak">Block duration is required.</p>
+                    </div>
+                    <ng-template #doBreak><br></ng-template>
+                </div>
+            </mat-grid-tile>
+
+            <!-- Line Tile -->
+            <mat-grid-tile colspan="2" rowspan="1">
+                <div class="form-group vertical-buffer">
+                    <label>Line</label>
+                    <input type="text" list="dynamicLinesList" (keyup)="presentLineNames()" autocomplete="off" name="Line" class="form-control" [(ngModel)]="currentLine" #Line="ngModel">
+                    <datalist id="dynamicLinesList">
+                        <option *ngFor="let item of lineList" [value]="item.key">{{item.name}}</option>
+                    </datalist>
+                    <ng-template #doBreak><br></ng-template>
+                </div>
+            </mat-grid-tile>
+
+            <!-- Search Trips Tile -->
+            <mat-grid-tile colspan="2" rowspan="1">
+                <button name='SearchTripsButton' class="btn btn-secondary button-add-Trip" [disabled]='loadingSearch' style="position:absolute;left:0%" type="button" (click)="obtainTrips()">
+                    <span name='SearchTripsLoad' *ngIf='loadingSearch' class="spinner-border spinner-border-sm mr-1"></span>Search Trips</button>
+            </mat-grid-tile>
+
+            <!-- Trips Tile -->
+            <mat-grid-tile class="example-table-container" colspan="7" rowspan="2">
+                <span class="fullSize">
+                    <table [dataSource]="obtainedTrips"  mat-table>
+                        <ng-container matColumnDef="Path">
+                            <th mat-header-cell *matHeaderCellDef> Path </th>
+                            <td mat-cell *matCellDef="let obtainedTrip"> {{obtainedTrip.path}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Departure">
+                            <th mat-header-cell *matHeaderCellDef> Departure </th>
+                            <td mat-cell *matCellDef="let obtainedTrip"> {{obtainedTrip.departure}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Select">
+                            <th mat-header-cell *matHeaderCellDef></th>
+                            <td mat-cell *matCellDef="let obtainedTrip">
+                                <button name='{{obtainedTrip.path}}-{{obtainedTrip.departure}}' type="button" class="button-add-Trip" (click) ="onAdd(obtainedTrip)">Add</button> 
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="TripsColumns;sticky:true;"></tr>
+                        <tr mat-row *matRowDef="let row; columns: TripsColumns;"></tr>
+                    </table>
+                </span>  
+            </mat-grid-tile>
+
+            <!-- Submit Tile -->
+            <mat-grid-tile colspan="1" rowspan="2">
+                <div class="form-group">
+                    <button [disabled]='loadingSubmit' class="btn btn-primary">
+                        <span name='SubmitLoad' *ngIf='loadingSubmit' class="spinner-border spinner-border-sm mr-1"></span>Submit
+                    </button>
+                </div>
+            </mat-grid-tile>
+
+        </form>
+    </mat-grid-list>
+</div>

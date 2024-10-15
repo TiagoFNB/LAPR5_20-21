@@ -1,0 +1,59 @@
+<div class="w3-container page-global">
+
+    <div class="formLeft">
+        <h2> Delete Account </h2>
+        <form name='form' #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit(userForm)">
+            <!-- First row -->
+            <div class="row vertical-buffer">
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="forgetUserEmail" class="form-control" [(ngModel)]="forgetUserPrototype.email"
+                            autocomplete="off" #forgetUserEmail="ngModel"
+                            [ngClass]="{ 'is-invalid': userForm.submitted && forgetUserEmail.invalid }" userEmail required>
+                        <div class="invalid-feedback" *ngIf="userForm.submitted && forgetUserEmail.invalid">
+                            <p name="EmailRequiredForgetUser" *ngIf="forgetUserEmail.errors.required">Email is required</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="forgetUserPassword" class="form-control" [(ngModel)]="forgetUserPrototype.password"
+                            autocomplete="off" #forgetUserPassword="ngModel"
+                            [ngClass]="{ 'is-invalid': userForm.submitted && forgetUserPassword.invalid }" userPassword required>
+                        <div class="invalid-feedback" *ngIf="userForm.submitted && forgetUserPassword.invalid">
+                            <p name="PasswordRequiredForgetUser" *ngIf="forgetUserPassword.errors.required">Password is required</p>
+                        </div>
+                       
+                    </div>
+                    <button id="btnid" name="forgetUserBtn" class="btn btn-danger deletebtn" type="submit">Delete
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    </button>
+                    
+                </div>
+               
+            </div>
+
+           
+          
+
+        </form>
+    </div>
+
+    <div class="formRight">
+        <div>
+            <h3 name='SuccessMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+            <h3 name='ErrorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+        </div>
+    </div>
+
+</div>
+
+
+
+

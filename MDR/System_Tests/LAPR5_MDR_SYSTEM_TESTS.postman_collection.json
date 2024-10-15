@@ -1,0 +1,1829 @@
+{
+	"info": {
+		"_postman_id": "fa24a4fc-1e25-4bf3-9835-e3b9b6f587f2",
+		"name": "LAPR5_MDR_SYSTEM_TESTS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "US002-Create a Node",
+			"item": [
+				{
+					"name": "Create a Node_Test1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"create node successfully\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql('name1');\r",
+									"    pm.expect(jsonData.shortName).to.eql('ss00');\r",
+									"    pm.expect(jsonData.latitude).to.eql('10.1');\r",
+									"    pm.expect(jsonData.longitude).to.eql('20.1');\r",
+									"    pm.expect(jsonData.isDepot).to.eql('true');\r",
+									"    pm.expect(jsonData.isReliefPoint).to.eql('true');\r",
+									"    pm.expect(jsonData.crewTravelTimes).to.be.undefined;\r",
+									"    pm.expect(jsonData.crewTravelTimeReferenceNode).to.undefined;\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"1\",\r\n    \"name\": \"name1\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"ss00\",\r\n    \"isDepot\": \"yes\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/node",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Node_Test2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Node_Test2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// success test 2 , all possible fields are valid and defined\r",
+									"pm.test(\"create node successfully\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql('name2');\r",
+									"    pm.expect(jsonData.shortName).to.eql('ss001');\r",
+									"    pm.expect(jsonData.latitude).to.eql('10.1');\r",
+									"    pm.expect(jsonData.longitude).to.eql('20.1');\r",
+									"    pm.expect(jsonData.isDepot).to.eql('true');\r",
+									"    pm.expect(jsonData.isReliefPoint).to.eql('true');\r",
+									"    pm.expect(jsonData.crewTravelTimes).to.eql('100'); \r",
+									"    pm.expect(jsonData.crewTravelTimeReferenceNode).to.eql('ss00');\r",
+									"    \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"node:1\",\r\n    \"name\": \"name2\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"ss001\",\r\n    \"isDepot\": \"yes\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"100\",\r\n    \"crewTravelTimeReferenceNode\":\"ss00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/node",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Node_Test3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// success test 3 , only required fields are present in request body, becouse there is no specification about if the node\r",
+									"// is depot or relief point i assume the node is nor one or the other\r",
+									"pm.test(\"create node successfully\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql('name3');\r",
+									"    pm.expect(jsonData.shortName).to.eql('ns002');\r",
+									"    pm.expect(jsonData.latitude).to.eql('10.1');\r",
+									"    pm.expect(jsonData.longitude).to.eql('20.1');\r",
+									"    pm.expect(jsonData.isDepot).to.eql('false');\r",
+									"    pm.expect(jsonData.isReliefPoint).to.eql('false');\r",
+									"    pm.expect(jsonData.crewTravelTimes).to.be.undefined;\r",
+									"    pm.expect(jsonData.crewTravelTimeReferenceNode).to.be.undefined;\r",
+									"    \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name3\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"ns002\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/node",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Node_Test4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error test 1 , name is not specified\r",
+									"pm.test(\"error create node \", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"ss003\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/node",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Node_Test5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error test 2 , latitude is not specified\r",
+									"pm.test(\"error create node\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"ss004\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/node",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Node_Test6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error test 3 , longitude is not specified\r",
+									"pm.test(\"error create node\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name\",\r\n    \"latitude\": \"20.1\",\r\n    \"shortName\": \"ss005\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/node",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Node_Test7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error test 4 , shortname is not specified\r",
+									"pm.test(\"error create node\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name\",\r\n    \"longitude\": \"20.1\",\r\n    \"latitude\": \"20.1\"\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/node",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Node_Test8",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error test 5 ,trying to define  crew travel time information when node is not a depot neither a relief point\r",
+									"pm.test(\"error create node\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"name1\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"ss007\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"100\",\r\n    \"crewTravelTimeReferenceNode\":\"ss007\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/node",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Node_Test9",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error test 6 ,trying to define  crew travel time reference node that dosent exist \r",
+									"pm.test(\"error create node\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"name1\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"ss007\",\r\n    \"isDepot\": \"no\",\r\n    \"isReliefPoint\": \"yes\",\r\n    \"crewTravelTimes\": \"100\",\r\n    \"crewTravelTimeReferenceNode\":\"doesNotExists\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/node",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "US003 - Create a Line",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "CreateNode1",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"intTestNode1\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"testNode1\",\r\n    \"isDepot\": \"yes\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/node",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"node"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNode2",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"intTestNode2\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"testNode2\",\r\n    \"isDepot\": \"yes\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/node",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"node"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CreateNewLineTest1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Line (success case 1)\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.key).to.eql('testLine1');\r",
+									"    pm.expect(jsonData.name).to.eql('name1');\r",
+									"\r",
+									"    pm.expect(jsonData.terminalNode1).to.eql('testNode1');\r",
+									"    pm.expect(jsonData.terminalNode2).to.eql('testNode2');    \r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"testLine1\",\r\n    \"name\": \"name1\",\r\n    \"terminalNode1\": \"testNode1\",\r\n    \"terminalNode2\": \"testNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateNewLineTest2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Line (success case 2) : Create line without indicating Color\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.key).to.eql('testLine2');\r",
+									"    pm.expect(jsonData.name).to.eql('name1');\r",
+									"\r",
+									"    pm.expect(jsonData.terminalNode1).to.eql('testNode1');\r",
+									"    pm.expect(jsonData.terminalNode2).to.eql('testNode2');    \r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"testLine2\",\r\n    \"name\": \"name1\",\r\n    \"terminalNode1\": \"testNode1\",\r\n    \"terminalNode2\": \"testNode2\",\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateNewLineTest3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Line (failure case 1) : line already exists\", function () {\r",
+									"  pm.response.to.have.status(422);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"testLine1\",\r\n    \"name\": \"name1\",\r\n    \"terminalNode1\": \"testNode1\",\r\n    \"terminalNode2\": \"testNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateNewLineTest4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Line (failure case 2) : Terminal Node does not exist in the database\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"testLine2\",\r\n    \"name\": \"name1\",\r\n    \"terminalNode1\": \"testNodeNotExist\",\r\n    \"terminalNode2\": \"testNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateNewLineTest5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Line (failure case 3) : An element from RGB is invalid\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"testLine2\",\r\n    \"name\": \"name1\",\r\n    \"terminalNode1\": \"testNode1\",\r\n    \"terminalNode2\": \"testNode2\",\r\n    \"RGB\": {\r\n        \"red\" : -1,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateNewLineTest6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Line (failure case 4) : Vehicle in the list does not exist\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"testLine2\",\r\n    \"name\": \"name1\",\r\n    \"terminalNode1\": \"testNode1\",\r\n    \"terminalNode2\": \"testNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [\"VehicleNotExist\"],\r\n    \"AllowedDrivers\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateNewLineTest7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Line (failure case 5) : Driver in the list does not exist\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"testLine2\",\r\n    \"name\": \"name1\",\r\n    \"terminalNode1\": \"testNode1\",\r\n    \"terminalNode2\": \"testNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": [\"DriverNotExist\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateNewLineTest8",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Line (failure case 6) : Json incorrectly formatted\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"testLine1\",\r\n    \"terminalNode1\": \"testNode1\",\r\n    \"terminalNode2\": \"testNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Integration Testing for US003 - Create Line"
+		},
+		{
+			"name": "US005 - Create Driver Type",
+			"item": [
+				{
+					"name": "Create Driver Type (Success case)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"create driver type (success case 1)\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql('CN1');\r",
+									"    pm.expect(jsonData.description).to.eql('Amadores');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"key2\",\r\n    \"name\": \"CN1\" ,\r\n    \"description\": \"Amadores\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/drivertype",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"drivertype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Driver Type ( Success Case 2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"create driver type (success case 2)\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql('CN2');\r",
+									"    pm.expect(jsonData.description).to.eql('Amadores');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"name\": \"CN2\" ,\r\n    \"description\": \"Amadores\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/drivertype",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"drivertype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Driver Type ( fail case 1)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a DriverType (failure case 1) : 'name' longer than 20 chars \", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"name\": \"name1name2name3name4name5\" ,\r\n    \"description\": \"Amadores\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/drivertype",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"drivertype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Driver Type ( fail case 2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a DriverType (failure case 2) : 'name' is required \", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"description\": \"Amadores\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/drivertype",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"drivertype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Driver Type (fail case 3)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a DriverType (failure case 3) : 'desc' is required\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"name\": \"name1\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/drivertype",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"drivertype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Driver Type ( fail case 4)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a DriverType (failure case 4) : duplicated name\", function () {\r",
+									"  pm.response.to.have.status(422);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"name\": \"CN2\" ,\r\n    \"description\": \"Amadores\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/drivertype",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"drivertype"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "US009 - List Line Paths",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "CreateNode1",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"us009TestNode1\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"us009TestNode1\",\r\n    \"isDepot\": \"yes\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/node",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"node"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNode2",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"us009TestNode2\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"us009TestNode2\",\r\n    \"isDepot\": \"yes\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/node",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"node"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewLine1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"us009TestLine1\",\r\n    \"name\": \"name1\",\r\n    \"terminalNode1\": \"us009TestNode1\",\r\n    \"terminalNode2\": \"us009TestNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/line",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"line"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNewLine2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"us009TestLine2\",\r\n    \"name\": \"name1\",\r\n    \"terminalNode1\": \"us009TestNode1\",\r\n    \"terminalNode2\": \"us009TestNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/line",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"line"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DefinePath1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"us009TestPath1\",\r\n    \"line\": \"us009TestLine1\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"us009TestNode1\",\r\n            \"node2\": \"us009TestNode2\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/path/register",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"path",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ListLinePathsTest1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"List Line paths (success case 1)\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.key).to.eql('us009TestLine1');\r",
+									"    pm.expect(jsonData.paths[0].key).to.eql('us009TestPath1'); \r",
+									"    pm.expect(jsonData.paths[0].type).to.eql('Go'); \r",
+									"    pm.expect(jsonData.paths[0].pathSegments[0].node1).to.eql('us009TestNode1'); \r",
+									"    pm.expect(jsonData.paths[0].pathSegments[0].node2).to.eql('us009TestNode2');\r",
+									"    pm.expect(jsonData.paths[0].pathSegments[0].duration).to.eql(60);\r",
+									"    pm.expect(jsonData.paths[0].pathSegments[0].distance).to.eql(200);\r",
+									"    pm.expect(jsonData.paths[0].isEmpty).to.eql(true);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line/paths/us009TestLine1",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line",
+								"paths",
+								"us009TestLine1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListLinePathsTest2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"List Line paths (success case 2) : Empty paths list\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.key).to.eql('us009TestLine2');\r",
+									"    pm.expect(jsonData.paths).to.eql([]); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line/paths/us009TestLine2",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line",
+								"paths",
+								"us009TestLine2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListLinePathsTest3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"List Line paths (success case 2) : Line does not exist in the db\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line/paths/us009TestLine3",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line",
+								"paths",
+								"us009TestLine3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

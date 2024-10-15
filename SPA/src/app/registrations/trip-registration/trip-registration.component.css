@@ -1,0 +1,36 @@
+* .page-global {
+  min-height: 600px;
+  max-height: 700px;
+}
+
+.vertical-buffer {
+  min-height: 120px;
+}
+
+:host >>> .mat-figure {
+  align-items: center !important;
+}
+/* .mat-grid-tile div {
+  padding-top: 5px;
+} */
+
+button {
+  float: left;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+}
+
+button:hover {
+  background-color: #005c05;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}

@@ -1,0 +1,149 @@
+/* .page-global{
+    min-height: 600px;
+    max-height:700px;
+  }
+  
+  .vertical-buffer{
+    min-height:120px;
+    
+  }
+  
+  
+  input[type=text], input[type=number],select {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    
+    border: 5px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+  }
+  
+  div.formLeft{
+      float:left;
+      width:70%;
+      min-height:inherit;
+      padding-left:10%;
+  }
+  
+  div.formRight{
+    float:right;
+    width:20%;
+    min-height:inherit;
+    border: 5px solid white;
+  }
+  
+  button {
+    float: right;
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+  }
+  
+  button:hover {
+    background-color: #005c05;
+  }
+  
+  .button:active {
+    background-color: #3e8e41;
+    transform: translateY(4px);
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+/* input[type=number] {
+    -moz-appearance: textfield;
+  }
+*/
+* .page-global {
+  min-height: 600px;
+  max-height: 700px;
+}
+
+.vertical-buffer {
+  min-height: 120px;
+}
+
+table {
+  width: 100%;
+}
+:host >>> .mat-figure {
+  align-items: flex-start !important;
+}
+.mat-grid-tile div {
+  padding-top: 5px;
+}
+button {
+  float: left;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+}
+
+button:hover {
+  background-color: #005c05;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.buttonDelete {
+  align-items: flex-end !important;
+}
+
+.Path .Path {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Path .Path input[type="text"],
+input[type="number"],
+select {
+  background-color: #fff;
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  /*     
+    border: 5px solid #ccc;
+    border-radius: 40px; */
+  /* box-sizing: border-box; */
+}
+
+.Path .Path input[type="text"] {
+  width: 70%;
+}
+
+.Path .Path input[type="checkbox"] {
+  width: 80%;
+
+  margin: 8px 0;
+
+  /* border-radius: 5px; */
+  /* box-sizing: border-box; */
+}
+
+.mat-grid-tile {
+  border: solid 2px rgb(255, 255, 255);
+}

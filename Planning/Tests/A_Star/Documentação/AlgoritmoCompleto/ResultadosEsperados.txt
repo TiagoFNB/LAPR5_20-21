@@ -1,0 +1,32 @@
+Dados: 0,'AGUIA','PARAD',Cam,CamL,Custo
+
+Cam = ['AGUIA','PARED','LORDL','PARAD']
+CamL = [1,3,2]
+Custo = 2820 ;
+
+Cam = ['AGUIA','RECAR','LORDL','PARAD']
+CamL = [1,3,2]
+Custo = 2820 
+
+Cam = ['AGUIA', 'PARED', 'LORDL', 'PARAD'],
+CamL = [1, 3, 2],
+Custo = 4820 ;
+
+Cam = ['AGUIA', 'RECAR', 'LORDL', 'PARAD'],
+CamL = [1, 3, 2],
+Custo = 4820 ;
+
+
+Análise:
+No primeiro e segundo caso apesar de utilizarem caminhos diferentes,
+ ambos obtiveram o mesmo resultado pois na última linha apanham o mesmo autocarro no mesmo horário.
+
+No terceiro e no quarto caso apesar de utilizarem os mesmos caminhos que o primeiro e segundo resultados respetivamente,
+ambos obtiveram o mesmo resultado superior aos primeiro e segundo devido a terem apanhado o horario de autocarro mais tarde.
+
+Cálculos (Para o primeiro caso), constante de tempo de entrada no autocarro=120:
+Inicio = 0 
+AGUIA-PARED = Tespera (200) + 120 + DifTemposPassagem(800) + TempoAnterior(0) = 1120
+PARED-LORDL = Tespera (1300-1120) + 120 + DifTemposPassagem(2000-1300) + TempoAnterior(1120) = 2120
+LORDL-PARAD = Tespera (2200-2120) + 120 + DifTemposPassagem(2700-2200) + TempoAnterior(2120) = 2820
+

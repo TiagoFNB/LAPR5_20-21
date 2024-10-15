@@ -1,0 +1,68 @@
+<div class="w3-container page-global">
+    
+    <form key='form' #vehicleDutyForm="ngForm" (ngSubmit)="vehicleDutyForm.form.valid && onSubmit(vehicleDutyForm)">
+          <h2> Register a VehicleDuty </h2>
+    <mat-grid-list cols="3" rowHeight="100px" gutterSize="10px">
+      
+                 
+        <mat-grid-tile class="Vehicle" colspan="2" rowspan="2" > 
+            
+           
+            <div class="container">
+                
+                <form class="Vehicle" name='form' #vehicleDutyForm="ngForm"
+                    (ngSubmit)="vehicleDutyForm.form.valid && onSubmit(vehicleDutyForm)">
+
+                    <div class="info">
+                        
+                        <div>
+                        <label>Vehicle Duty Code</label>
+                        <input matInput type="text" name="vehicleDutyCode" placeholder="Ex: 1234567890" class="form-control" [(ngModel)]="vehicleDuty.code" autocomplete="off"
+                            #vehicleDutyCode="ngModel" [ngClass]="{ 'is-invalid': vehicleDutyForm.submitted && vehicleDutyCode.invalid }"
+                            vehicleDutyCode required pattern="^([a-zA-Z0-9]{10})$" maxlength="10">
+                        <div class="invalid-feedback" *ngIf="vehicleDutyForm.submitted && vehicleDutyCode.invalid">
+                            <p *ngIf="vehicleDutyCode.errors.required">Vehicle Duty Code is required</p>
+                            <p *ngIf="vehicleDutyCode.errors.pattern">Vehicle Duty Code format invalid! </p>
+                        </div>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <label>Vehicle</label>
+                        <br>
+                        <mat-form-field appearance="none">
+                            <mat-select class="form-control" name="license" [(ngModel)]="vehicleDuty.vehicleLicense">
+                                <mat-option *ngFor="let license of vehicles" [value]="license">{{license}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+
+                    
+
+                </form>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1" rowspan="2">
+            <div class="formRight">
+                <div>
+                    <h3 name='SuccessMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+                    <h3 name='ErrorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+                </div>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2">
+            <div class="container">
+
+                <button id="btnid" name="buttonSubmit" class="btn btn-primary" type="submit">Submit</button>
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+    </form>
+</div>

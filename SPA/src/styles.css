@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+/* .main-background-color { 
+    background-color:rgb(110, 102, 102); 
+} */
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.main-background-color {
+   
+    background-color: rgb(238, 238, 238);
+    }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

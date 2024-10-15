@@ -1,0 +1,53 @@
+<H1>Import a file</H1>
+<mat-grid-list cols="4">
+    <!-- Main Div -->
+    <mat-grid-tile colspan="2">
+    <div class="centered" >
+        <div  *ngIf="currentFile" class="progress">
+            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"
+                [ngStyle]="{ width: progress + '%' }">
+                {{ progress }}%
+            </div>
+        </div>
+
+        <label class="btn btn-default">
+            <input type="file" name="file" (change)="selectFile($event)" />
+        </label>
+
+        <button name="btnUp" class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadFile()">
+            Import
+        </button>
+        
+        <div name="message" class="alert alert-light" role="alert">
+            {{ message }}
+            <div *ngIf="this.loading" class="loader"></div>
+        </div>
+    </div>
+    </mat-grid-tile>
+   
+   <mat-grid-tile>
+    <div [hidden]="!errors" >
+        <h3>Results:</h3>
+        <ul class="errors">
+            
+              <span class="error">{{errors}}</span> 
+         
+          </ul>
+    </div>
+ 
+ 
+    
+    </mat-grid-tile>
+    <mat-grid-tile>
+    <div *ngIf="this.errors">
+        
+        <btn class="btn btn-danger" (click)="downloadJson()" >Download Errors(Json)</btn>
+        
+    </div>
+</mat-grid-tile>
+</mat-grid-list>    
+
+   
+    
+   

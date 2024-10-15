@@ -1,0 +1,77 @@
+<div class="w3-container page-global">
+    <h2> Register a Vehicle </h2>
+    <form key='form' #vehicleForm="ngForm" (ngSubmit)="vehicleForm.form.valid && onSubmit(vehicleForm)">
+    <mat-grid-list cols="3" rowHeight="100px" gutterSize="10px">
+        <mat-grid-tile class="Vehicle" colspan="2" rowspan="5">
+            <div class="container">
+                <form class="Vehicle" name='form' #vehicleForm="ngForm"
+                    (ngSubmit)="vehicleForm.form.valid && onSubmit(vehicleForm)">
+
+                    <div>
+                        <label>License Plate</label>
+                        <input matInput type="text" name="vehicleLicense" placeholder="Ex: AA-01-AA" class="form-control" [(ngModel)]="vehicle.license" autocomplete="off"
+                            #vehicleLicense="ngModel" [ngClass]="{ 'is-invalid': vehicleForm.submitted && vehicleLicense.invalid }"
+                            vehicleLicense required pattern="^([0-9]{2}-[0-9]{2}-[A-Z]{2})$|^([0-9]{2}-[A-Z]{2}-[0-9]{2})$|^([A-Z]{2}-[0-9]{2}-[0-9]{2})$|^([A-Z]{2}-[0-9]{2}-[A-Z]{2})$">
+                        <div class="invalid-feedback" *ngIf="vehicleForm.submitted && vehicleLicense.invalid">
+                            <p *ngIf="vehicleLicense.errors.required">License is required</p>
+                            <p *ngIf="vehicleLicense.errors.pattern"> License format invalid! </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>VIN</label>
+                        <input matInput type="text" name="vehicleVin" placeholder="Ex: 12ASD54S32DAF1123" class="form-control" [(ngModel)]="vehicle.vin" autocomplete="off"
+                            #vehicleVin="ngModel" [ngClass]="{ 'is-invalid': vehicleForm.submitted && vehicleVin.invalid }"
+                            vehicleVin required pattern="^([a-zA-Z0-9]{17})$" maxlength="17">
+                        <div class="invalid-feedback" *ngIf="vehicleForm.submitted && vehicleVin.invalid">
+                            <p *ngIf="vehicleVin.errors.required">VIN is required</p>
+                            <p *ngIf="vehicleVin.errors.pattern"> VIN format invalid! </p>
+                        </div>
+                    </div>
+
+                    
+
+                    <div>
+                        <label>Type</label>
+                        <br>
+                        <mat-form-field appearance="fill">
+                            <mat-select class="form-control" name="type" [(ngModel)]="vehicle.type">
+                                <mat-option *ngFor="let type of vehicleTypes" [value]="type">{{type}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <label>Entry date of service</label>
+                        <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Entry date of service</mat-label>
+                        <input matInput name="DatePicker" #DatePicker="ngModel" [matDatepicker]="picker" [max]="maxDate" [(ngModel)]="vehicle.entryDateOfService" required>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    </div>
+
+                </form>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1" rowspan="5">
+            <div class="formRight">
+                <div>
+                    <h3 name='SuccessMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+                    <h3 name='ErrorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+                </div>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2">
+            <div class="container">
+
+                <button id="btnid" name="buttonSubmit" class="btn btn-primary" type="submit">Submit</button>
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+    </form>
+</div>

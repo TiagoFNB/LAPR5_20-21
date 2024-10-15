@@ -1,0 +1,96 @@
+ 
+  .info input[type=text], input[type=number] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #fff;
+    border: 5px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+  }
+
+  .Numbers input[type=text], input[type=number] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #fff;
+    border: 5px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+  }
+
+  .License input[type=text], input[type=number] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #fff;
+    border: 5px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+  }
+
+  .License mat-form-field{
+    padding: 12px 20px ;
+  }
+
+  .Dates mat-form-field{
+
+    padding: 12px 20px ;
+  }
+  .Dates label{
+    padding-top: 10px;
+  }
+  
+  div.container{
+    float:left;
+    width:80%;
+    min-height:inherit;
+    padding-left:5%;
+}
+
+button {
+    float: left;
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+  }
+  
+  button:hover {
+    background-color: #005c05;
+  }
+  
+  .button:active {
+    background-color: #3e8e41;
+    transform: translateY(4px);
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .Numbers {
+    display: flex;
+    
+  }
+
+  .License {
+    display: flex;
+    
+  }
+
+  .Dates {
+    display: flex;
+    
+  }
+
+  .info{
+    display: flex;
+    
+  }
+  

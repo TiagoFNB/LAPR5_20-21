@@ -1,0 +1,158 @@
+<div class="w3-container page-global">
+    <h2> Register a Driver </h2>
+    <form key='form' #driverForm="ngForm" (ngSubmit)="driverForm.form.valid && onSubmit(driverForm)">
+    <mat-grid-list cols="3" rowHeight="100px" gutterSize="10px">
+        <mat-grid-tile class="Vehicle" colspan="2" rowspan="6" >
+            <div class="container">
+                <form class="Vehicle" name='form' #driverForm="ngForm"
+                    (ngSubmit)="driverForm.form.valid && onSubmit(driverForm)">
+
+                    <div class="info">
+                        <div>
+                        <label>Name</label>
+                        <input matInput type="text" name="driverName" placeholder="Ex: Ernesto" class="form-control" [(ngModel)]="driver.name" autocomplete="off"
+                            #driverName="ngModel" [ngClass]="{ 'is-invalid': driverForm.submitted && driverName.invalid }"
+                            driverName required>
+                        <div class="invalid-feedback" *ngIf="driverForm.submitted && driverName.invalid">
+                            <p *ngIf="driverName.errors.required">Name is required</p>
+                        </div>
+                        </div>
+                        
+                        <div>
+                        <label>Mechanographic Number</label>
+                        <input matInput type="text" name="driverMechNumber" placeholder="Ex: 123456789" class="form-control" [(ngModel)]="driver.mechanographicNumber" autocomplete="off"
+                            #driverMechNumber="ngModel" [ngClass]="{ 'is-invalid': driverForm.submitted && driverMechNumber.invalid }"
+                            driverMechNumber required pattern="^([a-zA-Z0-9]{9})$" maxlength="9">
+                        <div class="invalid-feedback" *ngIf="driverForm.submitted && driverMechNumber.invalid">
+                            <p *ngIf="driverMechNumber.errors.required">Mechanographic Number is required</p>
+                            <p *ngIf="driverMechNumber.errors.pattern"> Mechanographic Number format invalid! </p>
+                        </div>
+                        </div>
+                        
+                    </div>
+                    <label>Birth date </label>
+                        <br>
+                    <mat-form-field  appearance="fill"  >
+                        <mat-label>MM/DD/YYYY </mat-label>
+                        <input matInput name="DatePicker3" #DatePicker3="ngModel" [matDatepicker]="picker3" [max]="maxBirthDate" [(ngModel)]="driver.birthDate" required>
+                        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                        <mat-datepicker #picker3></mat-datepicker>
+                    </mat-form-field>
+                    <div class="Numbers">
+                        <div>
+                        <label>Citizen Card Number</label>
+                        <input matInput type="text" name="driverCitizenCardNumber" placeholder="Ex: 12345678" class="form-control" [(ngModel)]="driver.citizenCardNumber" autocomplete="off"
+                            #driverCitizenCardNumber="ngModel" [ngClass]="{ 'is-invalid': driverForm.submitted && driverCitizenCardNumber.invalid }"
+                            driverCitizenCardNumber required pattern="^([0-9]{8})$" maxlength="8">
+                        <div class="invalid-feedback" *ngIf="driverForm.submitted && driverCitizenCardNumber.invalid">
+                            <p *ngIf="driverCitizenCardNumber.errors.required">Citizen Card Number is required</p>
+                            <p *ngIf="driverCitizenCardNumber.errors.pattern"> Citizen Card Number format invalid! </p>
+                        </div>
+                        </div>
+                        <br>
+                        <div>
+                        <label>FiscalNumber</label>
+                        <input matInput type="text" name="driverFiscalNumber" placeholder="Ex: 123456789" class="form-control" [(ngModel)]="driver.fiscalNumber" autocomplete="off"
+                            #driverFiscalNumber="ngModel" [ngClass]="{ 'is-invalid': driverForm.submitted && driverFiscalNumber.invalid }"
+                            driverFiscalNumber required pattern="^([0-9]{9})$" maxlength="9">
+                        <div class="invalid-feedback" *ngIf="driverForm.submitted && driverFiscalNumber.invalid">
+                            <p *ngIf="driverFiscalNumber.errors.required">Fiscal Number is required</p>
+                            <p *ngIf="driverFiscalNumber.errors.pattern"> Fiscal Number format invalid! </p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="License">
+                        <div>
+                        <label>License</label>
+                        <input matInput type="text" name="driverLicense" placeholder="Ex:P-12345678 A" class="form-control" [(ngModel)]="driver.license" autocomplete="off"
+                            #driverLicense="ngModel" [ngClass]="{ 'is-invalid': driverForm.submitted && driverLicense.invalid }"
+                            driverLicense required >
+                        <div class="invalid-feedback" *ngIf="driverForm.submitted && driverLicense.invalid">
+                            <p *ngIf="driverLicense.errors.required">License is required</p>
+                            
+                        </div>
+                        </div>
+                        <br>
+                        <div>
+                            <label>License date </label>
+                                <br>
+                            <mat-form-field appearance="fill">
+                                <mat-label>MM/DD/YYYY </mat-label>
+                                <input matInput name="DatePicker4" #DatePicker4="ngModel" [matDatepicker]="picker4" [(ngModel)]="driver.licenseDate" required >
+                                <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                                <mat-datepicker #picker4></mat-datepicker>
+                            </mat-form-field>
+        
+                        </div>
+                    </div>
+
+                    <div class="Dates">
+                        <div>
+                        <label>Entry date </label>
+                        <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>MM/DD/YYYY </mat-label>
+                        <input matInput name="DatePicker" #DatePicker="ngModel" [matDatepicker]="picker" [max]="maxDate" [(ngModel)]="driver.entryDate" required>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                        </div>
+                    <br>
+                        <div>
+                    <label>Departure date </label>
+                        <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>MM/DD/YYYY </mat-label>
+                        <input matInput name="DatePicker2" #DatePicker2="ngModel" [matDatepicker]="picker2" [(ngModel)]="driver.departureDate" >
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+
+                    <div>
+                        <label>Type</label>
+                        <br>
+                        <mat-form-field appearance="none">
+                            <mat-select class="form-control" name="type" [(ngModel)]="driver.type">
+                                <mat-option *ngFor="let type of driverTypes" [value]="type">{{type}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+
+                    
+
+                </form>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1" rowspan="5">
+            <div class="formRight">
+                <div>
+                    <h3 name='SuccessMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+                    <h3 name='ErrorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+                </div>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1">
+            <div class="container">
+
+                <button id="btnid" name="buttonSubmit" class="btn btn-primary" type="submit">Submit</button>
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+    </form>
+</div>

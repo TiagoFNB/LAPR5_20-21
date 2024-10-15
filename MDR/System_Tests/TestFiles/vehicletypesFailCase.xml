@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GlDocumentInfo xmlns:opt="Opt.GL.Domain" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="Opt.GL.BusinessLogic">
+  <world version="1.0.5">
+    <GlDocument key="GlDocument:1">
+        <GlDocumentNetwork>
+            <Network key="Network:1">
+                <VehicleTypes>
+                    <VehicleType key="VehicleType:5050" Name="Autocarro" Autonomy="500000" Cost="10" AverageSpeed="30" EnergySource="23" Consumption="30" Emissions="1050">
+                        <ParametersValues />
+                        <Vehicles />
+                    </VehicleType>
+                    <VehicleType key="VehicleType:5051" Name="Autocarro" Autonomy="600000" Cost="5" AverageSpeed="32" EnergySource="23" Consumption="18" Emissions="700">
+                        <ParametersValues />
+                        <Vehicles />
+                    </VehicleType>
+                </VehicleTypes>
+            </Network>
+        </GlDocumentNetwork>
+    </GlDocument>
+</world>
+<GlGlobalParameters xmlns:d1p1="http://schemas.datacontract.org/2004/07/Opt.GL.Domain">
+    <d1p1:CriterionToAddTripsToVehicleDuty>0</d1p1:CriterionToAddTripsToVehicleDuty>
+    <d1p1:MaxIntervalTimeBetweenTrips>3600</d1p1:MaxIntervalTimeBetweenTrips>
+    <d1p1:OverlapTime>0</d1p1:OverlapTime>
+  </GlGlobalParameters>
+</GlDocumentInfo>

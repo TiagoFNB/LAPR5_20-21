@@ -1,0 +1,876 @@
+{
+	"info": {
+		"_postman_id": "7a1abf05-6807-4510-9ee0-bc595d77aa56",
+		"name": "MDV-Vehicle-Driver-VehicleDuty",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegisterVehicleDuty",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "AddNewVehicleType1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"VehicleDutyVT01:1\",\r\n    \"name\": \"VehicleDutyTestVT01\" ,\r\n    \"autonomy\": \"10\",\r\n    \"fuelType\": \"gpl\",\r\n    \"costPerKm\": \"2\",\r\n    \"averageSpeed\": \"40\",\r\n    \"averageConsumption\": \"10\",\r\n    \"currency\":\"USD\",\r\n    \"description\":\"TestDescription\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/vehicleType",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"vehicleType"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AddVehicle1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"License\":\"TE-01-VD\",\r\n    \"Vin\":\"00000000000005555\",\r\n    \"Type\":\"VehicleDutyTestVT01\",\r\n    \"Date\":\"2015/12/25\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44343/mdvapi/Vehicle",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44343",
+									"path": [
+										"mdvapi",
+										"Vehicle"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "RegisterVehicleDuty1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a VehicleDuty (success case 1)\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.vehicleDutyCode).to.eql('VecDuPOST1');\r",
+									"    pm.expect(jsonData.vehicleLicense).to.eql('TE-01-VD');   \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"VehicleDutyCode\": \"VecDuPOST1\",\r\n\t\"VehicleLicense\": \"TE-01-VD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/VehicleDuty",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"VehicleDuty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterVehicleDuty2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Vehicle Duty (failure case 1) : Vehicle Duty already exists\", function () {\r",
+									"  pm.response.to.have.status(422);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"VehicleDutyCode\": \"VecDuPOST1\",\r\n\t\"VehicleLicense\": \"TE-01-VD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/VehicleDuty",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"VehicleDuty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterVehicleDuty3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a VehicleDuty (failure case 2) : Vehicle does not exist in the database\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"VehicleDutyCode\": \"VecDuPOST1\",\r\n\t\"VehicleLicense\": \"TE-02-VD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/VehicleDuty",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"VehicleDuty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterVehicleDuty4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Vehicle Duty (failure case 3) : Invalid property\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"VehicleDutyCode\": \"invalidVehicleDutyCode\",\r\n\t\"VehicleLicense\": \"TE-02-VD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/VehicleDuty",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"VehicleDuty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterVehicleDuty5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Vehicle Duty (failure case 4) : Invalid json\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"error\" : \"errorInJson\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/VehicleDuty",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"VehicleDuty"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RegisterVehicle",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "AddNewVehicleType1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"VehicleVT01:1\",\r\n    \"name\": \"VehicleTestVT01\" ,\r\n    \"autonomy\": \"10\",\r\n    \"fuelType\": \"gpl\",\r\n    \"costPerKm\": \"2\",\r\n    \"averageSpeed\": \"40\",\r\n    \"averageConsumption\": \"10\",\r\n    \"currency\":\"USD\",\r\n    \"description\":\"TestDescription\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/vehicleType",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"vehicleType"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "RegisterVehicle1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Vehicle (success case 1)\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.vin).to.eql('00000000000006666');\r",
+									"    pm.expect(jsonData.license).to.eql('TE-01-VV');   \r",
+									"    pm.expect(jsonData.type).to.eql('VehicleTestVT01');\r",
+									"    pm.expect(jsonData.date).to.eql('2015/12/25');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"License\":\"TE-01-VV\",\r\n    \"Vin\":\"00000000000006666\",\r\n    \"Type\":\"VehicleTestVT01\",\r\n    \"Date\":\"2015/12/25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/Vehicle",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"Vehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterVehicle2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Vehicle (failure case 1) : Vehicle Duty already exists\", function () {\r",
+									"  pm.response.to.have.status(422);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"License\":\"TE-01-VV\",\r\n    \"Vin\":\"00000000000006666\",\r\n    \"Type\":\"VehicleTestVT01\",\r\n    \"Date\":\"2015/12/25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/Vehicle",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"Vehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterVehicle3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Vehicle (failure case 2) : Vehicle Type does not exist in the database\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"License\":\"TE-01-VV\",\r\n    \"Vin\":\"00000000000006666\",\r\n    \"Type\":\"invalid01\",\r\n    \"Date\":\"2015/12/25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/Vehicle",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"Vehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterVehicle4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Vehicle (failure case 3) : Invalid property\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"License\":\"TE-01-VV\",\r\n    \"Vin\":\"00006666\",\r\n    \"Type\":\"VehicleTestVT01\",\r\n    \"Date\":\"2015/12/25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/Vehicle",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"Vehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterVehicle5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Vehicle (failure case 4) : Invalid json\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"error\" : \"errorInJson\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/Vehicle",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"Vehicle"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RegisterDriver",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "AddNewDriverType1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"drivTypePostTest1\" ,\r\n    \"description\": \"testDescription\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/drivertype",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"drivertype"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "RegisterDriver1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Driver (success case 1)\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.mechanographicNumber).to.eql('drivPTT01');\r",
+									"    pm.expect(jsonData.name).to.eql('TestName');   \r",
+									"    pm.expect(jsonData.birthDate).to.eql('01/01/1900');\r",
+									"    pm.expect(jsonData.fiscalNumber).to.eql('333322201');\r",
+									"    pm.expect(jsonData.citizenCardNumber).to.eql('33332220');\r",
+									"    pm.expect(jsonData.entryDate).to.eql('01/01/1990');\r",
+									"    pm.expect(jsonData.departureDate).to.eql('01/01/1995');\r",
+									"    pm.expect(jsonData.type).to.eql('drivTypePostTest1');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"MechanographicNumber\" : \"drivPTT01\",\r\n    \"Name\" : \"TestName\",\r\n    \"BirthDate\" : \"01/01/1900\",\r\n    \"CitizenCardNumber\":\"33332220\",\r\n    \"EntryDate\":\"01/01/1990\",\r\n    \"DepartureDate\":\"01/01/1995\",\r\n    \"FiscalNumber\":\"333322201\",\r\n    \"Type\":\"drivTypePostTest1\",\r\n    \"License\":\"LicenseTesteDuty\",\r\n    \"LicenseDate\":\"01/01/1950\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/Driver",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"Driver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterDriver2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Driver (failure case 1) : Driver already exists\", function () {\r",
+									"  pm.response.to.have.status(422);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"MechanographicNumber\" : \"drivPTT01\",\r\n    \"Name\" : \"TestName\",\r\n    \"BirthDate\" : \"01/01/1900\",\r\n    \"CitizenCardNumber\":\"33332220\",\r\n    \"EntryDate\":\"01/01/1990\",\r\n    \"DepartureDate\":\"01/01/1995\",\r\n    \"FiscalNumber\":\"333322201\",\r\n    \"Type\":\"drivTypePostTest1\",\r\n    \"License\":\"LicenseTesteDuty\",\r\n    \"LicenseDate\":\"01/01/1950\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/Driver",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"Driver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterDriver3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Driver (failure case 2) : Driver Type does not exist in the database\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"MechanographicNumber\" : \"drivPTT01\",\r\n    \"Name\" : \"TestName\",\r\n    \"BirthDate\" : \"01/01/1900\",\r\n    \"CitizenCardNumber\":\"33332220\",\r\n    \"EntryDate\":\"01/01/1990\",\r\n    \"DepartureDate\":\"01/01/1995\",\r\n    \"FiscalNumber\":\"333322201\",\r\n    \"Type\":\"invalidType1\",\r\n    \"License\":\"LicenseTesteDuty\",\r\n    \"LicenseDate\":\"01/01/1950\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/Driver",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"Driver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterDriver4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Driver (failure case 3) : Invalid property\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"MechanographicNumber\" : \"invalid\",\r\n    \"Name\" : \"TestName\",\r\n    \"BirthDate\" : \"01/01/1900\",\r\n    \"CitizenCardNumber\":\"33332220\",\r\n    \"EntryDate\":\"01/01/1990\",\r\n    \"DepartureDate\":\"01/01/1995\",\r\n    \"FiscalNumber\":\"333322201\",\r\n    \"Type\":\"drivTypePostTest1\",\r\n    \"License\":\"LicenseTesteDuty\",\r\n    \"LicenseDate\":\"01/01/1950\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/Driver",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"Driver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterDriver5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Create a Driver (failure case 4) : Invalid json\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"error\" : \"errorInJson\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/Driver",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"Driver"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzMzOTIwMiwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.lHxpKItoPZNPjWonKBE6I_gEJ2kb3Zvn6X8U0gh849U",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

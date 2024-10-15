@@ -1,0 +1,995 @@
+{
+	"info": {
+		"_postman_id": "81677055-68ef-4130-8a46-b158743172db",
+		"name": "LAPR5_MDV_SYSTEM_TESTS_Roles_Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegisterUser",
+			"item": [
+				{
+					"name": "RegisterUser1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var uuid = require('uuid');\r",
+									"postman.setEnvironmentVariable('guid', uuid.v4());"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"register user successfully\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.email).to.eql('emailTest1@gmail.com');\r",
+									"    pm.expect(jsonData.name).to.eql('rogerio');\r",
+									"     pm.expect(jsonData.street).to.eql('Alexandrino');\r",
+									"     pm.expect(jsonData.city).to.eql('Freamunde');\r",
+									"     pm.expect(jsonData.country).to.eql('Portugal');\r",
+									"     pm.expect(jsonData.dateOfBirth).to.eql('1993-07-21T00:00:00');\r",
+									"     \r",
+									"     \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"rogerio\",\r\n    \"Email\":\"emailTest1@gmail.com\",\r\n    \"Street\":\"Alexandrino\",\r\n    \"City\":\"Freamunde\",\r\n    \"Country\":\"Portugal\",\r\n    \"Password\":\"PassWwordseafe\",\r\n    \"DateOfBirth\":\"1993-07-21\"\r\n   \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/User/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser2_Fail_EmailExists",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var uuid = require('uuid');\r",
+									"postman.setEnvironmentVariable('guid', uuid.v4());"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"error register user\", function () {\r",
+									"  pm.response.to.have.status(422);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"rogerio\",\r\n    \"Email\":\"emailTest1@gmail.com\",\r\n    \"Street\":\"Alexandrino\",\r\n    \"City\":\"Freamunde\",\r\n    \"Country\":\"Portugal\",\r\n    \"Password\":\"PassWwordseafe\",\r\n    \"DateOfBirth\":\"1993-07-21\"\r\n   \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/User/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser2_Fail_EmailNotValid",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var uuid = require('uuid');\r",
+									"postman.setEnvironmentVariable('guid', uuid.v4());"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"error register user\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"rogerio\",\r\n    \"Email\":\"emailTest1\",\r\n    \"Street\":\"Alexandrino\",\r\n    \"City\":\"Freamunde\",\r\n    \"Country\":\"Portugal\",\r\n    \"Password\":\"PassWwordseafe\",\r\n    \"DateOfBirth\":\"1993-07-21\"\r\n   \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/User/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser2_Fail_Name_Invalid",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var uuid = require('uuid');\r",
+									"postman.setEnvironmentVariable('guid', uuid.v4());"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"error register user\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"\",\r\n    \"Email\":\"emailTest1@gmail.com\",\r\n    \"Street\":\"Alexandrino\",\r\n    \"City\":\"Freamunde\",\r\n    \"Country\":\"Portugal\",\r\n    \"Password\":\"PassWwordseafe\",\r\n    \"DateOfBirth\":\"1993-07-21\"\r\n   \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/User/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser2_Fail_DateOfBrith_Invalid",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var uuid = require('uuid');\r",
+									"postman.setEnvironmentVariable('guid', uuid.v4());"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"error register user\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"\",\r\n    \"Email\":\"emailTest1@gmail.com\",\r\n    \"Street\":\"Alexandrino\",\r\n    \"City\":\"Freamunde\",\r\n    \"Country\":\"Portugal\",\r\n    \"Password\":\"PassWwordseafe\",\r\n    \"DateOfBirth\":\"07-21\"\r\n   \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/User/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser2_Fail_Country_invalid",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var uuid = require('uuid');\r",
+									"postman.setEnvironmentVariable('guid', uuid.v4());"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"error register user\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"\",\r\n    \"Email\":\"emailTest1@gmail.com\",\r\n    \"Street\":\"Alexandrino\",\r\n    \"City\":\"Freamunde\",\r\n    \"Country\":\"Portugal\",\r\n    \"Password\":\"PassWwordseafe\",\r\n    \"DateOfBirth\":\"07-21\"\r\n   \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/User/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser2_Fail_Age_invalid",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var uuid = require('uuid');\r",
+									"postman.setEnvironmentVariable('guid', uuid.v4());"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"error register user\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\":\"\",\r\n    \"Email\":\"emailTest1@gmail.com\",\r\n    \"Street\":\"Alexandrino\",\r\n    \"City\":\"Freamunde\",\r\n    \"Country\":\"Portugal\",\r\n    \"Password\":\"PassWwordseafe\",\r\n    \"DateOfBirth\":\"07-21\"\r\n   \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/User/register",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"User",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LoginUser",
+			"item": [
+				{
+					"name": "LoginUser1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"login user successfully\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.email).to.eql('emailTest1@gmail.com');\r",
+									"    pm.expect(jsonData.role).to.eql('User');\r",
+									"    pm.expect(jsonData.name).to.eql('rogerio');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\":\"emailTest1@gmail.com\",\r\n    \"Password\":\"PassWwordseafe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/User/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginUser2_EmailNotFound",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"error login user\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\":\"emailTestXPTO@gmail.com\",\r\n    \"Password\":\"PassWwordseafe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/User/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginUser2_WrongPassword",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"error login user\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\":\"emailTest1@gmail.com\",\r\n    \"Password\":\"PassWwordseafeXPTO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/User/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginUser2_WrongPasswordAndEmail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"error login user\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\":\"emailTest1XPTO@gmail.com\",\r\n    \"Password\":\"PassWwordseafeXPTO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/User/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"User",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ForgetUser",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "User Register",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var uuid = require('uuid');\r",
+											"postman.setEnvironmentVariable('guid', uuid.v4());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\":\"rogerinho\",\r\n    \"Email\":\"rogernio1st@gmail.com\",\r\n    \"Street\":\"Sss1\",\r\n    \"City\":\"city1\",\r\n    \"Country\":\"Portugal\",\r\n    \"Password\":\"password123\",\r\n    \"DateOfBirth\":\"1993-07-21\"\r\n   \r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44343/mdvapi/User/register",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44343",
+									"path": [
+										"mdvapi",
+										"User",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "User Register2",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var uuid = require('uuid');\r",
+											"postman.setEnvironmentVariable('guid', uuid.v4());"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\":\"rogerinho\",\r\n    \"Email\":\"rogernio2st@gmail.com\",\r\n    \"Street\":\"Sss1\",\r\n    \"City\":\"city1\",\r\n    \"Country\":\"Portugal\",\r\n    \"Password\":\"password123\",\r\n    \"DateOfBirth\":\"1993-07-21\"\r\n   \r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44343/mdvapi/User/register",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44343",
+									"path": [
+										"mdvapi",
+										"User",
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Should Forget User With Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"forget user successfully\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.email).to.eql('rogernio1st@gmail.com');\r",
+									"    pm.expect(jsonData.message).to.eql('rogernio1st@gmail.com was deleted');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvMXN0QGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoicm9nZXJpbmhvIiwiRGF0ZU9mQmlydGgiOiI3LzIxLzE5OTMiLCJleHAiOjE2MTYwMjE4NzEsImlzcyI6InJvZ2VyLmNvbSIsImF1ZCI6InJvZ2VyLmNvbSJ9.bZInoPVqJtIGVwt2K4db3QXsvNkfrV7cDqqn6FU0c0M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\":\"rogernio1st@gmail.com\",\r\n    \"Password\":\"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/ForgetUser",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"ForgetUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Should Not Forget User With Success _ Password dont match the User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"forget user invalid\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"   pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.email).to.eql('rogernio2st@gmail.com');\r",
+									"    pm.expect(jsonData.message).to.eql('rogernio2st@gmail.com: couldnt be deleted: Invalid password');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvMnN0QGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoicm9nZXJpbmhvIiwiRGF0ZU9mQmlydGgiOiI3LzIxLzE5OTMiLCJleHAiOjE2MTYwODUwNzIsImlzcyI6InJvZ2VyLmNvbSIsImF1ZCI6InJvZ2VyLmNvbSJ9.nydamuJ90tWSfdzL8eIbJgaeXl6hMbyBfQWHFd8cCFQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\":\"rogernio2st@gmail.com\",\r\n    \"Password\":\"wrongpassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/ForgetUser",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"ForgetUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Should Not Forget User With Success _NoPasswordSent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"forget user successfully\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.email).to.eql('rogernio1st@gmail.com');\r",
+									"    pm.expect(jsonData.message).to.eql('rogernio1st@gmail.com: couldnt be deleted: Please specify your email and/or your password ');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvMXN0QGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoicm9nZXJpbmhvIiwiRGF0ZU9mQmlydGgiOiI3LzIxLzE5OTMiLCJleHAiOjE2MTYwMjE4NzEsImlzcyI6InJvZ2VyLmNvbSIsImF1ZCI6InJvZ2VyLmNvbSJ9.bZInoPVqJtIGVwt2K4db3QXsvNkfrV7cDqqn6FU0c0M"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\":\"rogernio1st@gmail.com\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/ForgetUser",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"ForgetUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Should Not Forget User With Success_User Already Deleted",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"forget user invalid\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"   pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.email).to.eql('rogernio1st@gmail.com');\r",
+									"    pm.expect(jsonData.message).to.eql('rogernio1st@gmail.com: couldnt be deleted: User dosent exists');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvMXN0QGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoicm9nZXJpbmhvIiwiRGF0ZU9mQmlydGgiOiI3LzIxLzE5OTMiLCJleHAiOjE2MTYwMjE4NzEsImlzcyI6InJvZ2VyLmNvbSIsImF1ZCI6InJvZ2VyLmNvbSJ9.bZInoPVqJtIGVwt2K4db3QXsvNkfrV7cDqqn6FU0c0M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\":\"rogernio1st@gmail.com\",\r\n    \"Password\":\"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/ForgetUser",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"ForgetUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Should Not Forget User With Success_User Email in body dont match the one in JWT token claims",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"forget user invalid\", function () {\r",
+									"  pm.response.to.have.status(401);\r",
+									"   pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.email).to.eql('Hacker@gmail.com');\r",
+									"    pm.expect(jsonData.message).to.eql('Hacker@gmail.com is not your real email, please try to be more serious!');\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvMXN0QGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoicm9nZXJpbmhvIiwiRGF0ZU9mQmlydGgiOiI3LzIxLzE5OTMiLCJleHAiOjE2MTYwMjE4NzEsImlzcyI6InJvZ2VyLmNvbSIsImF1ZCI6InJvZ2VyLmNvbSJ9.bZInoPVqJtIGVwt2K4db3QXsvNkfrV7cDqqn6FU0c0M"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Email\":\"Hacker@gmail.com\",\r\n    \"Password\":\"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44343/mdvapi/ForgetUser",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44343",
+							"path": [
+								"mdvapi",
+								"ForgetUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,25 @@
+melhor_horario/3
+
+melhor_horario(ID Percurso, [Lista de Passing Times], Tempo_de_espera).
+
+Descriçao:
+Este facto é usado como auxiliar para controlar o melhor horario, com menor tempo de espera, para cada Percurso(ID Percurso).
+
+É dado asserta(melhor_horario(P,_,10000)), em calcula_horario_do_caminho logo será adicionado no inicio dos factos de melhor_horario um valor grande de 10000 no lugar de tempo demorado para servir de verificação para o primeiro tempo de espera.
+
+
+Parametros de entrada:
+Passing : momento de passagem que começa a espera do proximo
+No1: Nó respetivo onde o motorista se encontra no percurso, provavelmente é Relief point ou Depot.
+Path: Percurso que se está a verificar o melhor horario.
+
+O que faz:
+
+Começa por ir buscar aos factos o horario para o respetivo percurso. Vai receber a Lista de Passing Times.
+
+Calcula posição do No1 no Percurso(predicado posPer(vai buscar o percurso a linhas() e recebe lista de nos, utilizando posteriormente nth0)).
+
+Vai verificar qual o passing time no nó na posiçao da lista de passing times recebida.
+
+Verifica se o Tempo de passagem é inferior ao do representado no horario(se não for vai buscar outro horario), de seguida calcula o Tempo_espera = [Tempo de passagem do Nó] - [Tempo que o motorista começou a esperar].
+Depois, vai buscar o N(Tempo de espera) do melhor_horario adicionado ao topo da base de conhecimento e compara com o Tempo_espera calculado posteriormente, se for menor dá retract ao melhor_horario, e adiciona o novo com o percurso, lista de passing times e Tempo_espera

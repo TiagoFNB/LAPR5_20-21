@@ -1,0 +1,17 @@
+Dados: 1,'AGUIA',X,T,Per
+
+X->'PARED'
+Per->1
+T->abs(2-6) + 120 + 1 = 125 
+
+ou
+
+X->'PARED'
+Per->1
+T->abs(12-16) + 120 + 11 = 135 
+
+Dados: 2,'PARED',X,T,Per
+
+X->'AGUIA'
+Per->2
+T->abs(22-26) + 120 + 21 = 145 

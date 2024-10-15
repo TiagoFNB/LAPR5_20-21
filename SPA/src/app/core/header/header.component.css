@@ -1,0 +1,37 @@
+/* Modify the backgorund color */ 
+.navbar-custom { 
+    background-color: rgb(52, 83, 223); 
+  } 
+  
+  a {
+    font-family: monospace;
+    color: #ffffff;
+    font-size: 25px;
+    text-decoration: none;
+  }
+  .img-fluid{
+    position:relative;
+     left:20%; 
+  
+    
+  }
+ 
+  .account{
+    position:relative;
+    right:10%;
+    outline-style:none;
+  }
+
+  .img-fluid{
+    outline-style:none;
+  }
+ .userName{
+  position:relative;
+  right:7%;
+  text-align: center;
+  color: whitesmoke;
+  outline-style:none;
+ }
+  
+
+  

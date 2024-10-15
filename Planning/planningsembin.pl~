@@ -1,0 +1,521 @@
+% Bibliotecas HTTP
+:- use_module(library(http/http_server)).
+:- use_module(library(http/thread_httpd)).
+:- use_module(library(http/http_dispatch)).
+:- use_module(library(http/http_parameters)).
+:- use_module(library(http/http_client)).
+% Bibliotecas JSON
+:- use_module(library(http/json_convert)).
+%:- use_module(library(http/http_json)).
+:- use_module(library(http/json)).
+:- use_module(library(http/http_json)).
+:-use_module(library(http/http_open)).
+
+ :- json_object
+ (name:string,shortName:string)+[type=node].
+:- json_object
+   (list(node)).
+:- json_object req(startTime:integer, startNode:string, destNode:string).
+
+:- json_object liga(no1:string,no2:string,path:string).
+
+:- json_object reque(caminho:list(liga), tempo:integer).
+:- json_object resAStar(caminho:list(string),percursos:list(string),tempo:integer).
+:- json_object resAStarList(lista:list(resAStar)).
+:- json_object resBestFirst(caminho:list(string),percursos:list(integer),tempo:integer).
+
+
+%Dynamic Fact
+:-dynamic nodes/6.
+:-dynamic linhas/5.
+:-dynamic liga/3.
+:- dynamic melhor_caminho/2.
+:- dynamic melhor_horario/3.
+
+%horarios para testes
+horario('3', [63000, 63480, 63780, 64080, 64620]).
+horario('1', [61200, 61740, 62040, 62340, 62820]).
+horario('11', [65220, 65700, 65940]).
+horario('8', [70500,71000,71500]).
+horario('5', [75000,75500,76000]).
+
+
+% Relacao entre pedidos HTTP e predicados que os processam
+:- http_handler('/plannings/GeneratorAllSolutions', doGeradorSolucoes, []).
+:- http_handler('/plannings/A*', doAStar, []).
+:- http_handler('/plannings/BestFirst', doBestFirst, []).
+
+% Criacao de servidor HTTP no porto 'Port'
+server(Port) :-
+        http_server(http_dispatch, [port(Port)]).
+
+stop(Port):-
+        http_stop_server(Port,[]).
+
+doBestFirst(Request):-
+         http_read_json(Request, JSON, [json_object(dict)]),
+         reloadData(JSON.deploy),
+         atom_string(Node1,JSON.startNode),
+         atom_string(Node2,JSON.destNode),
+
+
+         bestfs(Node1,Node2,LCaminho,Lpercurso,JSON.startTime,MomentoChegada),
+         %findall(resAStar(LCaminho,Lpercurso,MomentoChegada),bestfs(Node1,Node2,LCaminho,Lpercurso,JSON.startTime,MomentoChegada),R),
+         V=resBestFirst(LCaminho,Lpercurso,MomentoChegada),
+
+         prolog_to_json(V, JSONObject),
+         reply_json(JSONObject, [{}]).
+
+doAStar(Request):-
+         http_read_json(Request, JSON, [json_object(dict)]),
+         reloadData(JSON.deploy),
+         atom_string(Node1,JSON.startNode),
+         atom_string(Node2,JSON.destNode),
+
+
+         %%EDIT FROM HERE
+         findall(resAStar(Cam,CamL,Custo),aStar(JSON.startTime,Node1,Node2,Cam,CamL,Custo),R),
+         V=resAStarList(R),
+
+         prolog_to_json(V, JSONObject),
+         reply_json(JSONObject, [json_object(dict)]).
+
+doGeradorSolucoes(Request):-
+         http_read_json(Request, JSON, [json_object(dict)]),
+         reloadData(JSON.deploy),
+         atom_string(Node1,JSON.startNode),
+         atom_string(Node2,JSON.destNode),
+         plan_hor_mot(JSON.startTime,Node1,Node2,LCaminho,Tempo),
+
+         transformReply(LCaminho,NewList),
+
+         R = reque(NewList,Tempo),
+
+         prolog_to_json(R, JSONObject),
+         reply_json(JSONObject, [json_object(dict)]).
+
+reloadData(Deploy):-
+        (Deploy==1,URL = 'http://lapr5-20s5-mdr.herokuapp.com';
+        URL = 'http://localhost:3000'),!,
+        getNodes(URL),
+        getLines(URL),
+         gera_ligacoes.
+
+transformReply([],[]).
+transformReply([(AtomNo1,AtomNo2,AtomPath)|L],[X|NewList]):-
+        atom_string(AtomNo1,No1),
+        atom_string(AtomNo2,No2),
+        atom_string(AtomPath,Path),
+        X = liga(No1,No2,Path),
+        transformReply(L,NewList).
+
+%Obtem nos do MDR
+getNodes(URL):-
+    retractall(nodes(_,_,_,_,_,_)),
+   atom_concat(URL,'/api/node/listByQuery?sortby=shortName', CompleteURL),
+
+
+    %Lists Nodes in JSON are located in Reply
+   http_get(CompleteURL, Reply, [json_object(dict)]),
+
+   splitHeadNode(Reply).
+
+
+% First we will separate the node located in the head of the List
+splitHeadNode([]).
+splitHeadNode([X|L]):-
+   createNode(X),
+   splitHeadNode(L).
+
+
+%Create node facts
+createNode(X):-(X.isDepot == "true",!,D = 't';D = 'f'),
+   (X.isReliefPoint== "true",!,R = 't';R = 'f'),!,
+   %JSON comes with atom and we want it as strings
+   atom_string(N,X.name),
+   atom_string(M,X.shortName),
+
+   assertz(nodes(N,M,R,D,X.longitude,X.latitude)),
+   !.
+
+
+
+%Obtain list of lines and transform json to Reply
+getLines(URL):-
+   retractall(linhas(_,_,_,_,_)),
+   atom_concat(URL,'/api/line/listByQuery?sortBy=name', CompleteURL),
+   http_get(CompleteURL, Reply, [json_object(dict)]),
+   splitHeadLine(URL,Reply).
+
+
+% Separate the Line located in the head of the List of Lines
+splitHeadLine(_,[]).
+splitHeadLine(URL,[X|L]):-
+   getPaths(URL,X,List),
+
+   %Obtain list name
+   atom_string(R,X.name),
+
+   createLine(R,List),
+   splitHeadLine(URL,L).
+
+
+
+
+%Will make a request type get to obtain paths from specific line
+getPaths(URL,X,List):-
+
+    %Transform key from string to atom
+    atom_string(S,X.key),
+
+    atom_concat(URL,'/api/line/paths/',Old),
+
+    %Concatenate url and the id from list to return list of paths
+    atom_concat(Old,S,Url),
+
+    %Lines Line paths to Reply
+    http_get(Url, Reply, [json_object(dict)]),
+
+    List=Reply.paths.
+
+
+
+
+% Receives name line and List of paths from that line
+createLine(_,[]):-!.
+createLine(Nome,[X|L]):-
+   %save the key without it being string
+   atom_string(Num,X.key),
+
+   %Will fill all variables that will be used to create fact linhas
+   newgetPathSums(X.pathSegments,Listnodes,Min,Dist),
+
+   assertz(linhas(Nome,Num,Listnodes,Min,Dist)),
+   %write('Line was created'),
+   %write(Nome),nl,write(Num),nl,write(Listnodes),nl,write(Min),nl,write(Dist),nl,
+   createLine(Nome,L).
+
+
+
+%X represent one pathsegment
+getPathSegmentSums([],[],0,0):-!.
+getPathSegmentSums([X|L],Listnodes,Min,Dist):-
+   %Adiciona sempre os nos na segunda posicao
+
+   getPathSegmentSums(L,Listnodes1,Min1,Dist1),
+   %Soma minutos
+   Min is Min1+X.duration,
+   %Soma distancias
+   Dist is Dist1+X.distance,
+
+   atom_string(Newnode,X.node2),
+
+   Listnodes = [Newnode|Listnodes1].
+
+
+
+%adicionar primeiro no do primeiro segmento a lista
+newgetPathSums([X|L],Newlist,M,D):-
+
+   atom_string(Nodestr,X.node1),
+
+   getPathSegmentSums([X|L],List,M,D),
+   Newlist = [Nodestr|List].
+
+
+
+gera_ligacoes:-
+retractall(liga(_,_,_)),
+findall(_,((nodes(_,No1,t,f,_,_);
+% esta linha sera alterada pois o nosso dominio assume que um depot e
+% sempre relief point
+nodes(_,No1,t,t,_,_)),
+(nodes(_,No2,t,f,_,_);
+nodes(_,No2,t,t,_,_)),
+No1\==No2,
+linhas(_,N,LNos,_,_),
+ordem_membros(No1,No2,LNos),
+assertz(liga(No1,No2,N))),_).
+
+ordem_membros(No1,No2,[No1|L]):- member(No2,L),!.
+ordem_membros(No1,No2,[_|L]):- ordem_membros(No1,No2,L).
+
+caminho(Noi,Nof,LCaminho):-caminho(Noi,Nof,[],LCaminho).
+caminho(No,No,Lusadas,Lfinal):-reverse(Lusadas,Lfinal).
+caminho(No1,Nof,Lusadas,Lfinal):-
+liga(No1,No2,N),
+\+member((_,_,N),Lusadas),
+\+member((No2,_,_),Lusadas),
+\+member((_,No2,_),Lusadas),
+caminho(No2,Nof,[(No1,No2,N)|Lusadas],Lfinal).
+
+
+
+plan_hor_mot(Passing_inicio,Noi,Nof,LCaminho,Tempo):-
+
+
+   (ver_melhor_caminho(Passing_inicio,Noi,Nof);true),
+
+   %Depois de ser executado predicado ver_melhor_caminho, o melhor_caminho no topo da base de conhecimentos, sera o melhor tempo para o melhor caminho
+
+   retract(melhor_caminho(LCaminho,Tempo)).
+
+%Ciclo para verificar qual o melhor caminho
+ver_melhor_caminho(Passing_inicio,Noi,Nof):-
+   %adiciona no topo da lista um melhor_caminho com um tempo elevado
+   asserta(melhor_caminho(_,100000)),
+
+   %Verifica os caminhos disponiveis do Noinicial ao Nofinal
+   caminho(Noi,Nof,LCaminho),
+
+   %Predicado e chamado com o objetivo de verificar cada caminho(conjunto de percursos) existentes dentro da LCaminho(Lista de caminhos)
+
+  ((atualiza_melhor(Passing_inicio,LCaminho),fail);fail).
+
+
+% Passing_Inicio e quando comeca o horario do motorista
+% LCaminho e o conjunto de percursos
+atualiza_melhor(Passing_inicio,LCaminho):-
+
+   %Obtem o melhor_caminho
+   melhor_caminho(_,Melhor_tempo),
+
+   %calcula os horarios para a lista de percursos
+   (calcula_horario_do_caminho(Passing_inicio,LCaminho,Tempo_caminho);fail),
+
+   Tempo_caminho<Melhor_tempo,retract(melhor_caminho(_,_)),
+   asserta(melhor_caminho(LCaminho,Tempo_caminho)).
+
+
+
+
+%Calcula melhor horario do caminho recebido
+% Quando acabar de verificar o melhor horario para todos os percurso vai
+% inicializar o tempo a 0
+ calcula_horario_do_caminho(_,[],0):-!.
+calcula_horario_do_caminho(Passing_inicio,[(No1,No2,P)|L],Tempo):-
+
+  %inicializa melhor horario
+  asserta(melhor_horario(P,_,100000)),
+
+  %chama predicado que vai encontrar melhor horario e adiciona-lo ao topo dos factos
+  (atualiza_melhor_horario(Passing_inicio,No1,P);true),
+
+  %obtem melhor horario do percurso (P),List de passing times e o tempo que esperou ate inicializar horario
+  retract(melhor_horario(P,List,Tempo_espera)),
+  %Obtem tempo de passagem no ultimo no do percurso que sera o proximo passing_inicio
+  getPositionFromNode(P,No1,List,Passing_inicio_perc),
+
+  getPositionFromNode(P,No2,List,Novo_Passing),
+
+
+  %obtem tempo de duracao do percurso e a diferenca entre pontos de rendicao/depot
+  Duracao is Novo_Passing - Passing_inicio_perc,
+
+  %Calcula proximo percurso da lista
+  calcula_horario_do_caminho(Novo_Passing,L,Tempo1),
+
+  %Recursivamente obtem valor do tempo que esperou ate inicializar o percurso, a duracao do percurso + o tempo anterior dos outros percursos
+  Tempo is Tempo1 + Tempo_espera + Duracao.
+
+
+% Verifica qual o melhor horario para um percurso desde o momento que se
+% comeca a espera (Passing)
+atualiza_melhor_horario(Passing,No1, Path):-
+   %procura horario para o percurso
+   horario(Path,[X|L]),
+
+   getPositionFromNode(Path,No1,[X|L],P),
+
+   %Se o horario comecar depois do tempo que comeca a espera, calcula-se o tempo de espera
+   (( Passing<P,Tempo_espera is P - Passing);fail),
+    %Vai ao topo ver melhor horario para o percurso do momento, se o N(Tempo de espera) for maior que o Tempo_espera do atual, ele retira o melhor, e adiciona o novo com os respetivos dados do horario
+   melhor_horario(Path,_,N),
+   ((Tempo_espera<N,
+    retract(melhor_horario(_,_,_)),asserta(melhor_horario(Path,[X|L],Tempo_espera)))
+   ;fail).
+
+
+
+getPositionFromNode(Path,No1,[X|L],NewPassing):-
+        !,linhas(_,Path,ListaNodos,_,_),
+        element_at(No1,ListaNodos,Pos),
+        (   ground(X),
+        getElement(NewPassing,[X|L],Pos);fail).
+
+getElement(Valor,[X|_],0):-Valor is X,!.
+getElement(Valor,[_|L],K):- K1 is K-1,getElement(Valor,L,K1).
+
+element_at(X,[X|_],0):-!.
+element_at(X,[_|L],K) :- element_at(X,L,K1), K is K1 + 1.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Implementacao do A* adaptado
+aStar(Hinit,Orig,Dest,Cam,CamL,Custo):-
+        aStar2(Hinit,Dest,[(_,Hinit,[Orig],[])],Cam,CamL,Custo).
+
+
+aStar2(Hinit,Dest,[(_,Ha,[Dest|T],Linhas)|_],Cam,CamL,Custo):-
+        reverse([Dest|T],Cam),reverse(Linhas,CamL), Custo is (Ha-Hinit).
+
+aStar2(Hinit,Dest,[(_,Ha,LA,Linhas)|Outros],Cam,CamL,Custo):-
+        LA=[Act|_],
+        findall((HEX,HaX,[X|LA],[Linha|Linhas]),
+                (Dest\==Act,ligaCustos(Ha,Act,X,HcustoX,Linha),\+ member(X,LA), \+ member(Linha,Linhas),
+                 HaX is HcustoX + Ha, estimativa(X,Dest,EstX),
+                 HEX is HaX +EstX),Novos),
+        append(Outros,Novos,Todos),
+        sort(Todos,TodosOrd),
+        aStar2(Hinit,Dest,TodosOrd,Cam,CamL,Custo).
+
+
+% Estimativa do tempo que demora em linha reta do Nodo1 ao Nodo2
+estimativa(Nodo1,Nodo2,Estimativa):-
+        velocidadeMedia(Vm),
+        nodes(_,Nodo1,_,_,X1,Y1),
+        nodes(_,Nodo2,_,_,X2,Y2),
+        Dist is sqrt((X1-X2)^2+(Y1-Y2)^2),
+        Estimativa is Dist/Vm.
+
+% Obtem a maior velocidade media de todas as linhas
+velocidadeMedia(Vm):-
+        findall(Vel,(linhas(_,_,_,Tempo,Dist),Vel is Dist/Tempo),Lista),
+        max_list(Lista,Vm).
+
+
+% Obtem um No X, com ligacao direta ao No Act (ambos de
+% recolha/rendicao), e obtem os seus respetivos tempos de demora T e
+% Percurso Per a que pertencem para todos os horarios
+%
+% Obtem o percurso usando liga/3, obtem a posicao nos horarios de cada
+% nodo usando posPer/3, obtem o horario usando horario/2,obtem a hora
+% de cada um colocando a posicao do Nodo e lista de horarios em nth0/3,
+% verifica se a hora atual e inferior a hora a que o autocarro
+% passa,calcula a diferenca entre as horas dos nodos, calcula o seu
+% valor absoluto e no final retorna esse valor absoluto mais 120
+% segundos (que e o tempo de espera pelo autocarro)
+
+ligaCustos(Ha,Act,X,T,Per):-
+        liga(Act,X,Per),posPer(Per,Act,PosAct),posPer(Per,X,PosX),
+        horario(Per,Lista),nth0(PosAct,Lista,TAct),Ha<TAct,Tespera is TAct-Ha,
+        nth0(PosX,Lista,TX),Dif is TAct-TX,
+        abs(Dif,AbsDif), T is AbsDif+120+Tespera.
+
+
+% Obtem a posicao de um no num percurso
+posPer(Per,Nodo,Pos):-
+        linhas(_,Per,ListaNodos,_,_), nth0(Pos,ListaNodos,Nodo).
+
+
+
+
+
+% inicio do best first
+
+%metodo que obtem o resultado do bestfirst e calcula o momento de chegada ao destino
+
+calx([H1|[H2|T2]],[H3|T3],PassingTime,MomentoChegada):-
+calx2([H1|[H2|T2]],[H3|T3],PassingTime,MomentoChegada),!.
+
+
+calx2([_],_,Lastpassingtime,Lastpassingtime):- !.
+
+
+calx2([H1|[H2|T2]],[H3|T3],Lastpassingtime,MomentoChegada):-
+
+linhas(_,H3,Perc,_,_),
+
+
+nth0(PosAct,Perc,H1),
+
+
+horario(H3,ListaHorario),
+
+nth0(PosAct,ListaHorario,Tempoespera),
+
+Lastpassingtime=<Tempoespera,
+
+
+
+
+
+nth0(Posd,Perc,H2),
+
+Posd>PosAct,
+
+nth0(Posd,ListaHorario,LastpassingTime),
+
+
+
+
+calx2([H2|T2],T3,LastpassingTime,MomentoChegada).
+
+
+
+% algoritmo best first adaptado ao problema
+
+
+bestfs(Orig,Dest,Cam,Lreverse,PassingTime,MomentoChegada):-
+
+bestfs2(Dest,(0,[Orig]),Cam,[],Lreverse),!,
+calx(Cam,Lreverse,PassingTime,MomentoChegada).
+
+
+
+bestfs2(Dest,(_,[Dest|T]),Cam,Listapathspercorridos,Lreverse):-
+
+reverse([Dest|T],Cam),
+
+reverse(Listapathspercorridos, Lreverse),
+
+!.
+
+
+
+
+bestfs2(Dest,(Ca,LA),Cam,Listapathspercorridos,Lreverse):-
+
+LA=[Act|_],
+
+findall((EstX,CaX,[X|LA],[Hp|Listapathspercorridos]),
+(
+
+liga(Act,X,Hp),
+
+estimativabf(Act,X,Cx),
+
+\+member(X,LA),
+estimativabf(X,Dest,EstX),
+
+
+
+CaX is Ca+Cx)
+ ,Novos),
+
+
+sort(Novos,NovosOrd),
+%NovosOrd = [(_,Cm,Melhor,Listpath)|_], comentado porque fiz a alteração sugerida pelo regente
+proximo(NovosOrd,Cm,Melhor,Listpath),
+
+bestfs2(Dest,(Cm,Melhor),Cam,Listpath,Lreverse).
+
+
+
+
+
+estimativabf(Nodo1,Nodo2,Estimativa):-
+
+nodes(_,Nodo1,_,_,X1,Y1),
+nodes(_,Nodo2,_,_,X2,Y2),
+Estimativa is sqrt((X1-X2)^2+(Y1-Y2)^2).
+
+
+proximo([(_,Cm,Melhor,Listpath)|_],Cm,Melhor,Listpath).
+proximo([_|L],Cm,Melhor,Listpath):- proximo(L,Cm,Melhor,Listpath).

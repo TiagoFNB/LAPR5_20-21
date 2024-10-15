@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GlDocumentInfo xmlns:opt="Opt.GL.Domain" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="Opt.GL.BusinessLogic">
+  <world version="1.0.5">
+    <GlDocument key="GlDocument:1">
+        <GlDocumentNetwork>
+            <Network key="Network:1">
+                <DriverTypes>
+                        <DriverType key="DriverType:4545" name="C2" description="Com mais de 20 anos de experiência" >
+                        </DriverType>
+                                        
+                        <DriverType key="DriverType:4545" name="C2" description="Com menos de 3 anos de experiência" >
+                        </DriverType>
+                </DriverTypes>
+
+            </Network>
+        </GlDocumentNetwork>
+    </GlDocument>
+</world>
+<GlGlobalParameters xmlns:d1p1="http://schemas.datacontract.org/2004/07/Opt.GL.Domain">
+    <d1p1:CriterionToAddTripsToVehicleDuty>0</d1p1:CriterionToAddTripsToVehicleDuty>
+    <d1p1:MaxIntervalTimeBetweenTrips>3600</d1p1:MaxIntervalTimeBetweenTrips>
+    <d1p1:OverlapTime>0</d1p1:OverlapTime>
+  </GlGlobalParameters>
+</GlDocumentInfo>

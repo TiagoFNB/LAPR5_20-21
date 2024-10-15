@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+  <a class="navbar-brand"   routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <img src="./assets/img/Logo.png"  class="img-fluid" alt="Responsive image" width="100" height="100"> 
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto nav-fill w-75">
+      <li class="nav-item" *ngIf="CheckAuthorization()=='Admin'||CheckAuthorization()=='admin'">
+        <a class="nav-link"  routerLink="registrations" routerLinkActive="active"  style="cursor:pointer" >Registrations<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" *ngIf="CheckAuthorization()=='User'||CheckAuthorization()=='Manager'||CheckAuthorization()=='Admin'||CheckAuthorization()=='user'||CheckAuthorization()=='manager'||CheckAuthorization()=='admin'">
+        <a class="nav-link" routerLink="listings" routerLinkActive="active"  style="cursor:pointer">Listings<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" *ngIf="CheckAuthorization()=='Manager'||CheckAuthorization()=='Admin'||CheckAuthorization()=='manager'||CheckAuthorization()=='admin'">
+        <a class="nav-link" routerLink="planning" routerLinkActive="active"  style="cursor:pointer">Planning<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" *ngIf="CheckAuthorization()=='User'||CheckAuthorization()=='Manager'||CheckAuthorization()=='Admin'||CheckAuthorization()=='user'||CheckAuthorization()=='manager'||CheckAuthorization()=='admin'">
+        <a class="nav-link" routerLink="visualizer" routerLinkActive="active"  style="cursor:pointer" >Visualizer<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item"  *ngIf="CheckAuthorization()=='Admin'||CheckAuthorization()=='admin'">
+        <a class="nav-link" routerLink="import" routerLinkActive="active"  style="cursor:pointer" >Import<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <a >
+      <img  style="cursor:pointer" routerLink="userPanel" *ngIf="CheckAuthorization()" src="./assets/img/Person.png" class="img-fluid" alt="Responsive image" width="27" height="27"> 
+      <p  routerLink="userPanel" style="cursor:pointer" class="userName" >  {{getLogedUserName()}}</p>
+      <button *ngIf="CheckAuthorization()" class="btn btn-primary account" routerLink="userPanel" >Account</button>
+      <button  *ngIf="CheckAuthorization()" class="btn btn-danger" (click)="LogoutFromWebsite()">Logout</button>
+      <button *ngIf="!CheckAuthorization()" class="btn btn-primary" (click)="LoginFromWebsite()">Login</button>
+      
+    </a>
+  </div>
+</nav>
+
+
+<router-outlet></router-outlet>

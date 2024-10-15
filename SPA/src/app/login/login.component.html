@@ -1,0 +1,65 @@
+<div class="w3-container page-global">
+    <div class="formLeft">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <!-- <div class="row vertical-buffer"> -->
+            
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Login</h2>
+                        <div class="form-group">
+                            <label for="username">Email Address</label>
+                            <input type="text" formControlName="Email" class="form-control" name="email"
+                                [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
+                            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                                <div *ngIf="f.Email.errors.required">Email Address is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="password">Password      </label>  <a [routerLink]="['/retrievePassword']" class="forgot" >     Forgot Password?</a>
+                                <input type="password" formControlName="Password" class="form-control" name="password"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" />
+                                <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Password.errors.required">Password is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <button [disabled]="loading" class="btn btn-primary" name="loginbtn">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                    Login
+                                </button>
+                                <a [routerLink]="['/register']" class="btn btn-link">If you dont have an account, click here to
+                                    register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        </form>
+    </div>
+
+    <div class="formRight">
+        <div>
+            <h3 name='SuccessMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+            <h3 name='ErrorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+        </div>
+    </div>
+</div>

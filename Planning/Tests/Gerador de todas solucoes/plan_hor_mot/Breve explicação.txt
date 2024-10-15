@@ -1,0 +1,20 @@
+melhor_caminho/2
+
+melhor_caminho(Caminho(Lista de liga(no1,no2,percurso)), Tempo demorado).
+
+Descriçao:
+Este facto é usado como auxiliar para determinar o caminho que demora menos tempo
+
+
+Parametros de entrada:
+Passing_inicio : momento de passagem que começa a espera do motorista
+Noi: Nó inicial onde se começa viagem.
+Nof: Nó final onde se pretende terminar.
+LCaminho: Caminho que se irá percorrer, conjunto de percursos(ligas)
+Tempo: Tempo que demora a completar percurso desde momento que o motorista inicia
+
+O que faz:
+
+Executa ver_melhor_caminho que vai obter varios caminhos e adicionar o facto melhor_caminho que tem o menor tempo de caminho.
+
+Atribui o caminho à variavel LCaminho e o ao Tempo perdido em segundos.

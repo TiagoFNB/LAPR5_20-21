@@ -1,0 +1,13 @@
+.mapboxgl-map{
+    min-height: 720px;
+}
+
+.wrapper {
+    position: relative;
+  }
+
+#gui_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

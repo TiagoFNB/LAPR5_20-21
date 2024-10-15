@@ -1,0 +1,80 @@
+
+.page-global{
+  min-height: 600px;
+  max-height:700px;
+}
+
+.vertical-buffer{
+  min-height:120px;
+  
+}
+.acceptPP{
+ 
+ padding-left: 32%;
+}
+.rgpd{
+ 
+  padding-left:5%;
+    color: blueviolet;
+    font-size: 150%;
+ 
+}
+.PPbox{
+  
+  padding-top:45%;
+}
+input[type=text], input[type=number],input[type=date],input[type=password], select {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  
+  border: 5px solid #ccc;
+  border-radius: 40px;
+  box-sizing: border-box;
+}
+
+div.formLeft{
+    float:left;
+    width:70%;
+    min-height:inherit;
+    padding-left:10%;
+}
+
+div.formRight{
+  float:right;
+  width:20%;
+  min-height:inherit;
+  border: 5px solid white;
+}
+
+button {
+  float: right;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+}
+
+button:hover {
+  background-color: #005c05;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

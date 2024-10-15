@@ -1,0 +1,22 @@
+melhor_caminho/2
+
+melhor_caminho(Tempo de passagem, Nó inicial, Nó final).
+
+Descriçao:
+Este facto é usado como auxiliar para determinar o caminho que demora menos tempo
+
+É dado asserta(melhor_caminho(_,10000)), será adicionado no inicio dos factos de melhor_caminho um valor grande de 10000 no lugar de tempo demorado para servir de verificação para o primeiro tempo de espera em atualiza_melhor .
+
+
+Parametros de entrada:
+Passing_inicio : momento de passagem que começa a espera do motorista
+LCaminho : Conjunto de ligas. Cada liga é a conexao entre Relief points/depots, em que o terceiro argumento é o percurso q pertencem
+
+O que faz:
+
+
+Obtem o melhor caminho com o menor tempo.
+
+Calcula o horario do caminho(LCaminho) recebido em parametro e atribui à variavel Tempo_caminho o tempo que demora.
+
+Compara o tempo do melhor_caminho com o tempo recebido em Tempo_caminho, se o novo tempo for inferior da-se retract ao melhor_caminho e adiciona-se o novo em primeiro.

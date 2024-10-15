@@ -1,0 +1,65 @@
+.info input[type=text], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #fff;
+    border: 5px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+    height:20px;
+    font-size:14pt;
+  }
+ label{
+    font-size:16pt;
+}
+  .page-global{
+    min-height: 600px;
+    max-height:700px;
+}
+
+.vertical-buffer{
+    min-height:120px;
+    
+}
+
+
+  div.container{
+    float:left;
+    width:80%;
+    min-height:inherit;
+    padding-left:5%;
+}
+
+button {
+    float: left;
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+  }
+  
+  button:hover {
+    background-color: #005c05;
+  }
+  
+  .button:active {
+    background-color: #3e8e41;
+    transform: translateY(4px);
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+
+
+  .info{
+    display: flex;
+    
+  }
+  

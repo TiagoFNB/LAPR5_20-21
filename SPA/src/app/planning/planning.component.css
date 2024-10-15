@@ -1,0 +1,61 @@
+.page-global{
+    min-height: 600px;
+    max-height:700px;
+}
+
+.border-white {
+    border: solid 3px rgb(255, 255, 255);
+}
+
+.example-table-container {
+    max-height: 400px;
+    overflow: auto;
+}
+
+table{
+    width: 100%;
+}
+
+.fullSize{
+    width:100%;
+    height: 100%;  
+}
+
+ng-container:hover{
+    background-color: #e1e4e1f6;
+}
+
+tr.mat-row:hover{
+    background-color: #e1e4e1f6;
+}
+
+mat-grid-tile .mat-figure {
+    justify-content: flex-start !important ;
+    align-items: flex-start !important;
+ }
+
+button {
+    float: right;
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+  }
+
+  button:hover {
+    background-color: #005c05;
+  }
+
+  .button:active {
+    background-color: #3e8e41;
+    transform: translateY(4px);
+  }
+
+  .formPadding{
+      padding-top: 2.5%;
+      float: left;
+  }

@@ -1,0 +1,2695 @@
+{
+	"info": {
+		"_postman_id": "b5d7c5b1-7d72-4466-9deb-656e5ef60d30",
+		"name": "LAPR5_MDR_SYSTEM_TESTS_PART2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "US001 - File Upload",
+			"item": [
+				{
+					"name": "load drivertypes (success)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"loading test 1\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.errors).to.be.empty;\r",
+									"\r",
+									"   \r",
+									"    \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "xml",
+									"type": "file",
+									"src": "/C:/Users/Tiago/Desktop/3 ANO/GESTA/drivertypes.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/fileupload",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"fileupload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "load drivertypes ( with error log)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"loading test 1\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.errors).to.not.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "xml",
+									"type": "file",
+									"src": "/C:/Users/Tiago/Desktop/3 ANO/GESTA/drivertypesFailCase.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/fileupload",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"fileupload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "load vehicletypes (success)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"loading test 1\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.errors).to.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "xml",
+									"type": "file",
+									"src": "/C:/Users/Tiago/Desktop/3 ANO/GESTA/vehicletypes.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/fileupload",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"fileupload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "load vehicletypes (with error log)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"loading test 1\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.errors).to.not.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "xml",
+									"type": "file",
+									"src": "/C:/Users/Tiago/Desktop/3 ANO/GESTA/vehicletypesFailCase.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/fileupload",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"fileupload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "load nodes,paths,lines (success)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"loading test 1\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.errors).to.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "xml",
+									"type": "file",
+									"src": "/C:/Users/Tiago/Desktop/3 ANO/GESTA/nodesLinesPaths.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/fileupload",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"fileupload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "load nodes,paths,lines (fail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"loading test 1\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.errors).to.not.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "xml",
+									"type": "file",
+									"src": "/C:/Users/Tiago/Desktop/3 ANO/GESTA/nodesLinesPathsFailCase.xml"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/fileupload",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"fileupload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "load invalid xml (in this case a picture)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"loading test 1\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.errors).to.not.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "xml",
+									"type": "file",
+									"src": "/C:/Users/Tiago/Downloads/download.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/fileupload",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"fileupload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "US006-Create vehicle type",
+			"item": [
+				{
+					"name": "Create vehicle type_Test1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// success test 1, all fields are valid and specified\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql('vh0');\r",
+									"    pm.expect(jsonData.fuelType).to.eql('gpl');\r",
+									"    pm.expect(jsonData.costPerKm).to.eql('2 USD');\r",
+									"    pm.expect(jsonData.averageSpeed).to.eql('40');\r",
+									"    pm.expect(jsonData.averageConsumption).to.eql('10 l');\r",
+									"    pm.expect(jsonData.description).to.eql('description0');\r",
+									"    pm.expect(jsonData.key).to.be.undefined;  // key is not shown in response\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"vehicleType:1\",\r\n    \"name\": \"vh0\" ,\r\n    \"autonomy\": \"10\",\r\n    \"fuelType\": \"gpl\",\r\n    \"costPerKm\": \"2\",\r\n    \"averageSpeed\": \"40\",\r\n    \"averageConsumption\": \"10\",\r\n    \"currency\":\"USD\",\r\n    \"description\":\"description0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/vehicleType",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicleType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create vehicle type_Test2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// success test 2 , currency is not specified so i assume its EUR, description is not defined\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql('vh1');\r",
+									"    pm.expect(jsonData.fuelType).to.eql('gpl');\r",
+									"    pm.expect(jsonData.costPerKm).to.eql('2 EUR');\r",
+									"    pm.expect(jsonData.averageSpeed).to.eql('40');\r",
+									"    pm.expect(jsonData.averageConsumption).to.eql('10 l');\r",
+									"    pm.expect(jsonData.description).to.be.undefined;\r",
+									"    pm.expect(jsonData.key).to.be.undefined;  // key is not shown in response\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vh1\" ,\r\n    \"autonomy\": \"10\",\r\n    \"fuelType\": \"gpl\",\r\n    \"costPerKm\": \"2\",\r\n    \"averageSpeed\": \"40\",\r\n    \"averageConsumption\": \"10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/vehicleType",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicleType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create vehicle type_Test3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// success test 3 , currency is not specified so i assume its EUR\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql('vh2');\r",
+									"    pm.expect(jsonData.fuelType).to.eql('gpl');\r",
+									"    pm.expect(jsonData.costPerKm).to.eql('2 EUR');\r",
+									"    pm.expect(jsonData.averageSpeed).to.eql('40');\r",
+									"    pm.expect(jsonData.averageConsumption).to.eql('10 l');\r",
+									"    pm.expect(jsonData.description).to.eql('description0');\r",
+									"    pm.expect(jsonData.key).to.be.undefined;  // key is not shown in response\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vh2\" ,\r\n    \"autonomy\": \"10\",\r\n    \"fuelType\": \"gpl\",\r\n    \"costPerKm\": \"2\",\r\n    \"averageSpeed\": \"40\",\r\n    \"averageConsumption\": \"10\",\r\n    \"description\":\"description0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/vehicleType",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicleType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create vehicle type_Test4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error case 1 , name is not specified\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql('vh3');\r",
+									"    pm.expect(jsonData.fuelType).to.eql('gpl');\r",
+									"    pm.expect(jsonData.costPerKm).to.eql('2 EUR');\r",
+									"    pm.expect(jsonData.averageSpeed).to.eql('40');\r",
+									"    pm.expect(jsonData.averageConsumption).to.eql('10 l');\r",
+									"    pm.expect(jsonData.description).to.eql('description0');\r",
+									"    pm.expect(jsonData.key).to.be.undefined;  // key is not shown in response\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vh3\" ,\r\n    \"autonomy\": \"10\",\r\n    \"fuelType\": \"gpl\",\r\n    \"costPerKm\": \"2\",\r\n    \"averageSpeed\": \"40\",\r\n    \"averageConsumption\": \"10\",\r\n    \"description\":\"description0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/vehicleType",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicleType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create vehicle type_Test5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error case 2 name is not specified\r",
+									"pm.test(\"error creating vehicle type\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"autonomy\": \"10\",\r\n    \"fuelType\": \"gpl\",\r\n    \"costPerKm\": \"2\",\r\n    \"averageSpeed\": \"40\",\r\n    \"averageConsumption\": \"10\",\r\n    \"description\":\"description0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/vehicleType",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicleType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create vehicle type_Test6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//error 3 autonomy not specified\r",
+									"pm.test(\"error creating vehicle type\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vh3\" ,\r\n    \"fuelType\": \"gpl\",\r\n    \"costPerKm\": \"2\",\r\n    \"averageSpeed\": \"40\",\r\n    \"averageConsumption\": \"10\",\r\n    \"description\":\"description0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/vehicleType",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicleType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create vehicle type_Test7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//error 4 fuel type not specified\r",
+									"pm.test(\"error creating vehicle type\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vh3\" ,\r\n    \"autonomy\": \"10\",\r\n    \"costPerKm\": \"2\",\r\n    \"averageSpeed\": \"40\",\r\n    \"averageConsumption\": \"10\",\r\n    \"description\":\"description0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/vehicleType",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicleType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create vehicle type_Test8",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//error 5 fuel type is invalid\r",
+									"pm.test(\"error creating vehicle type\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vh3\" ,\r\n    \"autonomy\": \"10\",\r\n    \"fuelType\": \"invalidtype\",\r\n    \"costPerKm\": \"2\",\r\n    \"averageSpeed\": \"40\",\r\n    \"averageConsumption\": \"10\",\r\n    \"description\":\"description0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/vehicleType",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicleType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create vehicle type_Test9",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//error 6 cost per Km not specified\r",
+									"pm.test(\"error creating vehicle type\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vh3\" ,\r\n    \"autonomy\": \"10\",\r\n    \"fuelType\": \"gpl\",\r\n    \"averageSpeed\": \"40\",\r\n    \"averageConsumption\": \"10\",\r\n    \"description\":\"description0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/vehicleType",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicleType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create vehicle type_Test10",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//error 7 average speed per Km not specified\r",
+									"pm.test(\"error creating vehicle type\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vh3\" ,\r\n    \"autonomy\": \"10\",\r\n    \"fuelType\": \"gpl\",\r\n      \"costPerKm\": \"2\",\r\n    \"averageConsumption\": \"10\",\r\n    \"description\":\"description0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/vehicleType",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicleType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create vehicle type_Test11",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//error 7 average consumption per Km not specified\r",
+									"pm.test(\"error creating vehicle type\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vh3\" ,\r\n    \"autonomy\": \"10\",\r\n    \"fuelType\": \"gpl\",\r\n      \"costPerKm\": \"2\",\r\n      \"averageSpeed\": \"40\",\r\n    \"description\":\"description0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/vehicleType",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"vehicleType"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "US008 - List Lines",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "CreateLine1",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"ParedesPostMan1\",\r\n    \"name\": \"PostMan1\",\r\n    \"terminalNode1\": \"us009TestNode1\",\r\n    \"terminalNode2\": \"us009TestNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/line",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"line"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateLine2",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"ParedesPostMan2\",\r\n    \"name\": \"PostMan2\",\r\n    \"terminalNode1\": \"us009TestNode1\",\r\n    \"terminalNode2\": \"us009TestNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/line",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"line"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateLine3",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"ParedesPostMan3\",\r\n    \"name\": \"PostMan3\",\r\n    \"terminalNode1\": \"us009TestNode1\",\r\n    \"terminalNode2\": \"us009TestNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/line",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"line"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNode1",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"us009TestNode1\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"us009TestNode1\",\r\n    \"isDepot\": \"yes\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/node",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"node"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNode2",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"us009TestNode2\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"us009TestNode2\",\r\n    \"isDepot\": \"yes\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/node",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"node"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "List Lines ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"List Line paths (success case 1)\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].key).to.eql('ParedesPostMan1'); \r",
+									"    pm.expect(jsonData[0].name).to.eql('PostMan1');\r",
+									"    pm.expect(jsonData[0].terminalNode1).to.eql('us009TestNode1');\r",
+									"    pm.expect(jsonData[0].terminalNode2).to.eql('us009TestNode2');\r",
+									"    pm.expect(jsonData[1].key).to.eql('ParedesPostMan2'); \r",
+									"    pm.expect(jsonData[1].name).to.eql('PostMan2');\r",
+									"    pm.expect(jsonData[1].terminalNode1).to.eql('us009TestNode1');\r",
+									"    pm.expect(jsonData[1].terminalNode2).to.eql('us009TestNode2');\r",
+									"    pm.expect(jsonData[2].key).to.eql('ParedesPostMan3'); \r",
+									"    pm.expect(jsonData[2].name).to.eql('PostMan3');\r",
+									"    pm.expect(jsonData[2].terminalNode1).to.eql('us009TestNode1');\r",
+									"    pm.expect(jsonData[2].terminalNode2).to.eql('us009TestNode2');\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/line/listByQuery?typeFilter=name&filter=Post&sortBy=name",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "typeFilter",
+									"value": "name"
+								},
+								{
+									"key": "filter",
+									"value": "Post"
+								},
+								{
+									"key": "sortBy",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Lines Fail 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"List Line paths (success case 2) : Line does not exist in the db\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"    //typeFilter must be 'name' or 'key'\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/line/listByQuery?typeFilter=oi&filter=Post&sortBy=name",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "typeFilter",
+									"value": "oi"
+								},
+								{
+									"key": "filter",
+									"value": "Post"
+								},
+								{
+									"key": "sortBy",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Lines Fail 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"List Line paths (success case 2) : Line does not exist in the db\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"    //sortBy type must be 'name' or 'key'\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/line/listByQuery?typeFilter=name&filter=Post&sortBy=oi",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "typeFilter",
+									"value": "name"
+								},
+								{
+									"key": "filter",
+									"value": "Post"
+								},
+								{
+									"key": "sortBy",
+									"value": "oi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Lines Fail 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"List Line paths (success case 2) : Line does not exist in the db\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"    //filter is missing\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/line/listByQuery?typeFilter=name&sortBy=name",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "typeFilter",
+									"value": "name"
+								},
+								{
+									"key": "sortBy",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Lines Fail 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"List Line paths (success case 2) : Line does not exist in the db\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"    //Must define typeFilter to 'name' or 'key'\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/line/listByQuery?filter=Post&sortBy=name",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "Post"
+								},
+								{
+									"key": "sortBy",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Lines Fail 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"List Line paths (success case 2) : Line does not exist in the db\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"    //Sort or filter is needed\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/line/listByQuery",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"line",
+								"listByQuery"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "US004 - Define Path",
+			"item": [
+				{
+					"name": "Setup",
+					"item": [
+						{
+							"name": "CreateLine1",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"ParedesPostMan1\",\r\n    \"name\": \"PostMan1\",\r\n    \"terminalNode1\": \"us009TestNode1\",\r\n    \"terminalNode2\": \"us009TestNode2\",\r\n    \"RGB\": {\r\n        \"red\" : 0,\r\n        \"green\" : 0,\r\n        \"blue\" : 0\r\n        },\r\n    \"AllowedVehicles\": [],\r\n    \"AllowedDrivers\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/line",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"line"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNode1",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"us009TestNode1\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"us009TestNode1\",\r\n    \"isDepot\": \"yes\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/node",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"node"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNode2",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"us009TestNode2\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"us009TestNode2\",\r\n    \"isDepot\": \"yes\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/node",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"node"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateNode3",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"\",\r\n    \"name\": \"us009TestNode3\" ,\r\n    \"latitude\": \"10.1\",\r\n    \"longitude\": \"20.1\",\r\n    \"shortName\": \"us009TestNode3\",\r\n    \"isDepot\": \"yes\",\r\n    \"isReliefPoint\": \"no\",\r\n    \"crewTravelTimes\": \"\",\r\n    \"crewTravelTimeReferenceNode\":\"\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "127.0.0.1:3000/api/node",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"node"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Define Path Success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"define path successfully\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.key).to.eql('path6');\r",
+									"    pm.expect(jsonData.line).to.eql('ParedesPostMan1');\r",
+									"    pm.expect(jsonData.type).to.eql('Go');\r",
+									"    pm.expect(jsonData.pathSegments[0].node1).to.eql(\"us009TestNode1\");\r",
+									"    pm.expect(jsonData.pathSegments[0].node2).to.eql(\"us009TestNode3\");\r",
+									"    pm.expect(jsonData.pathSegments[1].node1).to.eql(\"us009TestNode3\");\r",
+									"    pm.expect(jsonData.pathSegments[1].node2).to.eql(\"us009TestNode2\");\r",
+									"    pm.expect(jsonData.isEmpty).to.eql(false);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"path6\",\r\n    \"line\": \"ParedesPostMan1\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"us009TestNode1\",\r\n            \"node2\": \"us009TestNode3\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"us009TestNode3\",\r\n            \"node2\": \"us009TestNode2\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/path/register",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"path",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Path Fail 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"define path unsuccessfully\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"    //Line wasn't found\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"pathTestPostMan\",\r\n    \"line\": \"UnknownLine\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"us009TestNode1\",\r\n            \"node2\": \"us009TestNode3\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"us009TestNode3\",\r\n            \"node2\": \"us009TestNode2\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/path/register",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"path",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Path Fail 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"define path unsuccessfully\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"  //Duplicated Path, key already in use :(\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"path6\",\r\n    \"line\": \"ParedesPostMan1\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"us009TestNode1\",\r\n            \"node2\": \"us009TestNode3\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"us009TestNode3\",\r\n            \"node2\": \"us009TestNode2\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/path/register",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"path",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Path Fail 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"define path unsuccessfully\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"  //TerminalNodes (us009TestNode1,us009TestNode2) from Line (ParedesPostMan1) are NOT EQUAL to 1st and Last Node of the Path: (us009TestNode3,us009TestNode2)\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"pathTestPostMan2\",\r\n    \"line\": \"ParedesPostMan1\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"us009TestNode3\",\r\n            \"node2\": \"us009TestNode1\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"us009TestNode1\",\r\n            \"node2\": \"us009TestNode2\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/path/register",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"path",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Path Fail 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"define path unsuccessfully\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"  //us009TestNode4 doesnt exist in the DB\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"pathTestPostMan2\",\r\n    \"line\": \"ParedesPostMan1\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"us009TestNode4\",\r\n            \"node2\": \"us009TestNode1\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"us009TestNode4\",\r\n            \"node2\": \"us009TestNode2\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/path/register",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"path",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Define Path Fail 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"define path unsuccessfully\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.have.body.toString;\r",
+									"  //Error creating Path.\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"key\": \"\",\r\n    \"line\": \"ParedesPostMan1\",\r\n    \"type\": \"Go\",\r\n    \"pathSegments\": [\r\n        {\r\n            \"node1\": \"us009TestNode1\",\r\n            \"node2\": \"us009TestNode3\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        },\r\n        {\r\n            \"node1\": \"us009TestNode3\",\r\n            \"node2\": \"us009TestNode2\",\r\n            \"duration\": 60,\r\n            \"distance\": 200\r\n        }\r\n    ],\r\n    \"isEmpty\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:3000/api/path/register",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"path",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "US007 - List Nodes",
+			"item": [
+				{
+					"name": "List nodes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// success test 1\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"    //shall return a list with all the nodes with shortname starting by \"s\"  ordered by name\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].name).to.eql('name1');\r",
+									"    pm.expect(jsonData[0].shortName).to.eql('ss00');\r",
+									"\r",
+									"     pm.expect(jsonData[1].name).to.eql('name2');\r",
+									"    pm.expect(jsonData[1].shortName).to.eql('ss001');\r",
+									"\r",
+									"    pm.expect(jsonData[2]).to.be.undefined;\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/node/listByQuery?filterby=shortName&filtertype=s&sortby=name",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "filterby",
+									"value": "shortName"
+								},
+								{
+									"key": "filtertype",
+									"value": "s"
+								},
+								{
+									"key": "sortby",
+									"value": "name"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List nodes 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// success test 2\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"    //shall return a list with all the nodes with name starting by \"n\"  ordered by shortname\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].name).to.eql('name3');\r",
+									"    pm.expect(jsonData[0].shortName).to.eql('ns002');\r",
+									"\r",
+									"     pm.expect(jsonData[1].name).to.eql('name1');\r",
+									"    pm.expect(jsonData[1].shortName).to.eql('ss00');\r",
+									"\r",
+									"    pm.expect(jsonData[2].name).to.eql('name2');\r",
+									"    pm.expect(jsonData[2].shortName).to.eql('ss001');\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/node/listByQuery?filterby=name&filtertype=n&sortby=shortName",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "filterby",
+									"value": "name"
+								},
+								{
+									"key": "filtertype",
+									"value": "n"
+								},
+								{
+									"key": "sortby",
+									"value": "shortName"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List nodes 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// success test 2\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"    //url doesnt specify sort but shall still pass\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].name).to.eql('name1');\r",
+									"    pm.expect(jsonData[0].shortName).to.eql('ss00');\r",
+									"\r",
+									"     pm.expect(jsonData[1].name).to.eql('name2');\r",
+									"    pm.expect(jsonData[1].shortName).to.eql('ss001');\r",
+									"\r",
+									"    pm.expect(jsonData[2].name).to.eql('name3');\r",
+									"    pm.expect(jsonData[2].shortName).to.eql('ns002');\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/node/listByQuery?filterby=name&filtertype=n",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "filterby",
+									"value": "name"
+								},
+								{
+									"key": "filtertype",
+									"value": "n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List nodes 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// success test 2\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"    //url doesnt specify filterby nor filtertype shall still pass\r",
+									"  pm.response.to.have.status(200);\r",
+									"  pm.response.to.not.have.jsonBody(\"error\");\r",
+									"  pm.response.to.not.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"\r",
+									"\r",
+									"   var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0].name).to.eql('name3');\r",
+									"    pm.expect(jsonData[0].shortName).to.eql('ns002');\r",
+									"\r",
+									"     pm.expect(jsonData[1].name).to.eql('name1');\r",
+									"    pm.expect(jsonData[1].shortName).to.eql('ss00');\r",
+									"\r",
+									"    pm.expect(jsonData[2].name).to.eql('name2');\r",
+									"    pm.expect(jsonData[2].shortName).to.eql('ss001');\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/node/listByQuery?sortby=shortName",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "sortby",
+									"value": "shortName"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List nodes 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error  test 1\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"    //filter type is specified but filter by is not in url\r",
+									"\r",
+									"pm.test(\"error create node\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/node/listByQuery?filtertype=n&sortby=shortName",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "filtertype",
+									"value": "n"
+								},
+								{
+									"key": "sortby",
+									"value": "shortName"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List nodes 6",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error  test 1\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"    //filterby is specified but filtertype is not in url\r",
+									"\r",
+									"pm.test(\"error create node\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/node/listByQuery?filterby=name&sortby=shortName",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "filterby",
+									"value": "name"
+								},
+								{
+									"key": "sortby",
+									"value": "shortName"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List nodes 7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error  test 1\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"    //trying to sort by  something other then name or shortName\r",
+									"\r",
+									"pm.test(\"error create node\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/node/listByQuery?filtertype=n&sortby=random",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "filtertype",
+									"value": "n"
+								},
+								{
+									"key": "sortby",
+									"value": "random"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List nodes 8",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error  test 1\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"    //filterby something other then name or shortName\r",
+									"\r",
+									"pm.test(\"error create node\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/node/listByQuery?filterby=random&filtertype=n&sortby=shortName",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node",
+								"listByQuery"
+							],
+							"query": [
+								{
+									"key": "filterby",
+									"value": "random"
+								},
+								{
+									"key": "filtertype",
+									"value": "n"
+								},
+								{
+									"key": "sortby",
+									"value": "shortName"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List nodes 9",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// error  test 1\r",
+									"pm.test(\"create vehicle type\", function () {\r",
+									"    // filter and sort are not specified\r",
+									"pm.test(\"error create node\", function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"  pm.response.to.be.error;\r",
+									"  pm.response.to.be.withBody;\r",
+									"});\r",
+									"    \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6InJvZ2VybmlvQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlJvZ2VyaW8iLCJEYXRlT2ZCaXJ0aCI6IjcvMjEvMTk5MyIsImV4cCI6MTYxMzI1MTczMSwiaXNzIjoicm9nZXIuY29tIiwiYXVkIjoicm9nZXIuY29tIn0.XNbnHxumO9ahgj3dKqYk5q1wGtlnug0iIxEpuuT5AwM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:3000/api/node/listByQuery",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"node",
+								"listByQuery"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

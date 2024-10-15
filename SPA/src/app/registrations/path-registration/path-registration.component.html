@@ -1,0 +1,158 @@
+<div class="w3-container page-global">
+    <h2> Register a Path </h2>
+    <form key='form' #pathForm="ngForm" (ngSubmit)="pathForm.form.valid && onSubmit(pathForm)">
+    <mat-grid-list cols="8" rowHeight="100px" gutterSize="10px">
+        <mat-grid-tile class="Path" colspan="6" rowspan="2">
+            <div class="container">
+                <form class="Path" name='form' #pathForm="ngForm"
+                    (ngSubmit)="pathForm.form.valid && onSubmit(pathForm)">
+
+                    <div>
+                        <label>Identifier:</label>
+                        <input matInput type="text" name="key" class="form-control" [(ngModel)]="path.key" autocomplete="off"
+                            #pathkey="ngModel" [ngClass]="{ 'is-invalid': pathForm.submitted && pathkey.invalid }"
+                            pathkey required>
+                        <div class="invalid-feedback" *ngIf="pathForm.submitted && pathkey.invalid">
+                            <p key="keyRequired" *ngIf="pathkey.errors.required">Identifier is required</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Line:</label>
+                        <br>
+                        <mat-form-field appearance="fill">
+                            <mat-select class="form-control" [(ngModel)]="path.line" name="line" >
+                                <mat-option *ngFor="let obj of linesNames" [value]="obj">{{obj}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <label>Type:</label>
+                        <br>
+                        <mat-form-field appearance="fill">
+                            <mat-select class="form-control" name="type" [(ngModel)]="path.type">
+                                <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <!-- <div>
+                        <label>Empty:</label>
+                        <input type="checkbox" name="isEmpty" class="form-control" [(ngModel)]="path.isEmpty"
+                            #pathisEmpty="ngModel"></div> -->
+
+                </form>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="5">
+            <div class="formRight">
+                <div>
+                    <h3 name='SuccessMessage' *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+                    <h3 name='ErrorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+                </div>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile class="TilePath" colspan="2" rowspan="5">
+            <div>
+                <h3 style="text-align: center;">Path Segments</h3>
+                <form class="formSegments"  #pathSegmentForm="ngForm"  (ngSubmit)="pathSegmentForm.form.valid && onSubmit(pathSegmentForm)">
+                    <div class=container>
+                        <div class="form-row">
+                            <div class=" form-group col-md-6">
+                                <label>First Node</label>
+                                <input type="text" class="form-control" name="node1" [(ngModel)]="pathSegment.node1" 
+                                 autocomplete="off" (keyup)="getNodesNamesForFirstNode()" list="dynmicNodesShortNames"  #node1="ngModel"
+                                 >
+                                    <datalist id="dynmicNodesShortNames">
+                                        <option *ngFor="let item of nodesNames" [value]="item">{{item}}</option>
+                                    </datalist>
+                            </div>
+                            
+                            <div class="form-group col-md-6">
+                                <label>Second Node</label>
+                                <input type="text" class="form-control" name="node2" [(ngModel)]="pathSegment.node2" autocomplete="off"
+                                 (keyup)="getNodesNamesForSecondNode()" list="dynmicNodesShortNames"
+                                 #node2="ngModel"  >
+                                    
+                                    <datalist id="dynmicNodesShortNames">
+                                        <option *ngFor="let item of nodesNames" [value]="item">{{item}}</option>
+                                    </datalist>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>Duration</label>
+                                <input type="number" class="form-control" name="duration" [(ngModel)]="pathSegment.duration" #duration="ngModel"
+                                >
+                                   
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>Distance</label>
+                                <input type="number" class="form-control" name="distance"
+                                    [(ngModel)]="pathSegment.distance" #distance="ngModel">
+                                   
+                            </div>
+
+                           
+                        </div>
+                         <span (click)=DefinePathSegment() class="btn btn-success" name="Define">Define</span> 
+                       
+                        <span (click)=ResetPathSegment() class="btn btn-danger" name="Reset">Reset</span>
+
+                    </div>
+                </form>
+            </div>
+
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="4" rowspan="5">
+            <div class="container">
+                <table mat-table [dataSource]="pathSegmentsArray" class="mat-elevation-z8">
+
+                    <ng-container matColumnDef="Position">
+                        <th mat-header-cell *matHeaderCellDef> Position </th>
+                        <td mat-cell *matCellDef="let element; let i=index"> {{i}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="node1">
+                        <th mat-header-cell *matHeaderCellDef> First Node </th>
+                        <td mat-cell *matCellDef="let element"> {{element.node1}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="node2">
+                        <th mat-header-cell *matHeaderCellDef> Second Node </th>
+                        <td mat-cell *matCellDef="let element"> {{element.node2}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="duration">
+                        <th mat-header-cell *matHeaderCellDef> Duration </th>
+                        <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="distance">
+                        <th mat-header-cell *matHeaderCellDef> Distance </th>
+                        <td mat-cell *matCellDef="let element"> {{element.distance}} </td>
+                    </ng-container>
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+            <div class="buttonDelete">
+                <span (click)=DeletePathSegment() class="btn btn-primary">Delete Position</span>
+                <input type="number" name="index" class="form-control" [(ngModel)]="deleteIndex">
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2">
+            <div class="container">
+                <button id="btnid" name="buttonSubmit" class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+    </form>
+</div>

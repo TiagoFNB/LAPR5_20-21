@@ -1,0 +1,11 @@
+{
+    "/api":{
+        "target":"http://lapr5-20s5-mdr.herokuapp.com/",
+        "secure":"false",
+        "changeOrigin":"true"
+    },
+    "/plannings":{
+        "target":"http://localhost:5000",
+        "secure":"false"
+    }
+}

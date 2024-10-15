@@ -1,0 +1,71 @@
+<div class="w3-container page-global">
+
+    <div class="formLeft">
+        <h2>Register a Driver Duty</h2>
+        <form name="form" #driverDutyForm="ngForm" (ngSubmit)="driverDutyForm.form.valid && onSubmit(driverDutyForm)">
+           
+            <div class="row vertical-buffer">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Code</label>
+                        <input type="text" name="code" placeholder="Insert a code here. (exactly 10 characters long)" autocomplete="off" class="form-control" [(ngModel)]="driverDuty.code" #driverDutyCode="ngModel"
+                            [ngClass]="{ 'is-invalid': driverDutyForm.submitted && driverDutyCode.invalid }" driverDutyCode required maxlength="10" minlength="10">
+     
+                        <div class="invalid-feedback" *ngIf="driverDutyForm.submitted && driverDutyCode.invalid">
+                            <p *ngIf="driverDutyCode.errors.required"><span name="ErrorCodeRequired">Code is required</span></p>
+                            <p *ngIf="driverDutyCode.errors.minlength">
+                            <span name="ErrorCodeLength">Name must be 10 characters long</span>
+                          </p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+           
+            <div class="row vertical-buffer">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Driver</label>
+                        <input type="text" class="form-control" placeholder="Insert mec. number here. (exactly 9 characters long)" name="driverCode" (keyup)="driverCodesInDB()"
+                            list="dynamicDriverCodes" [(ngModel)]="driverDuty.driverCode" #driverCode="ngModel" 
+                            autocomplete="off" 
+                            [ngClass]="{ 'is-invalid': driverDutyForm.submitted && driverCode.invalid }" driverCode required maxlength="9" minlength="9">
+                            <div class="invalid-feedback" *ngIf="driverDutyForm.submitted && driverCode.invalid">
+                                <p *ngIf="driverCode.errors.required"><span name="ErrorDriverCodeRequired">Driver Mecanographic Number is required</span></p>
+                                <p *ngIf="driverCode.errors.minlength">
+                                <span name="ErrorDriverCodeLength">Mecanographic Number must be 9 characters long</span>
+                              </p>
+                            </div>
+                        <datalist id="dynamicDriverCodes">
+                            <option *ngFor="let item of driverCodesList" [value]="item">{{item}}</option>
+                        </datalist>
+                        <!-- <div *ngIf="driverDutyForm.submitted && driverCode.invalid" class="invalid-feedback">
+                            <div *ngIf="driverCode.errors.required">Driver is required</div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>    
+          
+
+         
+            <div class="form-group">
+                
+                <button [disabled]="loading" name="button" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Submit</button>
+               
+            </div>
+
+
+
+        </form>
+    </div>
+
+    <div class="formRight">
+        <div>
+            <h3 name="SuccessMessage" *ngIf='successMessage' style="color:green"> {{successMessage}} </h3>
+            <h3 name="ErrorMessage" *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+        </div>
+    </div>  
+</div>  

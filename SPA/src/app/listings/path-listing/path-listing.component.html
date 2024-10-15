@@ -1,0 +1,102 @@
+<div class="page-global">
+    <mat-grid-list cols="9" rowHeight="95px" gutterSize="10px">
+
+        <!-- Blank Space -->
+        <mat-grid-tile colspan="4" rowspan="1"></mat-grid-tile>
+
+        <!-- Title -->
+        <mat-grid-tile colspan="1" rowspan="1">
+            <h2> Paths </h2>
+        </mat-grid-tile>
+
+        <!-- Blank Space -->
+        <mat-grid-tile colspan="4" rowspan="1"></mat-grid-tile>
+
+        <!-- Key Search Parameter Field -->
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div>
+                <label>Key</label>
+                <input type="text" (keyup)="applyFilter()" autocomplete="off" class="form-control" name="PathKey"
+                    [(ngModel)]="inputModel.key">
+            </div>
+        </mat-grid-tile>
+
+        <!-- Element Table -->
+        <mat-grid-tile class="example-table-container mat-elevation-z8" style="background-color: white;" colspan="5"
+            rowspan="5">
+            <!-- In case algorithm A* was selected  -->
+            <span class="fullSize">
+                <mat-table [dataSource]="dataSource" mat-table matSort>
+                    <ng-container matColumnDef="key">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Key </th>
+                        <td mat-cell *matCellDef="let result"><span id="rowPath-{{result.key}}"> {{result.key}} </span></td>
+                    </ng-container>
+                    <ng-container matColumnDef="line">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Line </th>
+                        <td mat-cell *matCellDef="let result"> {{result.line}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="type">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+                        <td mat-cell *matCellDef="let result"> {{result.type}} </td>
+                    </ng-container>
+                    
+                    <mat-header-row *matHeaderRowDef="Columns;sticky:true;"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: Columns;" matRipple class="element-row"
+                        [cdkDetailRow]="row" [cdkDetailRowTpl]="tpl"></mat-row>
+
+                </mat-table>
+            </span>
+        </mat-grid-tile>
+
+        <!-- Error display space -->
+        <mat-grid-tile colspan="2" rowspan="5">
+            <h3 name='errorMessage' *ngIf='errorMessage' style="color:red"> {{errorMessage}} </h3>
+        </mat-grid-tile>
+
+        <!-- Line Search Parameter Field -->
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div>
+                <label>Line</label>
+                <input type="text" (keyup)="applyFilter()" autocomplete="off" class="form-control" name="PathLine"
+                    [(ngModel)]="inputModel.line">
+            </div>
+        </mat-grid-tile>
+
+        <!-- Type Search Parameter Field -->
+        <mat-grid-tile colspan="2" rowspan="1">
+            <div class="select">
+
+                <!-- <input type="text" (keyup)="applyFilter()" autocomplete="off" class="form-control" name="PathType"
+                    [(ngModel)]="inputModel.type"> -->
+
+                <label>Type</label>
+
+                <mat-select autocomplete="off" class="form-control" (selectionChange)="applyFilter()" name="PathType"
+                    [(ngModel)]="inputModel.type">
+                    <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
+                </mat-select>
+
+            </div>
+        </mat-grid-tile>
+
+        <!-- Blank fields -->
+        <mat-grid-tile colspan="2" rowspan="2"></mat-grid-tile>
+
+    </mat-grid-list>
+</div>
+
+
+<!-- Receives Path opened -->
+<ng-template #tpl let-element>
+    <div class="PathSegmentsDiv" [@detailExpand] style="overflow: hidden">
+        Path Segments:
+        <menu class="menuSegments" *ngFor="let item of element.pathSegments; index as i">
+            Path Segment Nº: {{i+1}}
+            <li class="listElem">First Node: {{item.node1}}</li>
+            <li class="listElem">Second Node: {{item.node2}}</li>
+            <li class="listElem">Duration: {{item.duration}} s</li>
+            <li class="listElem">Distance: {{item.distance}} m</li>
+        
+        </menu>
+    </div>
+</ng-template>
