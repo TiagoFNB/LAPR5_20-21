@@ -3,6 +3,9 @@ Project for LAPR5 subject of the Informatics Engineering course at ISEP
 
 The full project documentation is available at the project's [wiki](https://github.com/TiagoFNB/LAPR5_20-21/wiki).
 
+Public transport management and planning system that allows the management, and consultation by the general public of different transport networks, lines and journeys, as well as the planning of vehicle and crew services to be carried out on these lines.
+
+
 ## System Overview Summarized
 
 ![SystemOverview](./images/visaogeralsistema_enunciado.png)
